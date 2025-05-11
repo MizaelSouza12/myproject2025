@@ -1,4 +1,3 @@
-
 /**
  * @file VoIPSystem.cpp
  * @brief Implementação do sistema de VoIP para WYDBR 2.0
@@ -12,6 +11,12 @@
 #include <thread>
 #include <mutex>
 #include <algorithm>
+#include <webrtc/api/peerconnectioninterface.h>
+#include <webrtc/api/mediastreaminterface.h>
+#include <webrtc/api/audiotrackinterface.h>
+#include <webrtc/api/videotrackinterface.h>
+#include <webrtc/base/ssladapter.h>
+#include <webrtc/base/thread.h>
 
 namespace WYDBR {
 namespace VoIP {
@@ -89,6 +94,25 @@ public:
     
 private:
     // Implementação interna do codec
+};
+
+class WebRTCManager {
+public:
+    WebRTCManager();
+    ~WebRTCManager();
+    
+    bool Initialize();
+    bool CreatePeerConnection(ClientID clientId);
+    bool AddAudioTrack(ClientID clientId);
+    bool RemoveAudioTrack(ClientID clientId);
+    bool SetAudioEnabled(ClientID clientId, bool enabled);
+    
+private:
+    std::unordered_map<ClientID, rtc::scoped_refptr<webrtc::PeerConnectionInterface>> m_peerConnections;
+    std::mutex m_webrtcMutex;
+    
+    rtc::scoped_refptr<webrtc::PeerConnectionFactoryInterface> m_peerConnectionFactory;
+    rtc::scoped_refptr<webrtc::MediaStreamInterface> m_localStream;
 };
 
 // Implementação do AudioManager
@@ -275,6 +299,105 @@ std::vector<uint8_t> CodecManager::DecodeAudio(const std::vector<uint8_t>& encod
     return encodedAudio; // Temporário, implementar decodificação real
 }
 
+// Implementação do WebRTCManager
+WebRTCManager::WebRTCManager() {
+}
+
+WebRTCManager::~WebRTCManager() {
+    m_peerConnections.clear();
+    m_peerConnectionFactory = nullptr;
+    m_localStream = nullptr;
+}
+
+bool WebRTCManager::Initialize() {
+    rtc::InitializeSSL();
+    
+    m_peerConnectionFactory = webrtc::CreatePeerConnectionFactory();
+    if (!m_peerConnectionFactory) {
+        return false;
+    }
+    
+    return true;
+}
+
+bool WebRTCManager::CreatePeerConnection(ClientID clientId) {
+    std::lock_guard<std::mutex> lock(m_webrtcMutex);
+    
+    webrtc::PeerConnectionInterface::RTCConfiguration config;
+    config.sdp_semantics = webrtc::SdpSemantics::kUnifiedPlan;
+    
+    auto peerConnection = m_peerConnectionFactory->CreatePeerConnection(
+        config,
+        nullptr,
+        nullptr,
+        nullptr
+    );
+    
+    if (!peerConnection) {
+        return false;
+    }
+    
+    m_peerConnections[clientId] = peerConnection;
+    return true;
+}
+
+bool WebRTCManager::AddAudioTrack(ClientID clientId) {
+    std::lock_guard<std::mutex> lock(m_webrtcMutex);
+    
+    auto it = m_peerConnections.find(clientId);
+    if (it == m_peerConnections.end()) {
+        return false;
+    }
+    
+    auto audioTrack = m_peerConnectionFactory->CreateAudioTrack(
+        "audio_track",
+        m_peerConnectionFactory->CreateAudioSource(cricket::AudioOptions())
+    );
+    
+    if (!audioTrack) {
+        return false;
+    }
+    
+    auto result = it->second->AddTrack(audioTrack, {"audio_stream"});
+    return result.ok();
+}
+
+bool WebRTCManager::RemoveAudioTrack(ClientID clientId) {
+    std::lock_guard<std::mutex> lock(m_webrtcMutex);
+    
+    auto it = m_peerConnections.find(clientId);
+    if (it == m_peerConnections.end()) {
+        return false;
+    }
+    
+    auto senders = it->second->GetSenders();
+    for (const auto& sender : senders) {
+        if (sender->track()->kind() == webrtc::MediaStreamTrackInterface::kAudioKind) {
+            it->second->RemoveTrack(sender);
+        }
+    }
+    
+    return true;
+}
+
+bool WebRTCManager::SetAudioEnabled(ClientID clientId, bool enabled) {
+    std::lock_guard<std::mutex> lock(m_webrtcMutex);
+    
+    auto it = m_peerConnections.find(clientId);
+    if (it == m_peerConnections.end()) {
+        return false;
+    }
+    
+    auto senders = it->second->GetSenders();
+    for (const auto& sender : senders) {
+        if (sender->track()->kind() == webrtc::MediaStreamTrackInterface::kAudioKind) {
+            sender->track()->set_enabled(enabled);
+        }
+    }
+    
+    return true;
+}
+
 // Implementação do VoIPSystem
 VoIPSystem::VoIPSystem()
     : m_initialized(false), m_running(false), m_port(0) {
@@ -304,6 +427,12 @@ bool VoIPSystem::Initialize(const std::string& configPath) {
         // Inicializar gerenciadores
         if (!InitializeManagers()) {
             std::cerr << "Falha ao inicializar gerenciadores do sistema VoIP!" << std::endl;
+            return false;
+        }
+        
+        m_webrtcManager = std::make_unique<WebRTCManager>();
+        if (!m_webrtcManager->Initialize()) {
+            std::cerr << "Falha ao inicializar gerenciador de WebRTC!" << std::endl;
             return false;
         }
         
@@ -366,6 +495,7 @@ void VoIPSystem::Shutdown() {
     m_networkManager.reset();
     m_channelManager.reset();
     m_codecManager.reset();
+    m_webrtcManager.reset();
     
     m_initialized = false;
     
@@ -394,12 +524,21 @@ bool VoIPSystem::DestroyChannel(VoIPChannelID channelId) {
 bool VoIPSystem::JoinChannel(VoIPChannelID channelId, ClientID clientId) {
     if (!m_running) return false;
     
+    if (!m_webrtcManager->CreatePeerConnection(clientId)) {
+        return false;
+    }
+    
+    if (!m_webrtcManager->AddAudioTrack(clientId)) {
+        return false;
+    }
+    
     return m_channelManager->JoinChannel(channelId, clientId);
 }
 
 bool VoIPSystem::LeaveChannel(VoIPChannelID channelId, ClientID clientId) {
     if (!m_running) return false;
     
+    m_webrtcManager->RemoveAudioTrack(clientId);
     return m_channelManager->LeaveChannel(channelId, clientId);
 }
 
@@ -423,7 +562,7 @@ bool VoIPSystem::SendAudio(const AudioPacket& packet) {
 }
 
 void VoIPSystem::SetClientMuted(ClientID clientId, bool muted) {
-    // Implementar controle de mute
+    m_webrtcManager->SetAudioEnabled(clientId, !muted);
 }
 
 void VoIPSystem::SetClientDeafened(ClientID clientId, bool deafened) {

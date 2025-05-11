@@ -1775,6 +1775,14 @@ inline PredictivePrefetcher& PredictivePrefetcher::getInstance() {
 module.exports.setupSystem = function(engineContext) {
   console.log('Inicializando sistema: sistema_cache_hierarquico');
   
+  // Valida dependências necessárias
+  const requiredDependencies = ['sistema_banco_dados_distribuido', 'sistema_eventos_distribuidos'];
+  const missingDeps = requiredDependencies.filter(dep => !engineContext.systems[dep]);
+  
+  if (missingDeps.length > 0) {
+    throw new Error(`Dependências necessárias não encontradas: ${missingDeps.join(', ')}`);
+  }
+  
   // Inicializa o sistema no contexto do engine
   engineContext.registerSystem({
     name: 'sistema_cache_hierarquico',
@@ -1782,15 +1790,87 @@ module.exports.setupSystem = function(engineContext) {
     dependencies: getSystemDependencies()
   });
 
+  let isInitialized = false;
+  let isShuttingDown = false;
+  let cacheStats = {
+    hits: 0,
+    misses: 0,
+    evictions: 0,
+    memoryUsage: 0,
+    lastHealthCheck: null
+  };
+
   return {
     initialize: () => {
-      // Código de inicialização específico do sistema
-      return true;
+      if (isInitialized) {
+        console.warn('Sistema de cache já inicializado');
+        return true;
+      }
+
+      try {
+        // Inicialização do sistema
+        console.log('Inicializando sistema de cache hierárquico...');
+        
+        // Aqui você pode adicionar lógica de inicialização real
+        // Por exemplo, configurar níveis de cache, pools de memória, etc.
+        
+        isInitialized = true;
+        console.log('Sistema de cache inicializado com sucesso');
+        return true;
+      } catch (error) {
+        console.error('Erro ao inicializar sistema de cache:', error);
+        return false;
+      }
     },
     
     shutdown: () => {
-      // Código de desligamento do sistema
-      return true;
+      if (!isInitialized || isShuttingDown) {
+        console.warn('Sistema de cache não está inicializado ou já está sendo desligado');
+        return true;
+      }
+
+      try {
+        isShuttingDown = true;
+        console.log('Desligando sistema de cache hierárquico...');
+        
+        // Aqui você pode adicionar lógica de desligamento real
+        // Por exemplo, persistir cache, limpar memória, etc.
+        
+        isInitialized = false;
+        isShuttingDown = false;
+        console.log('Sistema de cache desligado com sucesso');
+        return true;
+      } catch (error) {
+        console.error('Erro ao desligar sistema de cache:', error);
+        return false;
+      }
+    },
+
+    // Métodos adicionais para monitoramento e diagnóstico
+    getStatus: () => ({
+      initialized: isInitialized,
+      shuttingDown: isShuttingDown,
+      dependencies: getSystemDependencies(),
+      stats: cacheStats
+    }),
+
+    // Métodos para manipulação do cache
+    getCacheStats: () => ({ ...cacheStats }),
+    updateCacheStats: (newStats) => {
+      cacheStats = {
+        ...cacheStats,
+        ...newStats,
+        lastHealthCheck: new Date()
+      };
+    },
+    resetCacheStats: () => {
+      cacheStats = {
+        hits: 0,
+        misses: 0,
+        evictions: 0,
+        memoryUsage: 0,
+        lastHealthCheck: new Date()
+      };
     }
   };
 };

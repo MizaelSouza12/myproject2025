@@ -1,0 +1,32 @@
+{
+  "systems": {
+    "inventory": {
+      "enabled": true,
+      "priority": 1,
+      "config": {
+        "maxSlots": 100,
+        "autoSave": true,
+        "saveInterval": 300000
+      }
+    },
+    "combat": {
+      "enabled": true,
+      "priority": 2,
+      "config": {
+        "maxTargets": 5,
+        "pvpEnabled": true,
+        "damageMultiplier": 1.0
+      }
+    }
+  },
+  "logging": {
+    "level": "INFO",
+    "file": "logs/wydstudio.log",
+    "maxSize": "10M",
+    "maxFiles": 5
+  },
+  "hotReload": {
+    "enabled": true,
+    "watchInterval": 5000
+  }
+} 

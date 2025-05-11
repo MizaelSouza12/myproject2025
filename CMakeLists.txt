@@ -1,103 +1,213 @@
 # CMakeLists.txt principal para WYDBR 2.0
-cmake_minimum_required(VERSION 3.14)
-project(WYDBR2 VERSION 2.0.0 LANGUAGES CXX)
+cmake_minimum_required(VERSION 3.15)
+project(WYDBR2.0 VERSION 2.0.0 LANGUAGES CXX)
 
-# Configurações globais
+# Configurações
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-# Opções de compilação
-option(WYDBR_BUILD_TESTS "Compilar testes" OFF)
-option(WYDBR_ENABLE_VOIP "Habilitar suporte a VoIP" ON)
-option(WYDBR_ENABLE_SCREEN_SHARE "Habilitar suporte a compartilhamento de tela" ON)
+# Opções de build
+option(BUILD_CLIENT "Build WYDBR client" ON)
+option(BUILD_SERVER "Build server components" ON)
+option(BUILD_STUDIO "Build WYDStudio" ON)
+option(BUILD_LAUNCHER "Build WYDLauncher" ON)
+option(BUILD_TESTS "Build tests" ON)
+option(BUILD_DOCS "Build documentation" ON)
 
-# Definições globais
-add_definitions(-DWYDBR_VERSION="${PROJECT_VERSION}")
+# Dependências
+find_package(OpenSSL REQUIRED)
+find_package(WebRTC REQUIRED)
+find_package(DirectX REQUIRED)
+find_package(FFmpeg REQUIRED)
+find_package(Qt5 COMPONENTS Core Widgets Network REQUIRED)
 
-# Verificar sistema operacional para flags específicas
-if(WIN32)
-    add_definitions(-D_WIN32_WINNT=0x0601)
-    add_definitions(-DWIN32_LEAN_AND_MEAN)
-    add_definitions(-DNOMINMAX)
-elseif(UNIX)
-    add_definitions(-D_POSIX_C_SOURCE=200809L)
-endif()
-
-# Bibliotecas externas
-find_package(Threads REQUIRED)
-
-# Diretórios de cabeçalho
+# Incluir diretórios
 include_directories(
-    ${CMAKE_CURRENT_SOURCE_DIR}/include
-    ${CMAKE_CURRENT_SOURCE_DIR}/include/Common
+    ${CMAKE_SOURCE_DIR}/include
+    ${CMAKE_SOURCE_DIR}/src
+    ${OPENSSL_INCLUDE_DIR}
+    ${WEBRTC_INCLUDE_DIR}
+    ${DIRECTX_INCLUDE_DIR}
+    ${FFMPEG_INCLUDE_DIR}
+    ${Qt5Core_INCLUDE_DIRS}
+    ${Qt5Widgets_INCLUDE_DIRS}
+    ${Qt5Network_INCLUDE_DIRS}
 )
 
-# Verificar dependências para VoIP
-if(WYDBR_ENABLE_VOIP)
-    # Adicionar dependências de áudio aqui
-    # Por exemplo: PortAudio, OpenAL, etc.
-    add_definitions(-DWYDBR_ENABLE_VOIP)
+# Adicionar subdiretórios
+add_subdirectory(src)
+
+# Configurar executáveis
+if(BUILD_CLIENT)
+    add_executable(WYDBR
+        src/client/main.cpp
+        src/client/ClientApp.cpp
+        src/client/GameWindow.cpp
+        src/client/InputManager.cpp
+        src/client/Renderer.cpp
+        src/client/ResourceManager.cpp
+        src/client/NetworkManager.cpp
+        src/client/AudioManager.cpp
+        src/client/UIManager.cpp
+        src/client/GameState.cpp
+        src/client/PlayerManager.cpp
+        src/client/WorldManager.cpp
+        src/client/ItemManager.cpp
+        src/client/QuestManager.cpp
+        src/client/GuildManager.cpp
+        src/client/TradeManager.cpp
+        src/client/ChatManager.cpp
+        src/client/PartyManager.cpp
+        src/client/CombatManager.cpp
+        src/client/InventoryManager.cpp
+        src/client/CharacterManager.cpp
+        src/client/SkillManager.cpp
+        src/client/EffectManager.cpp
+        src/client/WeatherManager.cpp
+        src/client/TimeManager.cpp
+        src/client/EventManager.cpp
+        src/client/MiniMapManager.cpp
+        src/client/HelpManager.cpp
+        src/client/OptionManager.cpp
+        src/client/KeySettingManager.cpp
+        src/client/MacroManager.cpp
+        src/client/FilterManager.cpp
+        src/client/WhisperManager.cpp
+        src/client/NoticeManager.cpp
+        src/client/MailManager.cpp
+        src/client/ShopManager.cpp
+        src/client/StorageManager.cpp
+        src/client/RepairManager.cpp
+        src/client/ComposeManager.cpp
+        src/client/RefineManager.cpp
+        src/client/UpgradeManager.cpp
+        src/client/QuestManager.cpp
+        src/client/TeleportManager.cpp
+        src/client/PartyManager.cpp
+        src/client/GuildManager.cpp
+        src/client/UnionManager.cpp
+        src/client/TerritoryManager.cpp
+        src/client/WarManager.cpp
+        src/client/EventManager.cpp
+        src/client/WeatherManager.cpp
+        src/client/TimeManager.cpp
+        src/client/MiniMapManager.cpp
+        src/client/HelpManager.cpp
+        src/client/OptionManager.cpp
+        src/client/KeySettingManager.cpp
+        src/client/MacroManager.cpp
+        src/client/FilterManager.cpp
+        src/client/WhisperManager.cpp
+        src/client/NoticeManager.cpp
+        src/client/MailManager.cpp
+        src/client/ShopManager.cpp
+        src/client/StorageManager.cpp
+        src/client/RepairManager.cpp
+        src/client/ComposeManager.cpp
+        src/client/RefineManager.cpp
+        src/client/UpgradeManager.cpp
+    )
+    
+    target_link_libraries(WYDBR
+        PRIVATE
+        OpenSSL::SSL
+        OpenSSL::Crypto
+        WebRTC::Core
+        DirectX::Core
+        FFmpeg::Core
+        Qt5::Core
+        Qt5::Widgets
+        Qt5::Network
+    )
 endif()
 
-# Verificar dependências para compartilhamento de tela
-if(WYDBR_ENABLE_SCREEN_SHARE)
-    # Adicionar dependências de vídeo aqui
-    # Por exemplo: FFmpeg, libvpx, etc.
-    add_definitions(-DWYDBR_ENABLE_SCREEN_SHARE)
+if(BUILD_LAUNCHER)
+    add_executable(WYDLauncher
+        src/launcher/main.cpp
+        src/launcher/LauncherApp.cpp
+        src/launcher/UpdateManager.cpp
+        src/launcher/ConfigManager.cpp
+        src/launcher/ServerManager.cpp
+        src/launcher/UIManager.cpp
+    )
+    
+    target_link_libraries(WYDLauncher
+        PRIVATE
+        Qt5::Core
+        Qt5::Widgets
+        Qt5::Network
+    )
 endif()
 
-# Componentes comuns
-add_subdirectory(src/common)
-
-# TMSrv
-add_subdirectory(src/tmsrv)
-
-# DBSrv
-add_subdirectory(src/dbsrv)
-
-# WYDStudio (inclui TMSrv e DBSrv)
-add_subdirectory(src/wydstudio)
-
-# VoIP (opcional)
-if(WYDBR_ENABLE_VOIP)
-    add_subdirectory(src/voip)
+if(BUILD_STUDIO)
+    add_executable(WYDStudio
+        src/studio/main.cpp
+        src/studio/StudioApp.cpp
+        src/studio/AdminPanel.cpp
+        src/studio/ServerManager.cpp
+        src/studio/DatabaseManager.cpp
+        src/studio/LogManager.cpp
+        src/studio/ConfigManager.cpp
+        src/studio/UIManager.cpp
+        src/studio/PlayerManager.cpp
+        src/studio/ItemManager.cpp
+        src/studio/WorldManager.cpp
+        src/studio/EventManager.cpp
+        src/studio/BackupManager.cpp
+        src/studio/MonitorManager.cpp
+        src/studio/DebugManager.cpp
+    )
+    
+    target_link_libraries(WYDStudio
+        PRIVATE
+        OpenSSL::SSL
+        OpenSSL::Crypto
+        Qt5::Core
+        Qt5::Widgets
+        Qt5::Network
+    )
 endif()
 
-# Screen Share (opcional)
-if(WYDBR_ENABLE_SCREEN_SHARE)
-    add_subdirectory(src/screenshare)
+# Instalação
+install(TARGETS WYDBR WYDLauncher WYDStudio
+    RUNTIME DESTINATION bin
+    LIBRARY DESTINATION lib
+    ARCHIVE DESTINATION lib
+)
+
+install(DIRECTORY
+    config/
+    data/
+    docs/
+    DESTINATION share/wydbr
+)
+
+# Documentação
+if(BUILD_DOCS)
+    find_package(Doxygen REQUIRED)
+    set(DOXYGEN_IN ${CMAKE_CURRENT_SOURCE_DIR}/docs/Doxyfile.in)
+    set(DOXYGEN_OUT ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile)
+    
+    configure_file(${DOXYGEN_IN} ${DOXYGEN_OUT} @ONLY)
+    
+    add_custom_target(docs
+        COMMAND ${DOXYGEN_EXECUTABLE} ${DOXYGEN_OUT}
+        WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+        COMMENT "Generating API documentation with Doxygen"
+        VERBATIM
+    )
 endif()
 
-# Cliente
-add_subdirectory(src/client)
-
-# Testes (opcional)
-if(WYDBR_BUILD_TESTS)
+# Testes
+if(BUILD_TESTS)
     enable_testing()
     add_subdirectory(tests)
-
-# Fase 7 - Módulos adicionais
-add_subdirectory(src/tmsrv/auth)
-add_subdirectory(src/tmsrv/economy)
-add_subdirectory(src/tmsrv/movement)
-add_subdirectory(src/security/crypto)
-add_subdirectory(src/integration)
 endif()
 
-# Configurações de instalação
-install(
-    DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/
-    DESTINATION include
-    FILES_MATCHING PATTERN "*.h"
-)
-
-# Resumo de configuração
-message(STATUS "========== WYDBR 2.0 Configuration ==========")
+# Mensagem de configuração
+message(STATUS "WYDBR 2.0 Game Logic Library")
 message(STATUS "Version: ${PROJECT_VERSION}")
-message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
-message(STATUS "VoIP support: ${WYDBR_ENABLE_VOIP}")
-message(STATUS "Screen Share support: ${WYDBR_ENABLE_SCREEN_SHARE}")
-message(STATUS "Tests: ${WYDBR_BUILD_TESTS}")
-message(STATUS "Install prefix: ${CMAKE_INSTALL_PREFIX}")
-message(STATUS "==============================================")
+message(STATUS "C++ Standard: ${CMAKE_CXX_STANDARD}")
+message(STATUS "Build Tests: ${BUILD_TESTS}")
+message(STATUS "Build Docs: ${BUILD_DOCS}")

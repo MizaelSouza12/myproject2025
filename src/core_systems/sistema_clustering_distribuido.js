@@ -1437,6 +1437,14 @@ inline FailoverManager& FailoverManager::getInstance() {
 module.exports.setupSystem = function(engineContext) {
   console.log('Inicializando sistema: sistema_clustering_distribuido');
   
+  // Valida dependências necessárias
+  const requiredDependencies = ['sistema_banco_dados_distribuido', 'sistema_cache_hierarquico'];
+  const missingDeps = requiredDependencies.filter(dep => !engineContext.systems[dep]);
+  
+  if (missingDeps.length > 0) {
+    throw new Error(`Dependências necessárias não encontradas: ${missingDeps.join(', ')}`);
+  }
+  
   // Inicializa o sistema no contexto do engine
   engineContext.registerSystem({
     name: 'sistema_clustering_distribuido',
@@ -1444,15 +1452,89 @@ module.exports.setupSystem = function(engineContext) {
     dependencies: getSystemDependencies()
   });
 
+  let isInitialized = false;
+  let isShuttingDown = false;
+  let clusterStats = {
+    nodes: 0,
+    activeNodes: 0,
+    failedNodes: 0,
+    lastHealthCheck: null,
+    networkLatency: 0,
+    clusterLoad: 0
+  };
+
   return {
     initialize: () => {
-      // Código de inicialização específico do sistema
-      return true;
+      if (isInitialized) {
+        console.warn('Sistema de clustering já inicializado');
+        return true;
+      }
+
+      try {
+        // Inicialização do sistema
+        console.log('Inicializando sistema de clustering distribuído...');
+        
+        // Aqui você pode adicionar lógica de inicialização real
+        // Por exemplo, configurar nós, iniciar heartbeat, etc.
+        
+        isInitialized = true;
+        console.log('Sistema de clustering inicializado com sucesso');
+        return true;
+      } catch (error) {
+        console.error('Erro ao inicializar sistema de clustering:', error);
+        return false;
+      }
     },
     
     shutdown: () => {
-      // Código de desligamento do sistema
-      return true;
+      if (!isInitialized || isShuttingDown) {
+        console.warn('Sistema de clustering não está inicializado ou já está sendo desligado');
+        return true;
+      }
+
+      try {
+        isShuttingDown = true;
+        console.log('Desligando sistema de clustering distribuído...');
+        
+        // Aqui você pode adicionar lógica de desligamento real
+        // Por exemplo, notificar outros nós, salvar estado, etc.
+        
+        isInitialized = false;
+        isShuttingDown = false;
+        console.log('Sistema de clustering desligado com sucesso');
+        return true;
+      } catch (error) {
+        console.error('Erro ao desligar sistema de clustering:', error);
+        return false;
+      }
+    },
+
+    // Métodos adicionais para monitoramento e diagnóstico
+    getStatus: () => ({
+      initialized: isInitialized,
+      shuttingDown: isShuttingDown,
+      dependencies: getSystemDependencies(),
+      stats: clusterStats
+    }),
+
+    // Métodos para manipulação do cluster
+    getClusterStats: () => ({ ...clusterStats }),
+    updateClusterStats: (newStats) => {
+      clusterStats = {
+        ...clusterStats,
+        ...newStats,
+        lastHealthCheck: new Date()
+      };
+    },
+    resetClusterStats: () => {
+      clusterStats = {
+        nodes: 0,
+        activeNodes: 0,
+        failedNodes: 0,
+        lastHealthCheck: new Date(),
+        networkLatency: 0,
+        clusterLoad: 0
+      };
     }
   };
 };

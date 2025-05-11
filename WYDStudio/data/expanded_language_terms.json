@@ -1,0 +1,282 @@
+{
+  "terms": [
+    {
+      "category": "ITEM",
+      "terms": [
+        {
+          "standardForm": "Equipamento de Evolução",
+          "synonyms": ["set E2", "set E3", "set E4", "E4", "Armor +15", "equipamento raro"],
+          "description": "Armaduras e equipamentos especiais que representam evoluções de equipamentos normais",
+          "usageExamples": [
+            "Preciso de um set E4 para o meu FM",
+            "Onde consigo armaduras E3?"
+          ]
+        },
+        {
+          "standardForm": "Fragmento do Favor",
+          "synonyms": ["FoF", "Favor", "Fragmento"],
+          "description": "Item utilizado para evolução de equipamentos",
+          "usageExamples": [
+            "Quantos FoF preciso para upar meu set?",
+            "Onde farmo FoF?"
+          ]
+        },
+        {
+          "standardForm": "Fragmento da Sabedoria",
+          "synonyms": ["FoW", "Fragmento", "Frag Wisdom"],
+          "description": "Item raro utilizado para evoluções avançadas de equipamentos",
+          "usageExamples": [
+            "Quero comprar 10 FoW",
+            "Vale a pena trocar FoF por FoW?"
+          ]
+        },
+        {
+          "standardForm": "Token de Doação",
+          "synonyms": ["token", "donate", "cash"],
+          "description": "Item premium adquirido através de doações ao servidor",
+          "usageExamples": [
+            "Quanto custa em tokens esse item?",
+            "Posso trocar meus tokens por set?"
+          ]
+        },
+        {
+          "standardForm": "Poções de Recuperação",
+          "synonyms": ["pot", "pote", "poção vida", "poção mana", "pot hp", "pot mp"],
+          "description": "Poções que restauram vida ou mana durante o jogo",
+          "usageExamples": [
+            "Preciso comprar potes para o boss",
+            "Onde vende pot mais barato?"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "CLASS",
+      "terms": [
+        {
+          "standardForm": "ForeMaster",
+          "synonyms": ["FM", "foremasta", "guerreiro", "tank"],
+          "description": "Classe de guerreiro especialista em combate corpo-a-corpo e alta defesa",
+          "usageExamples": [
+            "Meu FM está no level 300",
+            "FM é melhor tank que HT?"
+          ]
+        },
+        {
+          "standardForm": "BeastMaster",
+          "synonyms": ["BM", "beastmasta", "lamina", "dps"],
+          "description": "Classe especialista em dano com alta mobilidade",
+          "usageExamples": [
+            "BM causa mais dano em boss",
+            "Como buildar meu BM?"
+          ]
+        },
+        {
+          "standardForm": "TransKnight",
+          "synonyms": ["TK", "tk", "cavaleiro", "knight"],
+          "description": "Classe híbrida com boa defesa e ataque",
+          "usageExamples": [
+            "TK é bom para PvP?",
+            "Qual melhor build de TK para farm?"
+          ]
+        },
+        {
+          "standardForm": "Huntress",
+          "synonyms": ["HT", "ht", "arqueira", "ranger"],
+          "description": "Classe com ataques à distância e alta evasão",
+          "usageExamples": [
+            "HT é melhor para farmar",
+            "Build de HT para guerra de guild"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "SYSTEM",
+      "terms": [
+        {
+          "standardForm": "Auto-Buffar",
+          "synonyms": ["autobuff", "buff auto", "auto buff", "macro buff"],
+          "description": "Sistema automático para renovar buffs (habilidades de fortalecimento)",
+          "usageExamples": [
+            "Como configurar autobuff?",
+            "Meu autobuff não está funcionando"
+          ]
+        },
+        {
+          "standardForm": "Auto-HP",
+          "synonyms": ["autohp", "hp auto", "poção auto", "auto pot"],
+          "description": "Sistema que usa poções automaticamente quando a vida cai abaixo de certo valor",
+          "usageExamples": [
+            "Configure auto-HP para 70%",
+            "Meu auto-HP não está tomando pot"
+          ]
+        },
+        {
+          "standardForm": "Anti Kill-Steal",
+          "synonyms": ["anti-KS", "anti ks", "proteção roubo", "KS protection"],
+          "description": "Sistema que impede outros jogadores de roubarem seus monstros",
+          "usageExamples": [
+            "Este servidor tem anti-KS?",
+            "Anti-KS não está funcionando em dungeon"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "EVENT",
+      "terms": [
+        {
+          "standardForm": "Horário do Chefe",
+          "synonyms": ["boss time", "hora do boss", "boss global", "event boss"],
+          "description": "Evento programado onde chefes poderosos aparecem para serem derrotados",
+          "usageExamples": [
+            "Quando é o próximo boss time?",
+            "Boss time será cancelado hoje?"
+          ]
+        },
+        {
+          "standardForm": "Evento Ativo",
+          "synonyms": ["on", "evento on", "drop aumentado", "exp multiplicado"],
+          "description": "Indica que um evento especial está acontecendo com benefícios temporários",
+          "usageExamples": [
+            "Tem algum evento ON agora?",
+            "O servidor está com drop ON"
+          ]
+        },
+        {
+          "standardForm": "Evento Inativo",
+          "synonyms": ["off", "evento off", "sem evento", "evento acabou"],
+          "description": "Indica que não há eventos especiais acontecendo no momento",
+          "usageExamples": [
+            "O evento já está OFF?",
+            "Servidor voltou ao normal, evento OFF"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "GENERAL_SLANG",
+      "terms": [
+        {
+          "standardForm": "Jogador Habilidoso",
+          "synonyms": ["zika", "pro", "top player", "monstro", "fera"],
+          "description": "Jogador com habilidade excepcional no jogo",
+          "usageExamples": [
+            "Aquele cara é zika do PvP",
+            "Ele é muito zika na guerra"
+          ]
+        },
+        {
+          "standardForm": "Jogador Novato",
+          "synonyms": ["noob", "newbie", "iniciante", "fraco"],
+          "description": "Jogador com pouca experiência ou habilidade no jogo",
+          "usageExamples": [
+            "Preciso de ajuda, sou noob ainda",
+            "Guilda aceita noobs?"
+          ]
+        },
+        {
+          "standardForm": "Teleportar",
+          "synonyms": ["telar", "tp", "warp", "pular mapa"],
+          "description": "Ação de se transportar instantaneamente para outro local",
+          "usageExamples": [
+            "Como telar para cidade?",
+            "Vou telar para área VIP"
+          ]
+        },
+        {
+          "standardForm": "Problemas de Conexão",
+          "synonyms": ["lag", "travando", "dc", "disconnect", "caindo"],
+          "description": "Problemas técnicos que afetam a experiência de jogo",
+          "usageExamples": [
+            "Estou com muito lag hoje",
+            "Servidor está travando muito"
+          ]
+        },
+        {
+          "standardForm": "Modo de Bloqueio",
+          "synonyms": ["BRK", "modo brk", "block", "proteção"],
+          "description": "Técnica defensiva que aumenta bloqueio de ataques",
+          "usageExamples": [
+            "Use modo BRK contra boss",
+            "Ele sempre usa BRK no PvP"
+          ]
+        },
+        {
+          "standardForm": "Subir de Nível",
+          "synonyms": ["upar", "levelar", "farm xp", "grind"],
+          "description": "Processo de ganhar experiência para aumentar o nível do personagem",
+          "usageExamples": [
+            "Onde é melhor para upar no lvl 150?",
+            "Vamos upar juntos na dungeon"
+          ]
+        },
+        {
+          "standardForm": "Programa Automático",
+          "synonyms": ["macro", "bot", "auto", "programa", "script"],
+          "description": "Software ou script que automatiza ações no jogo",
+          "usageExamples": [
+            "Tem gente usando bot nesse spot",
+            "Preciso de uma macro para farm"
+          ]
+        },
+        {
+          "standardForm": "Upando Dormindo",
+          "synonyms": ["bot", "upando afk", "upar dormindo", "farm afk"],
+          "description": "Prática de deixar o personagem ganhar XP automaticamente sem supervisão",
+          "usageExamples": [
+            "Tem muito jogador upando dormindo aqui",
+            "Quero upar dormindo na área VIP"
+          ]
+        },
+        {
+          "standardForm": "Remover Buffs",
+          "synonyms": ["debuffar", "remover status", "limpar buffs", "cancelar buff"],
+          "description": "Ação de remover efeitos positivos de outros jogadores",
+          "usageExamples": [
+            "Como debuffar no PvP?",
+            "Essa classe pode debuffar inimigos?"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "LOCATION",
+      "terms": [
+        {
+          "standardForm": "Local de Farm",
+          "synonyms": ["spot", "lugar farm", "área xp", "mapa farm"],
+          "description": "Área específica boa para matar monstros e ganhar experiência",
+          "usageExamples": [
+            "Qual melhor spot para level 200?",
+            "Este spot está muito lotado"
+          ]
+        },
+        {
+          "standardForm": "Área VIP",
+          "synonyms": ["vip", "area donate", "mapa premium", "zona doador"],
+          "description": "Área exclusiva para jogadores que fizeram doações ao servidor",
+          "usageExamples": [
+            "Como acesso a área VIP?",
+            "Área VIP tem monstros melhores"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "SOCIAL",
+      "terms": [
+        {
+          "standardForm": "Batalha de Clã",
+          "synonyms": ["BC", "guild war", "war", "guerra"],
+          "description": "Evento de combate entre guildas (clãs) de jogadores",
+          "usageExamples": [
+            "Quando começa o BC?",
+            "Nossa guild ganhou o BC de ontem"
+          ]
+        }
+      ]
+    }
+  ]
+}

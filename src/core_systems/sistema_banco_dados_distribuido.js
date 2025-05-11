@@ -1756,6 +1756,14 @@ inline DataMigrationManager& DataMigrationManager::getInstance() {
 module.exports.setupSystem = function(engineContext) {
   console.log('Inicializando sistema: sistema_banco_dados_distribuido');
   
+  // Valida dependências necessárias
+  const requiredDependencies = ['SecurityProvider', 'NetworkLayer'];
+  const missingDeps = requiredDependencies.filter(dep => !engineContext.systems[dep]);
+  
+  if (missingDeps.length > 0) {
+    throw new Error(`Dependências necessárias não encontradas: ${missingDeps.join(', ')}`);
+  }
+  
   // Inicializa o sistema no contexto do engine
   engineContext.registerSystem({
     name: 'sistema_banco_dados_distribuido',
@@ -1763,15 +1771,77 @@ module.exports.setupSystem = function(engineContext) {
     dependencies: getSystemDependencies()
   });
 
+  let isInitialized = false;
+  let isShuttingDown = false;
+  let dbStats = {
+    connections: 0,
+    activeQueries: 0,
+    failedQueries: 0,
+    lastHealthCheck: null
+  };
+
   return {
     initialize: () => {
-      // Código de inicialização específico do sistema
-      return true;
+      if (isInitialized) {
+        console.warn('Sistema de banco de dados já inicializado');
+        return true;
+      }
+
+      try {
+        // Inicialização do sistema
+        console.log('Inicializando sistema de banco de dados distribuído...');
+        
+        // Aqui você pode adicionar lógica de inicialização real
+        // Por exemplo, conectar ao banco de dados, configurar pools, etc.
+        
+        isInitialized = true;
+        console.log('Sistema de banco de dados inicializado com sucesso');
+        return true;
+      } catch (error) {
+        console.error('Erro ao inicializar sistema de banco de dados:', error);
+        return false;
+      }
     },
     
     shutdown: () => {
-      // Código de desligamento do sistema
-      return true;
+      if (!isInitialized || isShuttingDown) {
+        console.warn('Sistema de banco de dados não está inicializado ou já está sendo desligado');
+        return true;
+      }
+
+      try {
+        isShuttingDown = true;
+        console.log('Desligando sistema de banco de dados distribuído...');
+        
+        // Aqui você pode adicionar lógica de desligamento real
+        // Por exemplo, fechar conexões, salvar estado, etc.
+        
+        isInitialized = false;
+        isShuttingDown = false;
+        console.log('Sistema de banco de dados desligado com sucesso');
+        return true;
+      } catch (error) {
+        console.error('Erro ao desligar sistema de banco de dados:', error);
+        return false;
+      }
+    },
+
+    // Métodos adicionais para monitoramento e diagnóstico
+    getStatus: () => ({
+      initialized: isInitialized,
+      shuttingDown: isShuttingDown,
+      dependencies: getSystemDependencies(),
+      stats: dbStats
+    }),
+
+    // Métodos para manipulação do banco de dados
+    getDBStats: () => ({ ...dbStats }),
+    updateDBStats: (newStats) => {
+      dbStats = {
+        ...dbStats,
+        ...newStats,
+        lastHealthCheck: new Date()
+      };
     }
   };
 };

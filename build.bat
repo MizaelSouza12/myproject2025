@@ -1,50 +1,82 @@
 @echo off
-REM Build script for WYDBR 2.0 on Windows
-setlocal
+setlocal enabledelayedexpansion
 
-REM Set up environment
-if not exist build mkdir build
+:: Configurações
+set BUILD_DIR=build
+set INSTALL_DIR=dist
+set CONFIG=Release
+set PLATFORM=x64
 
-REM Parse arguments
-set BUILD_TYPE=Release
-set BUILD_TESTS=ON
-set BUILD_BENCHMARKS=ON
-set ENABLE_OPTIMIZATION=ON
-set ENABLE_ASAN=OFF
-
-:parse_args
-if "%1"=="" goto end_parse_args
-if "%1"=="--debug" set BUILD_TYPE=Debug
-if "%1"=="--no-tests" set BUILD_TESTS=OFF
-if "%1"=="--no-benchmarks" set BUILD_BENCHMARKS=OFF
-if "%1"=="--no-optimization" set ENABLE_OPTIMIZATION=OFF
-if "%1"=="--asan" set ENABLE_ASAN=ON
-shift
-goto parse_args
-:end_parse_args
-
-echo Building WYDBR 2.0 (%BUILD_TYPE%)
-echo Tests: %BUILD_TESTS%
-echo Benchmarks: %BUILD_BENCHMARKS%
-echo Optimization: %ENABLE_OPTIMIZATION%
-echo AddressSanitizer: %ENABLE_ASAN%
-
-REM Configure CMake
-cd build
-cmake .. -DCMAKE_BUILD_TYPE=%BUILD_TYPE% ^
-         -DWYDBR_BUILD_TESTS=%BUILD_TESTS% ^
-         -DWYDBR_BUILD_BENCHMARKS=%BUILD_BENCHMARKS% ^
-         -DWYDBR_ENABLE_OPTIMIZATION=%ENABLE_OPTIMIZATION% ^
-         -DWYDBR_ENABLE_ASAN=%ENABLE_ASAN%
-
-REM Build
-cmake --build . --config %BUILD_TYPE% --parallel %NUMBER_OF_PROCESSORS%
-
-REM Run tests if enabled
-if "%BUILD_TESTS%"=="ON" (
-    echo Running tests...
-    ctest -C %BUILD_TYPE% --output-on-failure
+:: Verificar se o Visual Studio está instalado
+where cl >nul 2>nul
+if %ERRORLEVEL% neq 0 (
+    echo Visual Studio não encontrado. Por favor, instale o Visual Studio 2019 ou superior.
+    exit /b 1
 )
 
-echo Build completed successfully.
+:: Criar diretórios
+if not exist %BUILD_DIR% mkdir %BUILD_DIR%
+if not exist %INSTALL_DIR% mkdir %INSTALL_DIR%
+
+:: Configurar ambiente do Visual Studio
+call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat"
+
+:: Compilar WYDBR.exe
+echo Compilando WYDBR.exe...
+cd %BUILD_DIR%
+cmake -G "Visual Studio 16 2019" -A %PLATFORM% -DCMAKE_BUILD_TYPE=%CONFIG% -DBUILD_CLIENT=ON -DBUILD_SERVER=OFF -DBUILD_STUDIO=OFF ..
+cmake --build . --config %CONFIG% --target WYDBR
+if %ERRORLEVEL% neq 0 (
+    echo Erro ao compilar WYDBR.exe
+    exit /b 1
+)
+copy %CONFIG%\WYDBR.exe ..\%INSTALL_DIR%\
 cd ..
+
+:: Compilar WYDLauncher.exe
+echo Compilando WYDLauncher.exe...
+cd %BUILD_DIR%
+cmake -G "Visual Studio 16 2019" -A %PLATFORM% -DCMAKE_BUILD_TYPE=%CONFIG% -DBUILD_CLIENT=OFF -DBUILD_SERVER=OFF -DBUILD_STUDIO=OFF -DBUILD_LAUNCHER=ON ..
+cmake --build . --config %CONFIG% --target WYDLauncher
+if %ERRORLEVEL% neq 0 (
+    echo Erro ao compilar WYDLauncher.exe
+    exit /b 1
+)
+copy %CONFIG%\WYDLauncher.exe ..\%INSTALL_DIR%\
+cd ..
+
+:: Compilar WYDStudio.exe
+echo Compilando WYDStudio.exe...
+cd %BUILD_DIR%
+cmake -G "Visual Studio 16 2019" -A %PLATFORM% -DCMAKE_BUILD_TYPE=%CONFIG% -DBUILD_CLIENT=OFF -DBUILD_SERVER=ON -DBUILD_STUDIO=ON ..
+cmake --build . --config %CONFIG% --target WYDStudio
+if %ERRORLEVEL% neq 0 (
+    echo Erro ao compilar WYDStudio.exe
+    exit /b 1
+)
+copy %CONFIG%\WYDStudio.exe ..\%INSTALL_DIR%\
+cd ..
+
+:: Copiar arquivos necessários
+echo Copiando arquivos necessários...
+copy config\*.* %INSTALL_DIR%\
+copy data\*.* %INSTALL_DIR%\
+copy docs\*.* %INSTALL_DIR%\
+
+:: Criar arquivo de versão
+echo Criando arquivo de versão...
+echo WYDBR 2.0 > %INSTALL_DIR%\version.txt
+echo Build: %date% %time% >> %INSTALL_DIR%\version.txt
+
+:: Verificar dependências
+echo Verificando dependências...
+where ffmpeg >nul 2>nul
+if %ERRORLEVEL% neq 0 (
+    echo Aviso: FFmpeg não encontrado. O sistema de VoIP pode não funcionar corretamente.
+)
+
+:: Finalizar
+echo Build concluído com sucesso!
+echo Os executáveis foram gerados em: %INSTALL_DIR%
+
+endlocal

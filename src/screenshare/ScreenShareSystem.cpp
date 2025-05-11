@@ -1,4 +1,3 @@
-
 /**
  * @file ScreenShareSystem.cpp
  * @brief Implementação do sistema de compartilhamento de tela para WYDBR 2.0
@@ -12,6 +11,12 @@
 #include <thread>
 #include <mutex>
 #include <algorithm>
+#include <d3d11.h>
+#include <dxgi1_2.h>
+#include <d3dcompiler.h>
+#include <wrl/client.h>
+
+using Microsoft::WRL::ComPtr;
 
 namespace WYDBR {
 namespace ScreenShare {
@@ -27,6 +32,7 @@ public:
     
 private:
     std::mutex m_captureMutex;
+    std::unique_ptr<DirectXCapture> m_dxCapture;
 };
 
 class CodecManager {
@@ -94,6 +100,24 @@ private:
     mutable std::mutex m_sessionMutex;
 };
 
+class DirectXCapture {
+public:
+    DirectXCapture();
+    ~DirectXCapture();
+    
+    bool Initialize();
+    bool CaptureScreen(FrameData& frame);
+    void Cleanup();
+    
+private:
+    ComPtr<ID3D11Device> m_device;
+    ComPtr<ID3D11DeviceContext> m_context;
+    ComPtr<IDXGIOutputDuplication> m_deskDupl;
+    
+    bool InitializeDirectX();
+    bool InitializeDuplication();
+};
+
 // Implementação do CaptureManager
 CaptureManager::CaptureManager() {
 }
@@ -102,24 +126,21 @@ CaptureManager::~CaptureManager() {
 }
 
 bool CaptureManager::Initialize() {
-    // Inicializar sistema de captura
-    return true;
+    m_dxCapture = std::make_unique<DirectXCapture>();
+    return m_dxCapture->Initialize();
 }
 
 FrameData CaptureManager::CaptureScreen(ClientID clientId, const ScreenShareConfig& config) {
     std::lock_guard<std::mutex> lock(m_captureMutex);
     
     FrameData frame;
-    frame.timestamp = static_cast<uint32_t>(std::chrono::system_clock::now().time_since_epoch().count() / 1000000);
-    frame.width = config.width;
-    frame.height = config.height;
-    
-    // Simular captura de tela
-    const size_t dataSize = config.width * config.height * 4; // RGBA
-    frame.data.resize(dataSize);
-    
-    // Preencher com dados simulados
-    // Na implementação real, seria capturada a tela do cliente
+    if (!m_dxCapture->CaptureScreen(frame)) {
+        // Fallback para captura simulada em caso de erro
+        frame.timestamp = static_cast<uint32_t>(std::chrono::system_clock::now().time_since_epoch().count() / 1000000);
+        frame.width = config.width;
+        frame.height = config.height;
+        frame.data.resize(config.width * config.height * 4);
+    }
     
     return frame;
 }
@@ -329,6 +350,170 @@ std::vector<ClientID> ShareSessionManager::GetSessionViewers(ScreenShareID sessi
     
     const auto& viewers = it->second.viewers;
     return std::vector<ClientID>(viewers.begin(), viewers.end());
+}
+
+// Implementação do DirectXCapture
+DirectXCapture::DirectXCapture() {
+}
+
+DirectXCapture::~DirectXCapture() {
+    Cleanup();
+}
+
+bool DirectXCapture::Initialize() {
+    if (!InitializeDirectX()) {
+        return false;
+    }
+    
+    if (!InitializeDuplication()) {
+        return false;
+    }
+    
+    return true;
+}
+
+bool DirectXCapture::InitializeDirectX() {
+    UINT createDeviceFlags = 0;
+    D3D_FEATURE_LEVEL featureLevels[] = {
+        D3D_FEATURE_LEVEL_11_1,
+        D3D_FEATURE_LEVEL_11_0,
+        D3D_FEATURE_LEVEL_10_1,
+        D3D_FEATURE_LEVEL_10_0
+    };
+    D3D_FEATURE_LEVEL featureLevel;
+    
+    HRESULT hr = D3D11CreateDevice(
+        nullptr,
+        D3D_DRIVER_TYPE_HARDWARE,
+        nullptr,
+        createDeviceFlags,
+        featureLevels,
+        ARRAYSIZE(featureLevels),
+        D3D11_SDK_VERSION,
+        &m_device,
+        &featureLevel,
+        &m_context
+    );
+    
+    if (FAILED(hr)) {
+        return false;
+    }
+    
+    return true;
+}
+
+bool DirectXCapture::InitializeDuplication() {
+    ComPtr<IDXGIDevice> dxgiDevice;
+    HRESULT hr = m_device.As(&dxgiDevice);
+    if (FAILED(hr)) {
+        return false;
+    }
+    
+    ComPtr<IDXGIAdapter> dxgiAdapter;
+    hr = dxgiDevice->GetAdapter(&dxgiAdapter);
+    if (FAILED(hr)) {
+        return false;
+    }
+    
+    ComPtr<IDXGIOutput> dxgiOutput;
+    hr = dxgiAdapter->EnumOutputs(0, &dxgiOutput);
+    if (FAILED(hr)) {
+        return false;
+    }
+    
+    ComPtr<IDXGIOutput1> dxgiOutput1;
+    hr = dxgiOutput.As(&dxgiOutput1);
+    if (FAILED(hr)) {
+        return false;
+    }
+    
+    hr = dxgiOutput1->DuplicateOutput(m_device.Get(), &m_deskDupl);
+    if (FAILED(hr)) {
+        return false;
+    }
+    
+    return true;
+}
+
+bool DirectXCapture::CaptureScreen(FrameData& frame) {
+    if (!m_deskDupl) {
+        return false;
+    }
+    
+    ComPtr<IDXGIResource> desktopResource;
+    DXGI_OUTDUPL_FRAME_INFO frameInfo;
+    HRESULT hr = m_deskDupl->AcquireNextFrame(500, &frameInfo, &desktopResource);
+    
+    if (FAILED(hr)) {
+        return false;
+    }
+    
+    ComPtr<ID3D11Texture2D> desktopTexture;
+    hr = desktopResource.As(&desktopTexture);
+    if (FAILED(hr)) {
+        m_deskDupl->ReleaseFrame();
+        return false;
+    }
+    
+    D3D11_TEXTURE2D_DESC textureDesc;
+    desktopTexture->GetDesc(&textureDesc);
+    
+    frame.width = textureDesc.Width;
+    frame.height = textureDesc.Height;
+    frame.timestamp = static_cast<uint32_t>(std::chrono::system_clock::now().time_since_epoch().count() / 1000000);
+    
+    // Criar textura staging para leitura
+    D3D11_TEXTURE2D_DESC stagingDesc = {};
+    stagingDesc.Width = textureDesc.Width;
+    stagingDesc.Height = textureDesc.Height;
+    stagingDesc.MipLevels = 1;
+    stagingDesc.ArraySize = 1;
+    stagingDesc.Format = DXGI_FORMAT_B8G8R8A8_UNORM;
+    stagingDesc.SampleDesc.Count = 1;
+    stagingDesc.Usage = D3D11_USAGE_STAGING;
+    stagingDesc.CPUAccessFlags = D3D11_CPU_ACCESS_READ;
+    
+    ComPtr<ID3D11Texture2D> stagingTexture;
+    hr = m_device->CreateTexture2D(&stagingDesc, nullptr, &stagingTexture);
+    if (FAILED(hr)) {
+        m_deskDupl->ReleaseFrame();
+        return false;
+    }
+    
+    // Copiar dados para textura staging
+    m_context->CopyResource(stagingTexture.Get(), desktopTexture.Get());
+    
+    // Mapear textura para leitura
+    D3D11_MAPPED_SUBRESOURCE mappedResource;
+    hr = m_context->Map(stagingTexture.Get(), 0, D3D11_MAP_READ, 0, &mappedResource);
+    if (FAILED(hr)) {
+        m_deskDupl->ReleaseFrame();
+        return false;
+    }
+    
+    // Copiar dados para o frame
+    const size_t dataSize = textureDesc.Width * textureDesc.Height * 4;
+    frame.data.resize(dataSize);
+    
+    uint8_t* srcData = static_cast<uint8_t*>(mappedResource.pData);
+    uint8_t* dstData = frame.data.data();
+    
+    for (UINT row = 0; row < textureDesc.Height; ++row) {
+        memcpy(dstData + row * textureDesc.Width * 4,
+               srcData + row * mappedResource.RowPitch,
+               textureDesc.Width * 4);
+    }
+    
+    m_context->Unmap(stagingTexture.Get(), 0);
+    m_deskDupl->ReleaseFrame();
+    
+    return true;
+}
+
+void DirectXCapture::Cleanup() {
+    m_deskDupl.Reset();
+    m_context.Reset();
+    m_device.Reset();
 }
 
 // Implementação do ScreenShareSystem

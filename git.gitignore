@@ -1,0 +1,6 @@
+# .gitignore
+node_modules/
+.replit
+*.log
+__pycache__/
+*.pyc
