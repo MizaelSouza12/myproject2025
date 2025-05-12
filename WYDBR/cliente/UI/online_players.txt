@@ -1,0 +1,23 @@
+FFFFFF  
+FFFFFF Jogadores Online
+FFFFAA
+FFFFAA Amigos
+AAFFAA Ver amigos online
+FFFFAA
+FFFFAA Membros da Guild
+AAFFAA Ver membros da guild online
+FFFFAA
+FFFFAA Últimas Interações
+AAFFAA Jogadores com quem interagiu recentemente
+FFFFAA
+FFFFAA Procurar Jogador
+AAFFAA Buscar por nome
+FFFFAA
+FFFFAA Estatísticas de Jogador
+AAFFAA Ver informações detalhadas
+FFFFAA
+FFFFAA Adicionar Amigo
+AAFFAA Enviar solicitação de amizade
+FFFFAA
+FFFFAA Bloquear Jogador
+AAFFAA Impedir comunicação com este jogador

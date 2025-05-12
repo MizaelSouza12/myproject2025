@@ -1,0 +1,236 @@
+# Arquivos Críticos Faltantes - WYDBR 2.0
+
+Com base na análise reversa da estrutura do projeto WYDBR 2.0, identificamos os seguintes arquivos críticos que ainda precisam ser implementados para garantir o funcionamento completo do sistema.
+
+## 1. Componentes do Servidor TMSrv (Servidor de Jogo)
+
+### Sistema de Mundo e Instâncias
+```
+src/tmsrv/world/WorldManager.h
+src/tmsrv/world/WorldManager.cpp
+src/tmsrv/world/MapInstance.h
+src/tmsrv/world/MapInstance.cpp
+src/tmsrv/world/InstanceManager.h
+src/tmsrv/world/InstanceManager.cpp
+src/tmsrv/world/DynamicSpawner.h
+src/tmsrv/world/DynamicSpawner.cpp
+```
+
+### Sistema de Combate Avançado
+```
+src/tmsrv/combat/CombatFormulas.h
+src/tmsrv/combat/CombatFormulas.cpp
+src/tmsrv/combat/SkillEffectManager.h
+src/tmsrv/combat/SkillEffectManager.cpp
+src/tmsrv/combat/DamageProcessor.h
+src/tmsrv/combat/DamageProcessor.cpp
+src/tmsrv/combat/ComboSystem.h
+src/tmsrv/combat/ComboSystem.cpp
+```
+
+### Sistema de Eventos
+```
+src/tmsrv/event/EventScheduler.h
+src/tmsrv/event/EventScheduler.cpp
+src/tmsrv/event/WorldEventManager.h
+src/tmsrv/event/WorldEventManager.cpp
+src/tmsrv/event/EventRewardDistributor.h
+src/tmsrv/event/EventRewardDistributor.cpp
+src/tmsrv/event/events/CastleSiege.h
+src/tmsrv/event/events/CastleSiege.cpp
+src/tmsrv/event/events/BossRaid.h
+src/tmsrv/event/events/BossRaid.cpp
+src/tmsrv/event/events/GuildWar.h
+src/tmsrv/event/events/GuildWar.cpp
+```
+
+### Sistema de Interações Sociais
+```
+src/tmsrv/social/GuildManager.h
+src/tmsrv/social/GuildManager.cpp
+src/tmsrv/social/PartyManager.h
+src/tmsrv/social/PartyManager.cpp
+src/tmsrv/social/FriendSystem.h
+src/tmsrv/social/FriendSystem.cpp
+src/tmsrv/social/MailSystem.h
+src/tmsrv/social/MailSystem.cpp
+```
+
+## 2. Componentes do DBSrv (Servidor de Banco de Dados)
+
+### Sistema de Cachê Avançado
+```
+src/dbsrv/cache/CacheStrategyManager.h
+src/dbsrv/cache/CacheStrategyManager.cpp
+src/dbsrv/cache/DistributedCache.h
+src/dbsrv/cache/DistributedCache.cpp
+src/dbsrv/cache/PersistentCache.h
+src/dbsrv/cache/PersistentCache.cpp
+```
+
+### Sistema de Sharding e Escalabilidade
+```
+src/dbsrv/sharding/ShardManager.h
+src/dbsrv/sharding/ShardManager.cpp
+src/dbsrv/sharding/DataDistributor.h
+src/dbsrv/sharding/DataDistributor.cpp
+src/dbsrv/sharding/ConsistencyChecker.h
+src/dbsrv/sharding/ConsistencyChecker.cpp
+```
+
+### Sistema de Backup e Recuperação
+```
+src/dbsrv/backup/BackupScheduler.h
+src/dbsrv/backup/BackupScheduler.cpp
+src/dbsrv/backup/RecoveryManager.h
+src/dbsrv/backup/RecoveryManager.cpp
+src/dbsrv/backup/PointInTimeRecovery.h
+src/dbsrv/backup/PointInTimeRecovery.cpp
+```
+
+## 3. Componentes do NRSrv (Servidor de Roteamento)
+
+### Sistema de Balanceamento de Carga
+```
+src/nrsrv/balancing/LoadBalancer.h
+src/nrsrv/balancing/LoadBalancer.cpp
+src/nrsrv/balancing/ServerHealth.h
+src/nrsrv/balancing/ServerHealth.cpp
+src/nrsrv/balancing/RegionBasedRouting.h
+src/nrsrv/balancing/RegionBasedRouting.cpp
+```
+
+### Sistema de Resiliência e Failover
+```
+src/nrsrv/resilience/FailoverManager.h
+src/nrsrv/resilience/FailoverManager.cpp
+src/nrsrv/resilience/ConnectionRecovery.h
+src/nrsrv/resilience/ConnectionRecovery.cpp
+src/nrsrv/resilience/HeartbeatMonitor.h
+src/nrsrv/resilience/HeartbeatMonitor.cpp
+```
+
+### Sistema Anti-DDoS
+```
+src/nrsrv/security/DDoSProtection.h
+src/nrsrv/security/DDoSProtection.cpp
+src/nrsrv/security/TrafficAnalyzer.h
+src/nrsrv/security/TrafficAnalyzer.cpp
+src/nrsrv/security/RateLimiter.h
+src/nrsrv/security/RateLimiter.cpp
+```
+
+## 4. Componentes do BISrv (Servidor de Billing)
+
+### Sistema de Integração com Gateways de Pagamento
+```
+src/bisrv/payment/PaymentGatewayManager.h
+src/bisrv/payment/PaymentGatewayManager.cpp
+src/bisrv/payment/gateways/PayPalGateway.h
+src/bisrv/payment/gateways/PayPalGateway.cpp
+src/bisrv/payment/gateways/StripeGateway.h
+src/bisrv/payment/gateways/StripeGateway.cpp
+src/bisrv/payment/gateways/PagSeguroGateway.h
+src/bisrv/payment/gateways/PagSeguroGateway.cpp
+```
+
+### Sistema de Detecção de Fraudes
+```
+src/bisrv/fraud/FraudDetectionEngine.h
+src/bisrv/fraud/FraudDetectionEngine.cpp
+src/bisrv/fraud/BehaviorAnalyzer.h
+src/bisrv/fraud/BehaviorAnalyzer.cpp
+src/bisrv/fraud/AnomalyDetector.h
+src/bisrv/fraud/AnomalyDetector.cpp
+```
+
+### Sistema de Relatórios Financeiros
+```
+src/bisrv/reports/ReportGenerator.h
+src/bisrv/reports/ReportGenerator.cpp
+src/bisrv/reports/TransactionAnalytics.h
+src/bisrv/reports/TransactionAnalytics.cpp
+src/bisrv/reports/RevenueTracker.h
+src/bisrv/reports/RevenueTracker.cpp
+```
+
+## 5. Componentes do Sistema de Segurança (Comum a todos os servidores)
+
+### Sistema Anti-Cheat
+```
+src/common/security/AntiCheatManager.h
+src/common/security/AntiCheatManager.cpp
+src/common/security/ClientVerifier.h
+src/common/security/ClientVerifier.cpp
+src/common/security/IntegrityChecker.h
+src/common/security/IntegrityChecker.cpp
+src/common/security/BehaviorReporter.h
+src/common/security/BehaviorReporter.cpp
+```
+
+### Sistema de Criptografia e Autenticação
+```
+src/common/security/EncryptionManager.h
+src/common/security/EncryptionManager.cpp
+src/common/security/AuthenticationProvider.h
+src/common/security/AuthenticationProvider.cpp
+src/common/security/SessionManager.h
+src/common/security/SessionManager.cpp
+src/common/security/CertificateManager.h
+src/common/security/CertificateManager.cpp
+```
+
+### Sistema de Logging e Auditoria
+```
+src/common/log/AuditLogger.h
+src/common/log/AuditLogger.cpp
+src/common/log/SecurityEventMonitor.h
+src/common/log/SecurityEventMonitor.cpp
+src/common/log/LogAggregator.h
+src/common/log/LogAggregator.cpp
+src/common/log/ForensicTools.h
+src/common/log/ForensicTools.cpp
+```
+
+## Prioridade de Implementação
+
+1. **Crítica (Implementar primeiro):**
+   - Sistema de Combate Avançado
+   - Sistema de Mundo e Instâncias  
+   - Sistema de Cachê Avançado
+   - Sistema de Balanceamento de Carga
+   - Sistema Anti-Cheat
+
+2. **Alta (Segunda fase):**
+   - Sistema de Interações Sociais
+   - Sistema de Sharding e Escalabilidade
+   - Sistema de Integração com Gateways de Pagamento
+   - Sistema de Resiliência e Failover
+   - Sistema de Criptografia e Autenticação
+
+3. **Média (Terceira fase):**
+   - Sistema de Eventos
+   - Sistema de Backup e Recuperação
+   - Sistema de Detecção de Fraudes
+   - Sistema Anti-DDoS
+   - Sistema de Logging e Auditoria
+
+4. **Baixa (Fase final):**
+   - Sistema de Relatórios Financeiros
+   - Ferramentas auxiliares e extensões
+
+## Observações sobre Implementação
+
+1. **Consistência entre servidores:**
+   - Garantir que as interfaces dos componentes sejam compatíveis entre os diferentes servidores
+   - Implementar sistema robusto de versionamento para evitar incompatibilidades
+
+2. **Testabilidade:**
+   - Criar testes unitários para cada componente
+   - Implementar testes de integração entre sistemas relacionados
+   - Estabelecer ambiente de testes automatizados
+
+3. **Documentação:**
+   - Documentar todas as APIs e interfaces
+   - Criar diagramas de sequência para fluxos críticos
+   - Manter histórico de decisões de design 

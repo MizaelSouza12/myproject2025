@@ -1,0 +1,26 @@
+FFFFFF  
+FFFFFF Indicadores de Performance (ALT+G)
+FFFFAA
+FFFFAA Mostrar FPS
+AAFFAA Exibir quadros por segundo
+FFFFAA
+FFFFAA Mostrar Ping
+AAFFAA Exibir latência da conexão
+FFFFAA
+FFFFAA Mostrar Uso de CPU
+AAFFAA Exibir utilização do processador
+FFFFAA
+FFFFAA Mostrar Uso de Memória
+AAFFAA Exibir utilização de memória RAM
+FFFFAA
+FFFFAA Mostrar Informações de Rede
+AAFFAA Exibir dados de conexão detalhados
+FFFFAA
+FFFFAA Modo de Exibição
+AAFFAA Escolher entre simples ou detalhado
+FFFFAA
+FFFFAA Posição na Tela
+AAFFAA Ajustar local de exibição
+FFFFAA
+FFFFAA Esconder Todos
+AAFFAA Ocultar todos os indicadores

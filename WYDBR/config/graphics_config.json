@@ -1,0 +1,69 @@
+{
+  "version": "2.0.0",
+  "lastUpdate": "2025-05-07T00:00:00.000Z",
+  "signature": "",
+  "graphics": {
+    "renderer": "auto",
+    "preferredRenderers": ["dx11", "vulkan", "compatibility"],
+    "quality": "high",
+    "resolution": {
+      "width": 1920,
+      "height": 1080,
+      "fullscreen": true,
+      "vsync": true
+    },
+    "effects": {
+      "shadows": true,
+      "particles": true,
+      "postProcessing": true,
+      "bloom": true,
+      "ambientOcclusion": true,
+      "antiAliasing": "TAA",
+      "textureQuality": "high",
+      "modelDetail": "high",
+      "drawDistance": 1000,
+      "weatherEffects": true,
+      "reflection": true
+    },
+    "performance": {
+      "targetFPS": 60,
+      "lowSpecMode": false,
+      "gpuOptimization": true,
+      "multiThreaded": true,
+      "useGPUParticles": true
+    },
+    "debug": {
+      "enabled": false,
+      "showFPS": false,
+      "showStats": false,
+      "logLevel": "info",
+      "validateShaders": false
+    }
+  },
+  "security": {
+    "fileIntegrityCheck": true,
+    "configVersion": 2,
+    "configChecksum": "",
+    "executableOnly": true,
+    "disableBatchExecution": true,
+    "signatureVerification": true,
+    "preventScriptExecution": true
+  },
+  "executables": {
+    "launcher": {
+      "path": "WYDLauncher.exe",
+      "parameters": {},
+      "requiredSignature": true
+    },
+    "client": {
+      "path": "WYD.exe",
+      "parameters": {},
+      "requiredSignature": true
+    },
+    "config": {
+      "path": "WydConfig.exe",
+      "parameters": {},
+      "requiredSignature": true
+    }
+  }
+}

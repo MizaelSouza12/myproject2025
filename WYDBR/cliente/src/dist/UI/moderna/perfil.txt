@@ -1,0 +1,53 @@
+FFFFFF
+FFFFFF Perfil do Personagem
+FFFFAA
+FFFFAA Informações detalhadas
+AAFFAA
+
+FFFFFF Informações Básicas
+FFFFAA
+FFFFAA Nick:
+AAFFAA [Nome do Personagem]
+AAFFAA
+
+FFFFFF Level e Classe
+FFFFAA
+FFFFAA Nível:
+AAFFAA [Nível atual]
+AAFFAA
+
+FFFFFF Estatísticas PvP
+FFFFAA
+FFFFAA Kills PvP:
+AAFFAA [Número de kills]
+AAFFAA
+
+FFFFFF Mortes PvP
+FFFFAA
+FFFFAA Mortes:
+AAFFAA [Número de mortes]
+AAFFAA
+
+FFFFFF Reputação
+FFFFAA
+FFFFAA Status:
+AAFFAA [Nível de reputação]
+AAFFAA
+
+FFFFFF Conquistas
+FFFFAA
+FFFFAA Medalhas obtidas:
+AAFFAA [Lista de medalhas]
+AAFFAA
+
+FFFFFF Segurança
+FFFFAA
+FFFFAA Alterar senha da conta
+AAFFAA Alterar email
+AAFFAA
+
+FFFFFF
+FFFFFF Fechar
+FFFFAA
+FFFFAA Fechar perfil
+AAFFAA

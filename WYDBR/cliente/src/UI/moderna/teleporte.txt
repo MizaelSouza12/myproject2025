@@ -1,0 +1,36 @@
+FFFFFF
+FFFFFF Teleporte Rápido
+FFFFAA
+FFFFAA Selecione uma cidade
+AAFFAA
+
+FFFFFF Armia
+FFFFAA
+FFFFAA Teleportar para Armia
+AAFFAA
+
+FFFFFF Erion
+FFFFAA
+FFFFAA Teleportar para Erion
+AAFFAA
+
+FFFFFF Azran
+FFFFAA
+FFFFAA Teleportar para Azran
+AAFFAA
+
+FFFFFF Noatum
+FFFFAA
+FFFFAA Teleportar para Noatum
+AAFFAA
+
+FFFFFF Gelo
+FFFFAA
+FFFFAA Teleportar para Gelo
+AAFFAA
+
+FFFFFF
+FFFFFF Cancelar
+FFFFAA
+FFFFAA Fechar menu de teleporte
+AAFFAA

@@ -1,0 +1,7 @@
+{
+  "format": "unknown",
+  "file_size": 75824,
+  "file_path": "/home/runner/workspace/WYD/v769ClientRelease/UI/FieldScene.bin",
+  "file_name": "FieldScene.bin",
+  "hex_sample": "00000000  0c 00 00 00 03 03 00 00 00 00 00 00 ff ff ff ff  |................|\n00000010  96 02 00 00 46 02 00 00 50 00 00 00 10 00 00 00  |....F...P.......|\n00000020  aa ff ff ff 00 00 00 00 88 88 aa ff 00 00 00 00  |................|\n00000030  00 00 00 00 00 cc cc cc cc cc cc cc cc cc cc cc  |................|\n00000040  cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc  |................|\n00000050  cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc  |................|\n00000060  cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc  |................|\n00000070  cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc  |................|\n00000080  cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc  |................|\n00000090  cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc  |................|\n000000a0  cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc  |................|\n000000b0  cc cc cc cc 01 00 00 00 02 01 00 00 00 00 00 00  |................|\n000000c0  fe ff ff ff 00 00 00 00 00 00 00 00 f0 00 00 00  |................|\n000000d0  f0 00 00 00 00 00 00 77 04 00 00 00 00 00 00 00  |.......w........|\n000000e0  0c 00 00 00 04 03 00 00 02 01 00 00 ff ff ff ff  |................|\n000000f0  00 00 00 00 00 00 00 00 f0 00 00 00 14 00 00 00  |................|"
+}

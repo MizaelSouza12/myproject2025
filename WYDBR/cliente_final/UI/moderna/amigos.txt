@@ -1,0 +1,40 @@
+FFFFFF
+FFFFFF Lista de Amigos
+FFFFAA
+FFFFAA Gerenciar lista de amigos
+AAFFAA
+
+FFFFFF Amigos
+FFFFAA
+FFFFAA Nome         Lv   Status
+AAFFAA [Lista de amigos]
+AAFFAA
+AAFFAA
+AAFFAA
+AAFFAA
+AAFFAA
+AAFFAA
+AAFFAA
+AAFFAA
+AAFFAA
+AAFFAA
+AAFFAA
+AAFFAA
+
+FFFFFF Adicionar
+FFFFAA
+FFFFAA Adicionar novo amigo
+AAFFAA _______________
+AAFFAA
+
+FFFFFF
+FFFFFF Jogadores Online
+FFFFAA
+FFFFAA Ver jogadores conectados
+AAFFAA
+
+FFFFFF
+FFFFFF Fechar
+FFFFAA
+FFFFAA Fechar lista de amigos
+AAFFAA

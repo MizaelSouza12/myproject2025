@@ -1,0 +1,76 @@
+FFFFFF  
+FFFFFF Comandos de Guilda
+FFFFAA /criar [nome da Guilda]
+AAFFAA Cria uma guilda com o nome escolhido. S�o necess�rios 100,000,000 gold.
+AAFFAA Deve ser usado no canal onde o personagem � cidad�o.
+FFFFAA
+FFFFAA guild
+AAFFAA Verifica os membros online e a situa��o atual da guerra de sua Guilda.
+FFFFAA
+FFFFAA /expulsar [nome do membro]
+AAFFAA Membro: usado para sair da guilda atual. N�o � necess�rio adicionar um nome.
+AAFFAA L�der: se usado com um nome, expulsa o membro; sem nome, desfaz a guilda.
+FFFFAA
+FFFFAA guildtax [0 ~ 30]
+AAFFAA Comando usado somente por l�deres de cidades. Usado para definir a taxa de
+AAFFAA imposto das negocia��es efetuadas na cidade.
+FFFFAA
+FFFFAA /relo [nome do personagem]
+AAFFAA Transporta-se para um membro de sua guilda, sub-guilda ou grupo.
+AAFFAA � necess�rio pagar 10 safiras ao NPC Or�culo Negro ou a skill Teleporte.
+AAFFAA � necess�rio um Pergaminho do Portal por uso.
+FFFFAA
+FFFFAA /summon [nome do personagem]
+AAFFAA Evoca um membro de sua guilda, sub-guilda ou grupo para sua localiza��o atual.
+AAFFAA � necess�ria a skill Teleporte da classe Foema.
+AAFFAA A pessoa a ser transportada precisa de um Pergaminho do Portal.
+FFFFAA
+FFFFAA /summonguild
+AAFFAA Usado somente pelos l�deres das Guildas. Convoca todos os membros
+AAFFAA conectados. Se usado por um sub-l�der, convoca apenas membros da
+AAFFAA respectiva sub-guilda.
+FFFFAA
+FFFFAA /transferir [nome do personagem]
+AAFFAA Transfere a lideran�a da Guilda para o personagem selecionado.
+FFFFAA
+FFFFAA /fimguerra
+AAFFAA Finaliza a declara��o de guerra.
+FFFFAA
+FFFFAA /allystop
+AAFFAA Finaliza a irmandade com outra guilda.
+FFFFAA
+FFFFAA /cp
+AAFFAA Verifica os Chaos Points de seu personagem.
+FFFFFF  
+FFFFFF Comandos de Chat
+FFFFAA /[nome do personagem] [mensagem]
+AAFFAA Envia uma mensagem particular para o usu�rio.
+FFFFAA
+FFFFAA /r [mensagem]
+AAFFAA Responde ao �ltimo usu�rio que enviou uma mensagem particular.
+FFFFAA
+FFFFAA = [mensagem]
+AAFFAA Mensagem enviada somente para o grupo.
+FFFFAA
+FFFFAA @@ [mensagem]
+AAFFAA Mensagem enviada todos os jogadores que est�o no servidor.
+FFFFAA
+FFFFAA - [mensagem]
+AAFFAA Mensagem enviada somente para a Guilda.
+AAFFAA No caso de personagens sem Guilda, a mensagem � enviada para todos
+AAFFAA que tamb�m n�o possu�rem Guilda e estiverem no mesmo canal.
+FFFFAA
+FFFFAA -- [mensagem]
+AAFFAA Mensagem enviada somente para as Guildas aliadas.
+AAFFAA No caso de personagens sem Guilda, a mensagem � enviada para todos
+AAFFAA que tamb�m n�o possu�rem Guilda e estiverem no mesmo canal.
+FFFFAA
+FFFFAA * [mensagem]
+AAFFAA Exibe a conversa durante 10 segundos.
+FFFFAA
+FFFFAA /[nome do personagem] ! [mensagem]
+AAFFAA Envia uma carta para o usu�rio. Mensagem � salva at� o logoff.
+FFFFAA
+FFFFAA /gritar [mensagem]
+AAFFAA Caso possua o item Trombeta M�gica no invent�rio, uma unidade � subtra�da
+AAFFAA do invent�rio e a mensagem � enviada para todos os jogadores do servidor.

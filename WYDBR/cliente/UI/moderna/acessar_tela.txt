@@ -1,0 +1,34 @@
+FFFFFF
+FFFFFF Acessar Tela Remota
+FFFFAA
+FFFFAA Conectar a outro jogador
+AAFFAA
+
+FFFFFF Sair
+FFFFAA
+FFFFAA Voltar ao jogo
+AAFFAA
+
+FFFFFF ID do Jogador
+FFFFAA
+FFFFAA Digite o login do jogador
+AAFFAA _______________
+AAFFAA
+
+FFFFFF Senha de Acesso
+FFFFAA
+FFFFAA Digite a senha de acesso
+AAFFAA _______________
+AAFFAA
+
+FFFFFF
+FFFFFF Conectar
+FFFFAA
+FFFFAA Iniciar acesso remoto
+AAFFAA
+
+FFFFFF
+FFFFFF Cancelar
+FFFFAA
+FFFFAA Voltar sem conectar
+AAFFAA

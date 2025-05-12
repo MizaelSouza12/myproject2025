@@ -1,28 +1,26 @@
-# WYDBR2.0 Server Backup Script
-# Autor: Claude
-# Data: 2024
+# WYDBR2.0 Backup Script
+# Requer execução como Administrador
+#Requires -RunAsAdministrator
 
 # Configurações
 $config = @{
     ProjectRoot = "F:\Users\Mizael\WYDBR2.0"
+    BackupRoot = "F:\Backups\WYDBR2.0"
     DatabaseName = "wydbr2"
     DatabaseUser = "wydbr2_user"
     DatabasePassword = "your_secure_password"
     DatabaseHost = "localhost"
     DatabasePort = 3306
-    BackupPath = "F:\Backups\WYDBR2.0"
-    BackupRetentionDays = 30
-    BackupCompression = $true
-    BackupEncryption = $true
-    BackupPassword = "your_backup_password"
-    BackupEmail = "admin@wydbr2.com"
-    BackupDiscord = "https://discord.com/api/webhooks/your_webhook_url"
-    BackupEnabled = $true
-    BackupSchedule = "Daily"
-    BackupTime = "03:00"
-    BackupType = "Full"
-    BackupVerify = $true
-    BackupCleanup = $true
+    RetentionDays = 30
+    CompressBackups = $true
+    BackupSchedule = @{
+        Full = "0 0 * * 0"  # Todo domingo à meia-noite
+        Incremental = "0 0 * * 1-6"  # Segunda a sábado à meia-noite
+        Differential = "0 12 * * *"  # Todo dia ao meio-dia
+    }
+    EmailNotification = "admin@wydbr2.com"
+    DiscordWebhook = "https://discord.com/api/webhooks/your_webhook_url"
+    NotificationsEnabled = $true
 }
 
 # Funções de Log
@@ -34,156 +32,126 @@ function Write-Log {
     $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
     $logMessage = "[$timestamp] [$Level] $Message"
     Write-Host $logMessage
-    Add-Content -Path "$($config.ProjectRoot)\logs\backup.log" -Value $logMessage
+    
+    # Criar diretório de logs se não existir
+    $logDir = Join-Path $config.ProjectRoot "logs"
+    if (-not (Test-Path $logDir)) {
+        New-Item -ItemType Directory -Path $logDir -Force | Out-Null
+    }
+    
+    Add-Content -Path "$logDir\backup.log" -Value $logMessage
 }
 
-# Função para criar diretório de backup
-function New-BackupDirectory {
-    Write-Log "Criando diretório de backup..."
+# Verificar execução como administrador
+Write-Log "Verificando privilégios de administrador..."
+$isAdmin = ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+if (-not $isAdmin) {
+    Write-Log "Este script precisa ser executado como Administrador!" "ERROR"
+    exit 1
+}
+
+# Função para criar diretórios de backup
+function Initialize-BackupDirectories {
+    Write-Log "Inicializando diretórios de backup..."
     
     try {
-        $backupDir = "$($config.BackupPath)\$(Get-Date -Format 'yyyy-MM-dd')"
+        $directories = @(
+            $config.BackupRoot,
+            "$($config.BackupRoot)\full",
+            "$($config.BackupRoot)\incremental",
+            "$($config.BackupRoot)\differential",
+            "$($config.BackupRoot)\logs"
+        )
         
-        if (-not (Test-Path $backupDir)) {
-            New-Item -ItemType Directory -Path $backupDir -Force
-            Write-Log "Diretório de backup criado: $backupDir"
+        foreach ($dir in $directories) {
+            if (-not (Test-Path $dir)) {
+                New-Item -ItemType Directory -Path $dir -Force | Out-Null
+                Write-Log "Diretório criado: $dir"
+            }
         }
         
-        return $backupDir
+        Write-Log "Diretórios de backup inicializados com sucesso"
+        return $true
     }
     catch {
-        Write-Log "Erro ao criar diretório de backup: $_" "ERROR"
-        return $null
+        Write-Log "Erro ao criar diretórios de backup: $_" "ERROR"
+        return $false
     }
 }
 
 # Função para backup do banco de dados
 function Backup-Database {
     param(
-        [string]$BackupDir
+        [string]$BackupType = "full"
     )
     
-    Write-Log "Iniciando backup do banco de dados..."
+    Write-Log "Iniciando backup $BackupType do banco de dados..."
     
     try {
-        $timestamp = Get-Date -Format "yyyy-MM-dd_HH-mm-ss"
-        $backupFile = "$BackupDir\database_$timestamp.sql"
+        $timestamp = Get-Date -Format "yyyyMMdd_HHmmss"
+        $backupDir = "$($config.BackupRoot)\$BackupType"
+        $backupFile = "$backupDir\db_backup_${BackupType}_$timestamp.sql"
         
-        # Comando mysqldump
-        $mysqldump = "mysqldump"
-        $mysqldumpArgs = @(
-            "--host=$($config.DatabaseHost)",
-            "--port=$($config.DatabasePort)",
-            "--user=$($config.DatabaseUser)",
-            "--password=$($config.DatabasePassword)",
-            "--databases",
-            $config.DatabaseName,
-            "--result-file=$backupFile",
-            "--single-transaction",
-            "--quick",
-            "--lock-tables=false"
-        )
-        
-        # Executar backup
-        & $mysqldump $mysqldumpArgs
+        # Criar backup
+        mysqldump --host=$($config.DatabaseHost) --port=$($config.DatabasePort) --user=$($config.DatabaseUser) --password=$($config.DatabasePassword) $($config.DatabaseName) > $backupFile
         
         if ($LASTEXITCODE -eq 0) {
-            Write-Log "Backup do banco de dados concluído: $backupFile"
-            
-            # Verificar backup
-            if ($config.BackupVerify) {
-                $verifyQuery = "SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = '$($config.DatabaseName)'"
-                $tableCount = Invoke-MySQLQuery -Query $verifyQuery
-                
-                if ($tableCount -gt 0) {
-                    Write-Log "Backup verificado com sucesso: $tableCount tabelas encontradas"
-                }
-                else {
-                    Write-Log "Erro na verificação do backup: nenhuma tabela encontrada" "ERROR"
-                    return $false
-                }
+            # Comprimir backup
+            if ($config.CompressBackups) {
+                Compress-Archive -Path $backupFile -DestinationPath "$backupFile.zip" -Force
+                Remove-Item $backupFile -Force
+                $backupFile = "$backupFile.zip"
             }
             
+            Write-Log "Backup do banco de dados concluído: $backupFile"
             return $backupFile
         }
         else {
-            Write-Log "Erro ao executar backup do banco de dados" "ERROR"
-            return $false
+            Write-Log "Erro ao criar backup do banco de dados" "ERROR"
+            return $null
         }
     }
     catch {
-        Write-Log "Erro ao fazer backup do banco de dados: $_" "ERROR"
-        return $false
+        Write-Log "Erro durante o backup do banco de dados: $_" "ERROR"
+        return $null
     }
 }
 
-# Função para backup dos arquivos
+# Função para backup de arquivos
 function Backup-Files {
     param(
-        [string]$BackupDir
+        [string]$BackupType = "full"
     )
     
-    Write-Log "Iniciando backup dos arquivos..."
+    Write-Log "Iniciando backup $BackupType dos arquivos..."
     
     try {
-        $timestamp = Get-Date -Format "yyyy-MM-dd_HH-mm-ss"
-        $backupFile = "$BackupDir\files_$timestamp.zip"
+        $timestamp = Get-Date -Format "yyyyMMdd_HHmmss"
+        $backupDir = "$($config.BackupRoot)\$BackupType"
+        $backupFile = "$backupDir\files_backup_${BackupType}_$timestamp.zip"
         
-        # Diretórios para backup
-        $directories = @(
+        # Definir arquivos para backup
+        $filesToBackup = @(
             "$($config.ProjectRoot)\config",
             "$($config.ProjectRoot)\data",
-            "$($config.ProjectRoot)\logs",
-            "$($config.ProjectRoot)\reports"
+            "$($config.ProjectRoot)\logs"
         )
         
-        # Criar arquivo ZIP
-        Compress-Archive -Path $directories -DestinationPath $backupFile -Force
+        # Criar backup
+        Compress-Archive -Path $filesToBackup -DestinationPath $backupFile -Force
         
         if (Test-Path $backupFile) {
-            Write-Log "Backup dos arquivos concluído: $backupFile"
+            Write-Log "Backup de arquivos concluído: $backupFile"
             return $backupFile
         }
         else {
-            Write-Log "Erro ao criar arquivo de backup" "ERROR"
-            return $false
+            Write-Log "Erro ao criar backup de arquivos" "ERROR"
+            return $null
         }
     }
     catch {
-        Write-Log "Erro ao fazer backup dos arquivos: $_" "ERROR"
-        return $false
-    }
-}
-
-# Função para criptografar backup
-function Protect-Backup {
-    param(
-        [string]$BackupFile
-    )
-    
-    if (-not $config.BackupEncryption) {
-        return $BackupFile
-    }
-    
-    Write-Log "Criptografando arquivo de backup..."
-    
-    try {
-        $encryptedFile = "$BackupFile.enc"
-        
-        # Criptografar arquivo
-        $securePassword = ConvertTo-SecureString $config.BackupPassword -AsPlainText -Force
-        $encryptedContent = Get-Content $BackupFile -Raw | ConvertTo-SecureString -AsPlainText -Force
-        $encryptedContent | ConvertFrom-SecureString -SecureKey $securePassword | Set-Content $encryptedFile
-        
-        # Remover arquivo original
-        Remove-Item $BackupFile -Force
-        
-        Write-Log "Arquivo criptografado com sucesso: $encryptedFile"
-        return $encryptedFile
-    }
-    catch {
-        Write-Log "Erro ao criptografar arquivo: $_" "ERROR"
-        return $BackupFile
+        Write-Log "Erro durante o backup de arquivos: $_" "ERROR"
+        return $null
     }
 }
 
@@ -192,108 +160,129 @@ function Clear-OldBackups {
     Write-Log "Limpando backups antigos..."
     
     try {
-        $cutoffDate = (Get-Date).AddDays(-$config.BackupRetentionDays)
+        $cutoffDate = (Get-Date).AddDays(-$config.RetentionDays)
         
-        Get-ChildItem $config.BackupPath -Directory | 
-        Where-Object { $_.LastWriteTime -lt $cutoffDate } | 
-        Remove-Item -Recurse -Force
+        $backupTypes = @("full", "incremental", "differential")
+        foreach ($type in $backupTypes) {
+            $backupDir = "$($config.BackupRoot)\$type"
+            
+            Get-ChildItem $backupDir -File | Where-Object {
+                $_.LastWriteTime -lt $cutoffDate
+            } | ForEach-Object {
+                Remove-Item $_.FullName -Force
+                Write-Log "Backup removido: $($_.Name)"
+            }
+        }
         
-        Write-Log "Backups antigos removidos com sucesso."
-        return $true
+        Write-Log "Limpeza de backups concluída"
     }
     catch {
         Write-Log "Erro ao limpar backups antigos: $_" "ERROR"
-        return $false
     }
 }
 
-# Função para enviar notificação
+# Função para enviar notificações
 function Send-BackupNotification {
     param(
-        [string]$BackupDir,
-        [string]$DatabaseBackup,
-        [string]$FilesBackup
+        [string]$BackupType,
+        [string[]]$BackupFiles,
+        [bool]$Success
     )
     
-    Write-Log "Enviando notificação de backup..."
+    if (-not $config.NotificationsEnabled) {
+        return
+    }
+    
+    $status = if ($Success) { "Sucesso" } else { "Falha" }
+    $message = "Status do Backup WYDBR2.0 ($BackupType)`n`n"
+    $message += "Status: $status`n"
+    $message += "Data: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')`n"
+    
+    if ($Success) {
+        $message += "`nArquivos:`n"
+        foreach ($file in $BackupFiles) {
+            $message += "- $file`n"
+        }
+    }
     
     try {
-        $message = @"
-Backup WYDBR2.0 concluído com sucesso!
-
-Data: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')
-Diretório: $BackupDir
-Banco de Dados: $DatabaseBackup
-Arquivos: $FilesBackup
-
-Tamanho total: $((Get-ChildItem $BackupDir -Recurse | Measure-Object -Property Length -Sum).Sum / 1MB) MB
-"@
-        
         # Enviar email
-        if ($config.BackupEmail) {
-            Send-MailMessage -To $config.BackupEmail -Subject "Backup WYDBR2.0" -Body $message
+        if ($config.EmailNotification) {
+            Send-MailMessage -To $config.EmailNotification -Subject "Backup WYDBR2.0 - $status" -Body $message
         }
         
         # Enviar Discord
-        if ($config.BackupDiscord) {
+        if ($config.DiscordWebhook) {
             $discordBody = @{
                 content = $message
             } | ConvertTo-Json
             
-            Invoke-RestMethod -Uri $config.BackupDiscord -Method Post -Body $discordBody -ContentType "application/json"
+            Invoke-RestMethod -Uri $config.DiscordWebhook -Method Post -Body $discordBody -ContentType "application/json"
         }
         
-        Write-Log "Notificação enviada com sucesso."
-        return $true
+        Write-Log "Notificações enviadas com sucesso"
     }
     catch {
-        Write-Log "Erro ao enviar notificação: $_" "ERROR"
-        return $false
+        Write-Log "Erro ao enviar notificações: $_" "ERROR"
     }
 }
 
-# Função principal
+# Função principal de backup
 function Start-Backup {
-    Write-Log "Iniciando processo de backup..."
+    param(
+        [string]$BackupType = "full"
+    )
     
-    # Criar diretório de backup
-    $backupDir = New-BackupDirectory
-    if (-not $backupDir) {
-        Write-Log "Falha ao criar diretório de backup. Abortando." "ERROR"
-        return $false
+    Write-Log "Iniciando processo de backup $BackupType..."
+    
+    # Inicializar diretórios
+    if (-not (Initialize-BackupDirectories)) {
+        return
     }
+    
+    $backupFiles = @()
+    $success = $true
     
     # Backup do banco de dados
-    $databaseBackup = Backup-Database -BackupDir $backupDir
-    if (-not $databaseBackup) {
-        Write-Log "Falha no backup do banco de dados. Abortando." "ERROR"
-        return $false
+    $dbBackup = Backup-Database -BackupType $BackupType
+    if ($dbBackup) {
+        $backupFiles += $dbBackup
+    }
+    else {
+        $success = $false
     }
     
-    # Backup dos arquivos
-    $filesBackup = Backup-Files -BackupDir $backupDir
-    if (-not $filesBackup) {
-        Write-Log "Falha no backup dos arquivos. Abortando." "ERROR"
-        return $false
+    # Backup de arquivos
+    $filesBackup = Backup-Files -BackupType $BackupType
+    if ($filesBackup) {
+        $backupFiles += $filesBackup
     }
-    
-    # Criptografar backups
-    if ($config.BackupEncryption) {
-        $databaseBackup = Protect-Backup -BackupFile $databaseBackup
-        $filesBackup = Protect-Backup -BackupFile $filesBackup
+    else {
+        $success = $false
     }
     
     # Limpar backups antigos
-    if ($config.BackupCleanup) {
-        Clear-OldBackups
+    Clear-OldBackups
+    
+    # Enviar notificações
+    Send-BackupNotification -BackupType $BackupType -BackupFiles $backupFiles -Success $success
+    
+    if ($success) {
+        Write-Log "Processo de backup $BackupType concluído com sucesso"
     }
-    
-    # Enviar notificação
-    Send-BackupNotification -BackupDir $backupDir -DatabaseBackup $databaseBackup -FilesBackup $filesBackup
-    
-    Write-Log "Processo de backup concluído com sucesso!"
-    return $true
+    else {
+        Write-Log "Processo de backup $BackupType concluído com erros" "ERROR"
+    }
+}
+
+# Determinar tipo de backup baseado no dia
+$today = Get-Date
+$backupType = switch ($today.DayOfWeek) {
+    "Sunday" { "full" }
+    { $_ -in "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday" } {
+        if ($today.Hour -eq 12) { "differential" } else { "incremental" }
+    }
 }
 
 # Executar backup
-Start-Backup 
+Start-Backup -BackupType $backupType 

@@ -1,0 +1,31 @@
+{
+    "version": "1.0.0",
+    "lastUpdate": "2025-05-07T12:00:00Z",
+    "files": [
+        {
+            "path": "WYD.exe",
+            "hashAlgorithm": "SHA-256",
+            "hash": "PLACEHOLDER_TO_BE_UPDATED_DURING_BUILD",
+            "critical": true
+        },
+        {
+            "path": "WYDLauncher.exe",
+            "hashAlgorithm": "SHA-256",
+            "hash": "PLACEHOLDER_TO_BE_UPDATED_DURING_BUILD",
+            "critical": true
+        },
+        {
+            "path": "WydConfig.exe",
+            "hashAlgorithm": "SHA-256",
+            "hash": "PLACEHOLDER_TO_BE_UPDATED_DURING_BUILD",
+            "critical": true
+        },
+        {
+            "path": "config/graphics_config.json",
+            "hashAlgorithm": "SHA-256",
+            "hash": "PLACEHOLDER_TO_BE_UPDATED_DURING_BUILD",
+            "critical": false
+        }
+    ],
+    "signature": "PLACEHOLDER_TO_BE_UPDATED_DURING_BUILD"
+}

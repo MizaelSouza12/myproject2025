@@ -1,6 +1,6 @@
 # WYDBR2.0 Server Monitoring Script
-# Autor: Claude
-# Data: 2024
+# Requer execução como Administrador
+#Requires -RunAsAdministrator
 
 # Configurações
 $config = @{
@@ -38,6 +38,14 @@ function Write-Log {
     Add-Content -Path "$($config.ProjectRoot)\logs\monitor.log" -Value $logMessage
 }
 
+# Verificar execução como administrador
+Write-Log "Verificando privilégios de administrador..."
+$isAdmin = ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+if (-not $isAdmin) {
+    Write-Log "Este script precisa ser executado como Administrador!" "ERROR"
+    exit 1
+}
+
 # Função para coletar métricas do sistema
 function Get-SystemMetrics {
     Write-Log "Coletando métricas do sistema..."
@@ -50,13 +58,18 @@ function Get-SystemMetrics {
             disk = (Get-Counter '\LogicalDisk(_Total)\% Free Space').CounterSamples.CookedValue
             network = (Get-Counter '\Network Interface(*)\Bytes Total/sec').CounterSamples.CookedValue
             connections = (Get-NetTCPConnection -State Listen | Where-Object LocalPort -eq $config.ServerPort).Count
-            process = Get-Process -Name "wydbr2.0_server" -ErrorAction SilentlyContinue
+            process = Get-Process -Name "wydbr2_server" -ErrorAction SilentlyContinue
         }
         
         # Salvar métricas
-        $metrics | ConvertTo-Json | Add-Content -Path "$($config.ProjectRoot)\data\metrics\system_metrics.json"
+        $metricsDir = "$($config.ProjectRoot)\data\metrics"
+        if (-not (Test-Path $metricsDir)) {
+            New-Item -ItemType Directory -Path $metricsDir -Force | Out-Null
+        }
         
-        Write-Log "Métricas coletadas com sucesso."
+        $metrics | ConvertTo-Json | Add-Content -Path "$metricsDir\system_metrics.json"
+        
+        Write-Log "Métricas coletadas com sucesso"
         return $metrics
     }
     catch {
@@ -81,12 +94,17 @@ function Get-DatabaseMetrics {
         WHERE user = '$($config.DatabaseUser)'
 "@
         
-        $metrics = Invoke-MySQLQuery -Query $query
+        $metrics = Invoke-MySqlQuery -Query $query -ConnectionString "Server=$($config.DatabaseHost);Port=$($config.DatabasePort);Database=$($config.DatabaseName);Uid=$($config.DatabaseUser);Pwd=$($config.DatabasePassword)"
         
         # Salvar métricas
-        $metrics | ConvertTo-Json | Add-Content -Path "$($config.ProjectRoot)\data\metrics\database_metrics.json"
+        $metricsDir = "$($config.ProjectRoot)\data\metrics"
+        if (-not (Test-Path $metricsDir)) {
+            New-Item -ItemType Directory -Path $metricsDir -Force | Out-Null
+        }
         
-        Write-Log "Métricas do banco de dados coletadas com sucesso."
+        $metrics | ConvertTo-Json | Add-Content -Path "$metricsDir\database_metrics.json"
+        
+        Write-Log "Métricas do banco de dados coletadas com sucesso"
         return $metrics
     }
     catch {
@@ -95,43 +113,11 @@ function Get-DatabaseMetrics {
     }
 }
 
-# Função para coletar métricas do jogo
-function Get-GameMetrics {
-    Write-Log "Coletando métricas do jogo..."
-    
-    try {
-        $query = @"
-        SELECT 
-            (SELECT COUNT(*) FROM accounts) as total_accounts,
-            (SELECT COUNT(*) FROM characters) as total_characters,
-            (SELECT COUNT(*) FROM guilds) as total_guilds,
-            (SELECT COUNT(*) FROM parties) as total_parties,
-            (SELECT COUNT(*) FROM trades) as total_trades,
-            (SELECT COUNT(*) FROM auctions) as total_auctions,
-            (SELECT COUNT(*) FROM mails) as total_mails,
-            (SELECT COUNT(*) FROM tickets) as total_tickets
-"@
-        
-        $metrics = Invoke-MySQLQuery -Query $query
-        
-        # Salvar métricas
-        $metrics | ConvertTo-Json | Add-Content -Path "$($config.ProjectRoot)\data\metrics\game_metrics.json"
-        
-        Write-Log "Métricas do jogo coletadas com sucesso."
-        return $metrics
-    }
-    catch {
-        Write-Log "Erro ao coletar métricas do jogo: $_" "ERROR"
-        return $null
-    }
-}
-
 # Função para verificar alertas
 function Test-Alerts {
     param(
         [hashtable]$SystemMetrics,
-        [hashtable]$DatabaseMetrics,
-        [hashtable]$GameMetrics
+        [hashtable]$DatabaseMetrics
     )
     
     Write-Log "Verificando alertas..."
@@ -145,7 +131,7 @@ function Test-Alerts {
         }
         
         # Verificar memória
-        if ($SystemMetrics.memory -lt 1024) { # Menos de 1GB disponível
+        if ($SystemMetrics.memory -lt 1024) {
             $alerts += "Memória baixa: $($SystemMetrics.memory)MB disponível"
         }
         
@@ -159,6 +145,16 @@ function Test-Alerts {
             $alerts += "Número de conexões acima do limite: $($SystemMetrics.connections)"
         }
         
+        # Verificar processo do servidor
+        if (-not $SystemMetrics.process) {
+            $alerts += "Processo do servidor não encontrado!"
+            
+            if ($config.AutoRestart) {
+                Write-Log "Tentando reiniciar o servidor..."
+                Start-Process "$($config.ProjectRoot)\build\bin\wydbr2_server.exe" -NoNewWindow
+            }
+        }
+        
         # Verificar tempo de resposta do banco
         if ($DatabaseMetrics.max_query_time -gt $config.MaxResponseTime) {
             $alerts += "Tempo de resposta do banco alto: $($DatabaseMetrics.max_query_time)ms"
@@ -169,12 +165,12 @@ function Test-Alerts {
             $alertMessage = "ALERTAS DO SERVIDOR WYDBR2.0:`n`n" + ($alerts -join "`n")
             
             # Enviar email
-            if ($config.AlertsEnabled) {
+            if ($config.AlertsEnabled -and $config.AlertEmail) {
                 Send-MailMessage -To $config.AlertEmail -Subject "Alertas WYDBR2.0" -Body $alertMessage
             }
             
             # Enviar Discord
-            if ($config.AlertDiscord) {
+            if ($config.AlertsEnabled -and $config.AlertDiscord) {
                 $discordBody = @{
                     content = $alertMessage
                 } | ConvertTo-Json
@@ -198,45 +194,21 @@ function Clear-OldMetrics {
     Write-Log "Limpando métricas antigas..."
     
     try {
+        $metricsDir = "$($config.ProjectRoot)\data\metrics"
         $cutoffDate = (Get-Date).AddDays(-$config.MetricsRetentionDays)
         
-        Get-ChildItem "$($config.ProjectRoot)\data\metrics\*.json" | 
-        Where-Object { $_.LastWriteTime -lt $cutoffDate } | 
-        Remove-Item -Force
+        Get-ChildItem $metricsDir -File | Where-Object {
+            $_.LastWriteTime -lt $cutoffDate
+        } | Remove-Item -Force
         
-        Write-Log "Métricas antigas removidas com sucesso."
-        return $true
+        Write-Log "Limpeza de métricas concluída"
     }
     catch {
         Write-Log "Erro ao limpar métricas antigas: $_" "ERROR"
-        return $false
     }
 }
 
-# Função para gerar relatório
-function New-MetricsReport {
-    Write-Log "Gerando relatório de métricas..."
-    
-    try {
-        $report = @{
-            timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
-            system = Get-Content "$($config.ProjectRoot)\data\metrics\system_metrics.json" | ConvertFrom-Json
-            database = Get-Content "$($config.ProjectRoot)\data\metrics\database_metrics.json" | ConvertFrom-Json
-            game = Get-Content "$($config.ProjectRoot)\data\metrics\game_metrics.json" | ConvertFrom-Json
-        }
-        
-        $report | ConvertTo-Json -Depth 10 | Set-Content "$($config.ProjectRoot)\reports\metrics_report.json"
-        
-        Write-Log "Relatório gerado com sucesso."
-        return $true
-    }
-    catch {
-        Write-Log "Erro ao gerar relatório: $_" "ERROR"
-        return $false
-    }
-}
-
-# Função principal
+# Função principal de monitoramento
 function Start-Monitoring {
     Write-Log "Iniciando monitoramento do servidor..."
     
@@ -244,23 +216,21 @@ function Start-Monitoring {
         # Coletar métricas
         $systemMetrics = Get-SystemMetrics
         $databaseMetrics = Get-DatabaseMetrics
-        $gameMetrics = Get-GameMetrics
         
-        # Verificar alertas
-        if ($systemMetrics -and $databaseMetrics -and $gameMetrics) {
-            Test-Alerts -SystemMetrics $systemMetrics -DatabaseMetrics $databaseMetrics -GameMetrics $gameMetrics
+        if ($systemMetrics -and $databaseMetrics) {
+            # Verificar alertas
+            Test-Alerts -SystemMetrics $systemMetrics -DatabaseMetrics $databaseMetrics
         }
         
-        # Limpar métricas antigas
-        Clear-OldMetrics
+        # Limpar métricas antigas periodicamente
+        if ((Get-Random -Minimum 1 -Maximum 100) -eq 1) {
+            Clear-OldMetrics
+        }
         
-        # Gerar relatório
-        New-MetricsReport
-        
-        # Aguardar próximo intervalo
+        # Aguardar intervalo
         Start-Sleep -Seconds $config.MetricsInterval
     }
 }
 
-# Executar monitoramento
+# Iniciar monitoramento
 Start-Monitoring 

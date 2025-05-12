@@ -1,0 +1,26 @@
+{
+    "version": "1.0.0",
+    "graphics": {
+        "quality": "auto",
+        "customSettings": false
+    },
+    "interface": {
+        "language": "pt-BR",
+        "uiScale": 1.0,
+        "showFPS": false,
+        "chatOpacity": 0.8
+    },
+    "audio": {
+        "masterVolume": 0.8,
+        "musicVolume": 0.5,
+        "effectsVolume": 0.7,
+        "ambientVolume": 0.6,
+        "voiceVolume": 1.0
+    },
+    "gameplay": {
+        "cameraDistance": 1.0,
+        "autoTarget": true,
+        "showDamageNumbers": true,
+        "showHealthBars": true
+    }
+}

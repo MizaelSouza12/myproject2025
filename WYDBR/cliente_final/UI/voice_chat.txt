@@ -1,0 +1,26 @@
+FFFFFF  
+FFFFFF Chat de Voz (ALT+V)
+FFFFAA
+FFFFAA Participantes
+AAFFAA Ver quem está no chat de voz
+FFFFAA
+FFFFAA Canais
+AAFFAA Escolher ou criar um canal
+FFFFAA
+FFFFAA Canal Geral
+AAFFAA Chat de voz aberto
+FFFFAA
+FFFFAA Canal de Grupo
+AAFFAA Chat de voz apenas para o grupo
+FFFFAA
+FFFFAA Canal de Guild
+AAFFAA Chat de voz apenas para membros da guild
+FFFFAA
+FFFFAA Chat Privado
+AAFFAA Chat de voz com um jogador específico
+FFFFAA
+FFFFAA Configurações (F8)
+AAFFAA Ajustar configurações de áudio
+FFFFAA
+FFFFAA Silenciar Todos
+AAFFAA Desativar todas as vozes

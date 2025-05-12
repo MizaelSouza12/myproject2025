@@ -1,0 +1,45 @@
+[2025-05-11 07:25:07] [INFO] Verificando privilégios de administrador...
+[2025-05-11 07:25:07] [INFO] Criando estrutura de diretórios...
+[2025-05-11 07:25:07] [INFO] Diretório criado: F:\Users\Mizael\WYDBR2.0\backup
+[2025-05-11 07:25:07] [INFO] Diretório criado: F:\Users\Mizael\WYDBR2.0\temp
+[2025-05-11 07:25:07] [INFO] Instalando módulos PowerShell necessários...
+[2025-05-11 07:25:35] [INFO] Verificando privilégios de administrador...
+[2025-05-11 07:25:35] [INFO] Criando estrutura de diretórios...
+[2025-05-11 07:25:35] [INFO] Instalando módulos PowerShell necessários...
+[2025-05-11 07:26:05] [INFO] Módulo instalado: SqlServer
+[2025-05-11 07:26:11] [INFO] Módulo instalado: PSWindowsUpdate
+[2025-05-11 07:26:19] [INFO] Módulo instalado: 7Zip4PowerShell
+[2025-05-11 07:26:19] [INFO] Verificando instalação do Chocolatey...
+[2025-05-11 07:26:19] [INFO] Instalando dependências via Chocolatey...
+[2025-05-11 07:26:35] [INFO] Dependência instalada: cmake
+[2025-05-11 07:28:12] [INFO] Dependência instalada: mysql
+[2025-05-11 07:28:57] [INFO] Dependência instalada: git
+[2025-05-11 07:28:58] [INFO] Dependência instalada: visualstudio2019buildtools
+[2025-05-11 07:29:00] [INFO] Dependência instalada: python3
+[2025-05-11 07:29:00] [INFO] Configurando variáveis de ambiente...
+[2025-05-11 07:29:00] [INFO] Adicionado ao PATH: C:\Program Files\Git\bin
+[2025-05-11 07:29:00] [INFO] Verificando instalações...
+[2025-05-11 07:29:00] [INFO] CMake instalado: cmake version 4.0.2  CMake suite maintained and supported by Kitware (kitware.com/cmake).
+[2025-05-11 07:29:00] [INFO] Git instalado: git version 2.49.0.windows.1
+[2025-05-11 07:29:00] [ERROR] Erro ao verificar MySQL: O termo 'mysql' n�o � reconhecido como nome de cmdlet, fun��o, arquivo de script ou programa oper�vel. Verifique a grafia do nome ou, se um caminho tiver sido inclu�do, veja se o caminho est� correto e tente novamente.
+[2025-05-11 07:29:00] [INFO] Python instalado: Python 3.13.3
+[2025-05-11 07:29:00] [INFO] Instalação de dependências concluída!
+{"level":"info","message":"Iniciando instalação das dependências...","timestamp":"2025-05-11T10:34:26.028Z"}
+{"level":"info","message":"Instalando dependências do Node.js...","timestamp":"2025-05-11T10:34:26.032Z"}
+{"level":"info","message":"Instalando MySQL...","timestamp":"2025-05-11T10:34:27.773Z"}
+{"level":"warn","message":"Por favor, baixe e instale o MySQL manualmente de: https://dev.mysql.com/downloads/installer/","timestamp":"2025-05-11T10:34:27.774Z"}
+{"level":"info","message":"CMake já está instalado","timestamp":"2025-05-11T10:34:27.849Z"}
+{"level":"info","message":"Git já está instalado","timestamp":"2025-05-11T10:34:28.017Z"}
+{"level":"warn","message":"Por favor, instale o Visual Studio Build Tools de: https://visualstudio.microsoft.com/visual-cpp-build-tools/","timestamp":"2025-05-11T10:34:28.039Z"}
+{"level":"info","message":"Arquivo .env criado com sucesso","timestamp":"2025-05-11T10:34:28.040Z"}
+{"level":"info","message":"\u001b[32m✔ Instalação concluída com sucesso!\u001b[39m","timestamp":"2025-05-11T10:34:28.041Z"}
+{"level":"info","message":"\u001b[33m⚠ Por favor, configure as variáveis de ambiente no arquivo .env\u001b[39m","timestamp":"2025-05-11T10:34:28.042Z"}
+{"level":"info","message":"Iniciando instalação das dependências...","timestamp":"2025-05-11T11:54:23.146Z"}
+{"level":"info","message":"Instalando dependências do Node.js...","timestamp":"2025-05-11T11:54:23.151Z"}
+{"level":"info","message":"MySQL já está instalado","timestamp":"2025-05-11T11:54:25.509Z"}
+{"level":"info","message":"CMake já está instalado","timestamp":"2025-05-11T11:54:25.570Z"}
+{"level":"info","message":"Git já está instalado","timestamp":"2025-05-11T11:54:25.632Z"}
+{"level":"warn","message":"Por favor, instale o Visual Studio Build Tools de: https://visualstudio.microsoft.com/visual-cpp-build-tools/","timestamp":"2025-05-11T11:54:25.653Z"}
+{"level":"info","message":"Arquivo .env criado com sucesso","timestamp":"2025-05-11T11:54:25.654Z"}
+{"level":"info","message":"\u001b[32m✔ Instalação concluída com sucesso!\u001b[39m","timestamp":"2025-05-11T11:54:25.655Z"}
+{"level":"info","message":"\u001b[33m⚠ Por favor, configure as variáveis de ambiente no arquivo .env\u001b[39m","timestamp":"2025-05-11T11:54:25.656Z"}

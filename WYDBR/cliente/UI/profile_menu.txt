@@ -1,0 +1,23 @@
+FFFFFF  
+FFFFFF Perfil do Jogador
+FFFFAA
+FFFFAA Informações Básicas
+AAFFAA Nome, nível, classe, etc.
+FFFFAA
+FFFFAA Conquistas
+AAFFAA Ver conquistas desbloqueadas
+FFFFAA
+FFFFAA Estatísticas
+AAFFAA Ver estatísticas detalhadas
+FFFFAA
+FFFFAA Ranking
+AAFFAA Posição nos rankings
+FFFFAA
+FFFFAA Status PvP
+AAFFAA Ver/alterar status PvP
+FFFFAA
+FFFFAA Personalizar Perfil
+AAFFAA Alterar aparência do perfil
+FFFFAA
+FFFFAA Histórico
+AAFFAA Ver atividades recentes

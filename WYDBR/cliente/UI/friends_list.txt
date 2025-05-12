@@ -1,0 +1,23 @@
+FFFFFF  
+FFFFFF Lista de Amigos
+FFFFAA
+FFFFAA Amigos Online
+AAFFAA Ver amigos que estão jogando
+FFFFAA
+FFFFAA Todos os Amigos
+AAFFAA Lista completa de amigos
+FFFFAA
+FFFFAA Solicitações Pendentes
+AAFFAA Pedidos de amizade recebidos
+FFFFAA
+FFFFAA Convidar para Grupo
+AAFFAA Formar grupo com amigos selecionados
+FFFFAA
+FFFFAA Enviar Mensagem
+AAFFAA Abrir janela de chat
+FFFFAA
+FFFFAA Remover Amigo
+AAFFAA Retirar da lista de amigos
+FFFFAA
+FFFFAA Localizar Amigo
+AAFFAA Ver localização no mapa

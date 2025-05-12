@@ -1,0 +1,454 @@
+FFFFAA << Cubo da Maldade - Normal >>  
+FFFFFF 
+FFFFFF Arnold, o ferreiro, est� tramando uma coisa
+FFFFFF interessante. Ele est� vendendo convites, isso �
+FFFFFF estranho. Bom... Com o convite que ele vende v�  
+FFFFFF at� onde ele trabalha na entrada de Azran. Estou
+FFFFFF muito curioso, ele � uma pessoa s�ria e n�o sei
+FFFFFF o porque de vender convites.
+FFFFFF Voc� poderia matar minha curiosidade?
+FFFFFF 
+AAFFFF Comece pela Quest Normal primeiro. 
+FFFFFF 
+FFFFFF 
+AAFFFF 
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFAA << C�rculo Divino >>  
+FFFFFF 
+FFFFFF Eu ouvi uns boatos sobre a reconstru��o do c�rculo
+FFFFFF divino.
+FFFFFF 
+FFFFFF As tribos de trolls e dread Tauros est�o com
+FFFFFF os peda�os dos c�rculos divinos que j� est�o
+FFFFFF contaminados pela maldade dos monstros.
+FFFFFF 
+FFFFFF Se levar os peda�os ao alquimista e uma pequena
+FFFFFF quantia de GOLD ele pode purificar
+FFFFFF novamente o c�rculo divino.
+FFFFFF Levando os peda�os purificados ao Sacerdote, 
+FFFFFF voc� poder� redefinir suas capacidades.
+FFFFFF 
+AAFFFF Voc� n�o quer redistribuir a sua capacidade?
+FFFFFF
+AAFFFF 
+FFFFFF 
+FFFFFF 
+FFFFAA << Sala Secreta >>
+FFFFFF   
+FFFFFF Estarei agradecido para sempre.
+FFFFFF Espero que voc� tamb�m saiba disso.
+FFFFFF 
+FFFFFF Se voc� quer ficar nessa terra, ent�o pegue
+FFFFFF o papel de desafiante que deve estar com voc�,
+FFFFFF v� ao castelo de Noatun e use a carta de duelo
+FFFFFF sobre o altar. Se conseguir resolver o mist�rio
+FFFFFF que esta escondido no quarto
+FFFFFF voc� poder� ganhar muita experi�ncia.
+FFFFFF 
+FFFFFF Se voc� tiver em m�os o s�mbolo de coragem, 
+FFFFFF poder� obter a "Pedra da Luz Sagrada"
+FFFFFF e a "Pedra Espiritual".
+FFFFFF 
+AAFFFF Est� preparado para desvendar o mist�rio?
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFAA << Monstro Comerciante >>
+FFFFAA   
+FFFFFF Vi algo h� muito tempo atr�s,
+FFFFFF Um monstro vendendo itens, isso n�o � estranho?
+FFFFFF 
+FFFFFF N�o � s� porque todos os monstros s�o maldosos
+FFFFFF que esse n�o pode ser bondoso. 
+FFFFFF Humanos tamb�m podem ser maldosos.
+FFFFFF 
+FFFFFF Ele � muito r�pido, por isso n�o vai ser 
+FFFFFF f�cil comprar algo dele.
+FFFFFF Mas ele comercializa coisas surpreendentes,
+FFFFFF ser� uma sorte encontra-lo.
+FFFFFF 
+FFFFFF 
+AAFFFF Teste a sua sorte tamb�m.
+FFFFFF 
+AAFFFF 
+FFFFFF 
+FFFFFF 
+FFFFAA << Rastros al�m do c�u >> 
+FFFFFF 
+FFFFFF Como se sente em descobrir os segredos celeste?
+FFFFFF Junte 7 cristais que foram usados al�m do c�u,
+FFFFFF e leve-os para o Drag�o Dourado de Armia.
+FFFFFF 
+FFFFFF Ele ir� atribuir poderes especiais em sua arma.
+FFFFFF Mas lembre-se, isso pode ser bom ou ruim.
+FFFFFF 
+AAFFFF Espero que os deuses o ajudem.
+FFFFFF 
+AAFFFF 
+FFFFFF 
+AAFFFF 
+AAFFFF 
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFAA << Pesadelo - Normal >>  
+FFFFFF 
+FFFFFF Recentemente nos reinos de Armia, Azran e Erion
+FFFFFF est�o acontecendo coisas misteriosas.
+FFFFFF N�o h� nada explicando sobre essas coisas,
+FFFFFF Queria que voc� investigasse sobre esse fato 
+FFFFFF Por favor, investigue em Erion primeiro.
+FFFFFF As pessoas de Erion precisam da sua ajuda.
+FFFFFF Sabemos que esse fenomeno � chamado
+FFFFFF de Pesadelo, pois as pessoas morrem enquanto
+FFFFFF dormem....em seus sonhos.
+FFFFFF 
+FFFFFF 
+AAFFFF O pesadelo pode ser muito real!
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFFF
+FFFFAA << Cubo da Maldade - M�stico >>  
+FFFFFF 
+FFFFFF O Ferreiro de Azran Arnold est� tramando alguma
+FFFFFF coisa. Ele est� vendendo convites, isso �
+FFFFFF estranho. Bom... Com o convite que ele vende v�  
+FFFFFF at� onde ele trabalha na entrada de Azran. Estou
+FFFFFF muito curioso, ele � uma pessoa s�ria e n�o sei
+FFFFFF o porque de vender convites.
+FFFFFF Voc� poderia matar minha curiosidade?
+FFFFFF 
+AAFFFF Agora � a hora de solucionar a parte m�stica.  
+FFFFFF 
+FFFFFF 
+AAFFFF 
+FFFFFF 
+FFFFFF 
+AAFFFF 
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFAA << Pedra da Troca >>  
+FFFFFF 
+FFFFFF Ei! Porque est� t�o desanimado?
+FFFFFF 
+FFFFFF N�o gostou do seu nome? Voc� pode mudar!
+FFFFFF 
+FFFFFF A comerciante Berdes, de Akelonia est� vendendo
+FFFFFF pedras especiais. Compre a Pedra da Troca Maior.
+FFFFFF Para a trocar, voc� tamb�m precisar� da Pedra
+FFFFFF da Troca Menor, vendida pela Redmiron, 
+FFFFFF em Hekalotia. Com as duas pedras m�gicas,
+FFFFFF voc� ter� um nome digno de um guerreiro
+FFFFFF do seu nivel e poder.
+AAFFFF Agora � hora de trocar nomes...
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFAA << Zona Elemental da �gua - Normal >> 
+FFFFFF 
+FFFFFF S�o 8 quartos que formam a Zona da �gua. 
+FFFFFF Voc�, que passou por todas com o Pergaminho,
+FFFFFF sabe que a recompensa � o "Tomo do Mago".
+FFFFFF Se voc� estiver realmente com sorte,
+FFFFFF poder� at� obter a "Fada Guardi�".
+FFFFFF Essa quest est� dividida em Normal, M�stico
+FFFFFF e Arcano, e cada n�vel possui monstros 
+FFFFFF mais fortes.
+FFFFFF Acho que o seu n�vel � normal mesmo.
+FFFFFF Ent�o...espero q tenha sorte.
+FFFFFF 
+AAFFFF E lembre-se, a �gua � o elemento da vida.
+FFFFFF 
+AAFFFF 
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFAA << Sociedade do WYD - Dois Castelos >>  
+FFFFFF 
+FFFFFF J� ouviu dizer sobre o castelo de Yanus, que
+FFFFFF fica a leste das terras em liberdade?
+FFFFFF 
+FFFFFF Este lugar possui caracter�sticas muito diferentes.
+FFFFFF H� uma simetria exata entre os lados do castelo,
+FFFFFF por isso voc� vai poder� escolher apenas um dos
+FFFFFF lados para explorar..
+FFFFFF 
+FFFFFF No centro do castelo, se tiver sorte, voc� 
+FFFFFF encontrar� o Lorde Zakum, e poder� obter o Imp
+FFFFFF que � evocado por ele.
+FFFFFF 
+FFFFFF 
+AAFFFF O Imp pode ser um bom aliado ou um temivel inimigo.
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFAA << Cubo da Maldade - Arcano >>  
+FFFFFF 
+FFFFFF O Ferreiro de Azran Arnold est� tramando alguma
+FFFFFF coisa. Ele est� vendendo convites, isso �
+FFFFFF estranho. Bom... Com o convite que ele vende v�  
+FFFFFF at� onde ele trabalha na entrada de Azran. Estou
+FFFFFF muito curioso, ele � uma pessoa s�ria e n�o sei
+FFFFFF o porque de vender convites.
+FFFFFF Voc� poderia matar minha curiosidade?
+FFFFFF 
+FFFFFF S� falta a parte Arcana. 
+AAFFFF Essa � a mais dificil, ser� que voc�
+AAFFFF conseguir� sair dessa com vida?
+AAFFFF 
+FFFFFF 
+FFFFFF 
+AAFFFF 
+AAFFFF 
+FFFFFF 
+FFFFFF 
+FFFFFF
+FFFFAA << Zona Elemental da �gua - M�stico >> 
+FFFFFF 
+FFFFFF S�o 8 quartos que formam a Zona da �gua. 
+FFFFFF Voc�, que passou por todas com o Pergaminho,
+FFFFFF sabe que a recompensa � o "Tomo do Mago".
+FFFFFF Se voc� estiver realmente com sorte,
+FFFFFF poder� at� obter a "Fada Guardi�".
+FFFFFF Essa quest est� dividida em Normal, M�stico
+FFFFFF e Arcano, e cada n�vel possui monstros 
+FFFFFF mais fortes.
+FFFFFF Pra voc� o nivel m�stico � o ideal.
+FFFFFF Ent�o...espero q tenha sorte.
+FFFFFF 
+AAFFFF E lembre-se, a �gua � o elemento da vida.
+FFFFFF 
+AAFFFF 
+FFFFFF 
+AAFFFF 
+FFFFFF 
+FFFFAA << Coliseu - Normal >>
+FFFFFF 
+FFFFFF Por acaso voc� quer se tornar rico? Se sim, 
+FFFFFF ou�a com aten��o o que vou falar agora. Voc� 
+FFFFFF sabe que o continente onde voc� est� agora,
+FFFFFF o continente KerSerf, � formado por dois reinos. 
+FFFFFF E ambos disputam entre si para ver quem tem os
+FFFFFF melhores guerreiros.
+FFFFFF Para isso foi criado um coliseu na cidade de Azran,
+FFFFFF e eles deixam monstros soltos ali... quem tiver o
+FFFFFF melhor desempenho recebe pr�mios.
+FFFFFF Se quiser ganhar fama e GOLD, v� ao coliseu.
+FFFFFF 
+AAFFFF Nesse nivel, acho melhor voc� ir �s 8 horas da noite.
+FFAAFF 
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFFF
+FFFFAA < Pesadelo - M�stico >  
+FFFFFF 
+FFFFFF Recentemente nos reinos de Armia, Azran e Erion
+FFFFFF est�o acontecendo coisas misteriosas.
+FFFFFF N�o h� nada explicando sobre essas coisas,
+FFFFFF Queria que voc� investigasse sobre esse fato 
+FFFFFF Por favor, investigue em Erion primeiro.
+FFFFFF As pessoas de Erion precisam da sua ajuda
+FFFFFF Sabemos que esse fenomeno � chamado
+FFFFFF de Pesadelo, pois as pessoas morrem enquanto
+FFFFFF dormem....em seus sonhos.
+FFFFFF 
+AAFFFF Agora � a vez de ajudar a cidade de Armia.
+FFFFFF 
+AAFFFF O pesadelo pode ser muito real!
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFAA << Port�o Infernal >>  
+FFFFFF 
+FFFFFF Voc� ouviu boatos sobre o Port�o do Inferno?
+FFFFFF 
+FFFFFF O reino todo est� s� falando sobre este assunto,
+FFFFFF Todos os guerreiros chamam esse local assim
+FFFFFF Voc� tamb�m n�o est� curioso? 
+FFFFFF 
+FFFFFF Para entrar, � necess�rio um "ticket"...
+FFFFFF Mas o resto � por sua conta e risco. 
+FFFFFF Dizem que nesse port�o existem lindas mulheres...
+FFFFFF  
+FFFFFF 
+AAFFFF Ou � esse o boato criado por monstros?
+FFFFFF 
+FFFFFF 
+FFFFFF 
+AAFFFF 
+FFFFFF 
+FFFFFF 
+FFFFAA << Medalha do Reino >>  
+FFFFFF 
+FFFFFF Vi o Or�culo fazendo magias bem interessantes.
+FFFFFF Junte 10 Safiras e,
+FFFFFF junto ao seu Mestre da guilda,
+FFFFFF d� ao Or�culo, assim a sua medalha de Guilda
+FFFFFF vira uma medalha de Reino e voc� poder�
+FFFFFF transferir a medalha para algu�m da sua guilda.
+FFFFFF N�o � interessante? 
+FFFFFF 
+FFFFFF Isso vai agilizar as tarefas da sua guilda.
+FFFFFF 
+AAFFFF Lembre-se, uma guilda unida � mais forte.
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFFF
+FFFFAA << Tempestade Inacab�vel >>  
+FFFFFF 
+FFFFFF Est� na hora de mostrar a sua lealdade e sua
+FFFFFF coragem para todo o reino.
+FFFFFF Estamos com dificuldades no Castelo Noatun 
+FFFFFF porque os inimigos est�o cada vez mais fortes.
+FFFFFF Se derrotar o rei do reino oponente, voc� poder� 
+FFFFFF obter o s�mbolo da coragem.
+FFFFFF Esse s�mbolo serve tamb�m para desvendar 
+FFFFFF o mist�rio do quarto secreto.
+FFFFFF Estarei esperando por sua coragem!
+FFFFFF 
+AAFFFF Mas j� vou avisando, a guerra n�o � lugar para
+AAFFFF quem n�o possuem bravura no cora��o.
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFFF
+FFFFFF
+FFFFFF
+FFFFAA << Coliseu - M�stico >>  
+FFFFFF 
+FFFFFF Por acaso voc� quer se tornar rico? Se sim,  
+FFFFFF ou�a com aten��o o que vou falar agora. Voc�
+FFFFFF sabe que o continente onde voc� est� agora,
+FFFFFF o continente KerSerf, � formado por dois reinos.
+FFFFFF E ambos disputam entre si para ver quem tem
+FFFFFF os melhores guerreiros.
+FFFFFF Para isso foi criado um coliseu na cidade de Azran,
+FFFFFF e eles deixam monstros soltos ali... quem tiver o
+FFFFFF melhor desempenho recebe premios.
+FFFFFF Se quiser ganhar fama e GOLD, v� ao coliseu.
+AAFFFF 
+AAFFFF Nesse nivel, acho melhor voc� ir �s 9 horas da noite.
+FFFFFF
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFAAFF 
+FFFFAA << Zona Elemental da �gua - Arcano >>  
+FFFFFF 
+FFFFFF S�o 8 quartos que formam a Zona da �gua. 
+FFFFFF Voc�, que passou por todas com o Pergaminho,
+FFFFFF sabe que a recompensa � o "Tomo do Mago".
+FFFFFF Se voc� estiver realmente com sorte,
+FFFFFF poder� at� obter a "Fada Guardi�".
+FFFFFF Essa quest est� dividida em Normal, M�stico
+FFFFFF e Arcano, e cada n�vel possui monstros 
+FFFFFF mais fortes.
+FFFFFF Agora s� resta o n�vel Arcano... 
+FFFFFF Sei que voc� est� querendo descansar um pouco,
+FFFFFF mas o caminho � o mais longo e perigoso.
+AAFFFF 
+AAFFFF E lembre-se, a �gua � o elemento da vida.
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFAA << � procura da Vida Eterna >>  
+FFFFFF 
+FFFFFF Passou-se muito tempo que estamos juntos...
+FFFFFF 
+FFFFFF Voc� deve ter ouvido entre os 
+FFFFFF aventureiros... Sobre o poder que surge 
+FFFFFF quando algu�m junta todas as almas 
+FFFFFF escondidas na �poca da Guerra Lend�ria.
+FFFFFF 
+FFFFFF Junte as Almas da F�nix e Unic�rnio
+FFFFFF e entregue-as para o Or�culo.
+FFFFFF 
+FFFFFF Esse � o primeiro passo para se tornar um Arch.
+FFFFFF 
+AAFFFF Vamos! For�a!
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFAA << Um novo come�o >>  
+FFFFFF 
+FFFFFF Faz um longo tempo...
+FFFFFF Estive observando o seu crescimento e 
+FFFFFF estou feliz com o que vi.
+FFFFFF voc� conseguiu a pedra da imortalidade!
+FFFFFF Mas agora � s� o come�o.
+FFFFFF 
+FFFFFF Vou te contar o segredo da Sephira. Junte os 8 
+FFFFFF elementos de Sephira mais o GOLD necess�rio
+FFFFFF e v� para o Mestre de Skill de Armia.
+FFFFFF 
+FFFFFF Ele ir� produzir o Sephirot para voc�.
+FFFFFF Leve o Sephirot e a pedra da
+FFFFFF imortalidade ao seu rei, e se tornar� um Arch! 
+FFFFFF 
+AAFFFF Que a gl�ria do Sephira esteja com voc�!
+AAFFFF 
+FFFFFF 
+FFFFFF 
+FFFFAA << Pesadelo - Arcano >>  
+FFFFFF 
+FFFFFF Recentemente nos reinos de Armia, Azran e Erion
+FFFFFF est�o acontecendo coisas misteriosas.
+FFFFFF N�o h� nada explicando sobre essas coisas,
+FFFFFF Queria que voc� investigasse sobre esse fato 
+FFFFFF Por favor, investigue em Erion primeiro.
+FFFFFF As pessoas de Erion precisam da sua ajuda
+FFFFFF  Sabemos que esse fenomeno � chamado
+FFFFFF de Pesadelo, pois as pessoas morrem enquanto
+FFFFFF dormem....em seus sonhos.
+FFFFFF 
+FFFFFF Voc� j� � um her�i do reino... N�o est� 
+FFFFFF percebendo a sua fama?
+FFFFFF 
+AAFFFF Agora s� falta a cidade de Azran!
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFAA << Coliseu - Arcano >>  
+FFFFFF 
+FFFFFF Por acaso voc� quer se tornar rico? Se sim,  
+FFFFFF ou�a com aten��o o que vou falar agora. Voc�
+FFFFFF sabe que o continente onde voc� est� agora,
+FFFFFF o continente KerSerf, � formado por dois reinos.
+FFFFFF E ambos disputam entre si para ver quem tem
+FFFFFF os melhores guerreiros.
+FFFFFF Para isso foi criado um coliseu na cidade de Azran,
+FFFFFF e eles deixam monstros soltos ali... quem tiver o
+FFFFFF melhor desempenho recebe premios.
+FFFFFF Se quiser ganhar fama e GOLD, v� ao coliseu.
+AAFFFF 
+AAFFFF Voc� j� est� bem forte, pode ir �s 10 horas da noite.

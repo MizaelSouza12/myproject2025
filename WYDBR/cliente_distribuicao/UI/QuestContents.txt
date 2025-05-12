@@ -1,0 +1,280 @@
+FFFFAA << Campo de Treino >>
+FFFFFF Ei, jovem...
+FFFFFF Nunca te vi por aqui, aconteceu algo?
+FFFFFF Ah... Ok ent�o. Voc� realmente quer 
+FFFFFF ser um Guerreiro...?! Muito bem,
+FFFFFF eu posso te falar um bom local. No lado leste
+FFFFFF de Armia existe um acampamento de treinamento.
+FFFFFF L� voc� pode adquirir mais experi�ncia, e em
+FFFFFF cada nivel de dificuldade existe um NPC para
+FFFFFF lhe ajudar. Adquira as chaves na redondeza para 
+FFFFFF ir prosseguindo na miss�o. N�o esque�a, cada   
+FFFFFF NPC possui t�cnicas especiais que podem 
+FFFFFF salvar sua vida. Boa sorte!
+AAFFFF Procure pelo treinador na Vila de Armia.
+AAFFFF Localiza��o X: 2106  Y: 2083
+FFFFFF 
+FFAAFF Limite de Level: 1 ~ 35 LV
+FFAAFF Recompensa: Emblema do Orc
+FFFFFF 
+FFAAAA Com o Emblema do Orc, v� at� o treinador.
+FFFFAA << Defensor da Alma >>
+FFFFFF Jovem... Frente � Armia existe o cemit�rio onde
+FFFFFF est�o os nossos ancestrais. 
+FFFFFF Recentemente, monstros est�o por toda a parte...
+FFFFFF Pedimos para verificar, e ouvimos que est� sendo
+FFFFFF realizado rituais para ressuscitar o General
+FFFFFF da Morte. Por favor n�o deixe as almas dos 
+FFFFFF ancestrais serem transformadas em escravos.
+FFFFFF Salve a alma dos nossos ancestrais!
+FFFFFF Se voc� puder fazer isso, as almas de nossos 
+FFFFFF ancestrais ir�o te recompensar com um tesouro
+FFFFFF que guarda todo o conhecimento deles.
+AAFFFF V� para o cemit�rio ao norte de Armia, fale
+AAFFFF com o Coveiro. Lute com os monstros do local  
+AAFFFF para adquirir o item indicado por ele.
+AAFFFF Localiza��o X: 2374  Y: 2097
+FFAAFF Limite de Level: 40 ~ 115 LV
+FFAAFF Limite de Tempo: 10 minutos
+FFAAFF Recompensa: Caixa da Sabedoria
+FFAAAA 
+FFFFAA << Conquista do Castelo Orc >>
+FFFFFF Ei .. Jovem... J� ouviu sobre os Orcs ?
+FFFFFF Hahahaha nem sabe o que s�o?
+FFFFFF Orc`s s�o seres malignos que vivem num castelo
+FFFFFF vazio entre a Armia e Azran. Eles assaltam os
+FFFFFF inocentes que passam por l�. Buscam o
+FFFFFF dinheiro e a carne deles. O chefe dos Orc`s,
+FFFFFF usa o "rem�dio negro" que possui o poder
+FFFFFF para invadir a nossa vila. Muitos cavaleiros
+FFFFFF tentaram defender a vila mas nenhum conseguiu.  
+FFFFFF Se voc� conseguir derrotar o Lorde Orc e obter
+FFFFFF o remedio negro, todo o poder dele ser� seu.
+FFFFFF Para chegar at� l� voc� precisa conseguir chaves.
+FFFFFF 
+AAFFFF Derrote o Orc que est� em frente ao castelo
+AAFFFF dos Orcs e pegue a primeira chave para entrar.
+AAFFFF Localiza��o: X: 2476  Y: 2130
+FFAAFF Limite de Level: Livre.
+FFAAFF Recompensa: P�lula M�gica (uso �nico)
+FFAAAA Efeito: aumenta 9 Pontos de Skill.
+FFFFAA << Defensor da Terra M�stica >>
+FFFFFF Jovem aventureiro... Ao redor da vila de Azran
+FFFFFF existe um local onde � possivel encontrar j�ias
+FFFFFF N�s chamamos o local de Mystic Land. A um 
+FFFFFF tempo, nomeamos um guerreiro como lider 
+FFFFFF e enviamos uma tropa para  achar essas j�ias,
+FFFFFF mas eles est�o com muita dificuldade por causa 
+FFFFFF de monstros que surgiram. Esse lider que est� 
+FFFFFF em Mystic Land, procura por guerreiros. Que tal
+FFFFFF voc� se candidatar? Existe uma recompensa!
+FFFFFF 
+AAFFFF Na entrada Sul de Azran, encontre o Lider.
+AAFFFF Siga a tropa e enfrente monstros no destino
+AAFFFF final para obter seu item!
+AAFFFF Localiza��o: X: 2446  Y: 1599
+FFFFFF 
+FFAAFF Limite de Level: Livre
+FFAAFF Recompensa: Amuleto Prata, Ouro ou M�stico.
+FFAAFF 
+FFAAFF 
+FFFFAA << Ben��o de Deus >>
+FFFFFF J� ouviu a �ltima not�cia? Kruno que � um dos
+FFFFFF sacerdotes da catedral da Armia estava levando o
+FFFFFF "Peda�o da salva��o" que � uma das reliquias
+FFFFFF da catedral para a catedral de Azran, mas no
+FFFFFF mas foi atacado por monstros e acabou perdendo
+FFFFFF a reliquia. Ser� que voc� consegue encontrar
+FFFFFF o tesouro perdido? Caso consiga, levar isso ao
+FFFFFF sacerdote Kruno, voc� poder� receber dele um 
+FFFFFF "Composto da Salva��o" que possui a prote��o
+FFFFFF do deus. Isso � urgente. 
+AAFFFF V� ao Norte de Armia at� o fim e procure pelo
+AAFFFF Sacerdote Jester.
+AAFFFF Localiza��o: X: 2625  Y: 1984
+FFAAFF Limite de Level: 70 ~ 75 LV
+FFAAFF Recompensa: Peda�o de Chance
+AAFFFF Leve o Peda�o de Chance ao Kruno.
+AAFFFF Localiza��o: X: 2663 Y: 1970
+FFAAFF Recompensa: Composto de Chance
+FFAAAA Efeito: Reinicia 50 pontos de Skill.
+FFFFAA << Formatura de Cavaleiros Aprendizes >>
+FFFFFF Agora voc� parece possuir a dignidade
+FFFFFF de um cavaleiro. Mas ainda falta muito para ser  
+FFFFFF cavaleiro oficial do Reino. Se quiser, v� para o
+FFFFFF Treinamento de cavaleiro que fica ao sul do
+FFFFFF campo de Azran. Se voc� der o melhor talvez
+FFFFFF receba o Manto Verde. O que acha ?
+FFFFFF Voc� acha que � capaz? Se conseguir essa
+FFFFFF conquista, o caminho  para se tornar o Cavaleiro
+FFFFFF Oficial do Reino seja mais f�cil. Mas tome 
+FFFFFF cuidado. L� o treinamento � com batalhas 
+FFFFFF reais. Procure pelo mestre de treinamento no
+AAFFFF Campo de treinamento ao Sul de Azran.
+AAFFFF Localiza��o: X: 2232  Y: 1568
+FFAAFF Limite de level: 101 ~150 lvl
+FFAAFF Limite de tempo: 10 minutos 
+FFAAFF Recompensa: Emblema de treineiro
+FFAAAA Equipe o item no Slot 14 e procure o Chefe de
+FFAAAA Treinamento.
+FFAAAA Localiza��o X: 2232  Y: 1568
+FFFFAA << Jardim de Deus >>
+FFFFFF Jovem.. Ao sul Azran existe um local chamado
+FFFFFF Jardim do Deus. Este local foi onde os deuses
+FFFFFF descansaram durante a guerra lend�ria. Ap�s a
+FFFFFF guerra as pessoas cuidavam do jardim e assim
+FFFFFF esse local continuou recebendo o cuidado  
+FFFFFF dos deuses. Mas de um dias pra c� os monstros
+FFFFFF est�o acabando com a beleza de l�, e os deuses
+FFFFFF est�o furiosos. Por favor ! Nos ajude! N�s n�o
+FFFFFF temos como defender o jardim. Por favor 
+FFFFFF salve o Jardim dos Deuses!
+AAFFFF V� para o sul de Azran e procure o jardineiro.
+AAFFFF Enfrente os monstros nos arredores para obter
+AAFFFF o item solicitado. Ao entrar no jardim aproveite
+AAFFFF para adquirir bastante EXP!
+AAFFFF Localiza��o: X: 2220  Y: 1714
+FFAAFF Limite de Level: 116 ~ 190 Lvl
+FFAAFF Limite de Tempo: 10 minutos. 
+FFAAFF Recompensa: L�grima Angelical
+FFAAAA 
+FFFFAA << Equil�brio da For�a >>
+FFFFFF Ei Cavaleiro em treino... N�o quer me ajudar?
+FFFFFF Sou o sacerdote da catedral Achro que lutava
+FFFFFF pelo equilibrio dos dois reinos de Akelonia e
+FFFFFF Hekalotia. Recebemos informa��es de ataques
+FFFFFF de monstros e agora a catedral est� em
+FFFFFF grande perigo. A �nica sobrevivente se chama
+FFFFFF Amerlia... ela est� sozinha defendo a catedral...
+FFFFFF se ela perder a vida o equil�brio dos dois reinos
+FFFFFF ira quebrar gerando guerras malignas. Por favor
+FFFFFF para salva��o dos dois reinos ajude Amerlia 
+FFFFFF  e defenda a catedral Achro.
+AAFFFF Procure pelo guarda ao Sul do Azran.
+AAFFFF Localiza��o: X: 1969 Y: 1578
+FFAAFF Limite de Level: 120 ~ 125 Lvl
+FFAAFF Recompensa: Peda�o de equil�brio
+AAFFFF Procure a Amerlia com Peda�o de Equil�brio.
+AAFFFF Localiza��o: X: 1973 Y: 1579
+FFAAFF Recompensa: Composto de equil�brio
+FFAAAA Efeito: Skill Mastering 100 de volta
+FFFFAA << Ressurrei��o do Cav Negro >>
+FFFFFF Muito tempo atr�s, O her�i de Armia: "Kaizen"
+FFFFFF foi o cavaleiro que conseguiu vencer a guerra
+FFFFFF lend�ria, mas ele era apenas humano, quando
+FFFFFF morreu, foi enterrado no t�mulo da dungeon.
+FFFFFF Mas o mal�gno Esqueleto Consery fez Kaizen
+FFFFFF ressuscitar como um cav Negro. Se ele juntar
+FFFFFF sua tropa e atacar, Armia ir� virar um mar 
+FFFFFF de sangue... N�o temos muito tempo, derrote
+FFFFFF o cav Negro Kaizen antes que ele termine de
+FFFFFF organizar as tropas dele. R�pido!
+FFFFFF Procure pela Patrulha que est� no primeiro 
+FFFFFF andar da Dungeon.
+AAFFFF Localiza��o (Dungeon): X: 2363 Y: 2282
+AAFFFF Localiza��o (Patrulha): X: 452 Y: 3912
+FFAAFF Limite de level: 191 ~ 265 lvl
+FFAAFF Limite de tempo: 10 minutos 
+FFAAFF Recompensa: Cora��o do Kaizen
+FFAAAA 
+AAFFFF 
+FFFFAA << Molar do G�rgula >>
+FFFFFF Parece que voc� tamb�m ouviu sobre isso. Sim,
+FFFFFF � verdade...O molar do G�rgula � usado para
+FFFFFF fazer armas e equipamentos de defesa, os itens
+FFFFFF feitos com o molar podem surpreender. Mas obter
+FFFFFF o molar n�o � facil, al�m de ser uma dungeon
+FFFFFF bem profunda, os monstros ali s�o muito fortes.
+FFFFFF Todos que partiram est�o desaparecidos
+FFFFFF at� o momento. Por isso  ningu�m viu o molar
+FFFFFF do g�rgula. Pense bem antes de partir... Mas
+FFFFFF com certeza vale apena! ) molar ir� dar uma 
+FFFFFF aumento de defesa incrivel. 
+AAFFFF Procure o guarda no segundo andar da Dungeon
+AAFFFF Localizacao (Dungeon): X: 2363 Y: 2282
+AAFFFF Localizacao (Patrulha): X: 787  Y: 4058
+FFAAFF Limite de level: 201 ~255 lvl
+FFAAFF Limite de tempo: 10 minutos. 
+FFAAFF Recompensa: Molar do G�rgula
+FFAAAA Efeito: Uso �nico , atribui +6 para armadura.
+FFAAAA 
+FFFFAA << Cavaleiro do Reino >>
+FFFFFF Agora voc� j� tem o que precisa para se
+FFFFFF tornar um Cavaleiro do Reino Oficial. Escolha
+FFFFFF entre dois reinos que est�o em desenvolvimento
+FFFFFF e competi��o econ�mica: Hekalotia ,o Castelo
+FFFFFF do c�u e Akelonia, for�a do Sephira. Escolha
+FFFFFF a quem jurar lealdade. Esperamos que seja util
+FFFFFF ao seu rei e reino. Daqui pra frente espere
+FFFFFF por grandes aventuras.
+FFFFFF Lembre-se de usar sua espada apenas a servi�o
+FFFFFF do Bem e de ser justo e ajudar quem precisa.
+FFFFFF Procure o Guarda real que est� ao redor do Rei 
+FFFFFF Limite de level:  220 ~ 250 lvl
+AAFFFF Limite de tempo: reinicia a cada 10 minutos
+AAFFFF Recompensa: Emblema do Reino 
+FFAAFF Equipe o emblema no 14 slot
+FFAAFF (divineslot) e procure o Rei do reino  
+FFAAFF desejado.
+FFAAAA 
+FFAAAA 
+FFFFAA << Hidra Imortal >>
+FFFFFF Hm... N�o quero nem lembrar, foi uma luta muito
+FFFFFF dif�cil contra as Hidras na regi�o norte
+FFFFFF pr�ximo aos p�ntanos. Elas que foram expulsas
+FFFFFF de l�, entraram para dungeon e est�o usando
+FFFFFF o olho Sangrento que possui poderes malignos
+FFFFFF Haden. Com isso elas est�o transformando em
+FFFFFF Hidras Douradas! Se elas continuarem a ganhar
+FFFFFF poderes chegar� um tempo em que n�o teremos
+FFFFFF como dete-las. O Olho que est� transformando
+FFFFFF as Hidras pode servir para voc� tamb�m!
+FFFFFF 
+AAFFFF Procure a Patrulha no 1� andar da Dungeon
+AAFFFF Localizacao: X: 667  y: 3767
+FFFFFF 
+FFAAFF Limite de level:  266 ~ 320 lvl
+FFAAFF Limite de tempo:  10 minutos 
+FFAAFF Recompensa: Olho Sangrento
+FFFFFF 
+FFAAAA 
+FFFFAA << In�cio da Infelicidade >>
+FFFFFF Ap�s a guerra lend�ria, poucos sobreviventes
+FFFFFF conseguiram manter a sua vida em Armia. Um dia
+FFFFFF chegaram alguns Elfos fugitivos 
+FFFFFF de outros continentes, mas os humanos
+FFFFFF se sentiram inferiores por causa da vida eterna
+FFFFFF dos Elfos. At� que os humanos que come�aram
+FFFFFF a sentir ci�me dos Elfos e os expulsaram para
+FFFFFF Under World. Ningu�m imaginou que aquilo era 
+FFFFFF o in�cio do desastre. Pois alguns Elfos se sentiram  
+FFFFFF humilhados e foram feridos pelos humanos. Isso
+FFFFFF fez com que vendessem a alma ao Deus Haden
+FFFFFF em troca de vingan�a, ent�o eles se tornaram
+FFFFFF Elfos Negros.
+AAFFFF Procure o guarda no 1�andar do Under World
+AAFFFF Localiza��o: X: 1300 Y: 4036
+FFAAFF Limite de level: 321 ~ 356 lvl
+FFAAFF Limite de tempo: 10 minutos 
+FFAAFF Recompensa: Pedra Espiritual dos Elfos
+FFAAAA 
+FFFFAA << Desbloqueio de capa 355 >>
+FFFFFF Ao alcan�ar o n�vel 355, o personagem Mortal
+FFFFFF poder� aprimorar a sua capa para a vers�o mais
+FFFFFF poderosa.
+FFFFFF 
+FFFFFF Para aprimorar a capa, utilize o item 'Selo do
+FFFFFF Guerreiro' ap�s atingir o n�vel 355. 
+FFFFFF O item Selo do Guerreiro pode ser adquirido 
+FFFFFF atrav�s do comercio entre jogadores ou pelo 
+FFFFFF NPC Farche, localizado na cidade de Erion.
+FFFFFF 
+AAFFFF A capa s� pode ser adquirida ap�s o 
+AAFFFF n�vel 355. Caso o Selo do Guerreiro seja 
+AAFFFF utilizado antes deste n�vel, o personagem 
+AAFFFF ganhar� pontos em Fama
+AAFFFF 
+FFAAFF Limite de level: 355 ~ 400.
+FFAAFF Recompensa: Elite de Hekalotia(Red), 
+FFAAFF Akelonia (Blue) ou Capa dos 
+FFAAFF Aventureiros (Branca)

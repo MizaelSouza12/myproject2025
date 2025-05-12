@@ -1,0 +1,7 @@
+{
+  "format": "unknown",
+  "file_size": 1420,
+  "file_path": "/home/runner/workspace/WYD/v769ClientRelease/UI/LoginScene.bin",
+  "file_name": "LoginScene.bin",
+  "hex_sample": "00000000  01 00 00 00 37 01 00 00 00 00 00 00 0c 00 00 00  |....7...........|\n00000010  90 00 00 00 00 00 00 00 00 01 00 00 00 01 00 00  |................|\n00000020  ff ff ff ff 04 00 00 00 01 00 00 00 38 01 00 00  |............8...|\n00000030  00 00 00 00 0d 00 00 00 90 01 00 00 00 00 00 00  |................|\n00000040  00 01 00 00 00 01 00 00 ff ff ff ff 04 00 00 00  |................|\n00000050  0c 00 00 00 01 03 00 00 00 00 00 00 ff ff ff ff  |................|\n00000060  18 01 00 00 44 02 00 00 c8 00 00 00 10 00 00 00  |....D...........|\n00000070  ff ff ff ff 00 00 00 00 88 88 aa ff 00 00 00 00  |................|\n00000080  00 00 00 00 a8 cf 20 32 30 30 32 20 4a 6f 79 49  |...... 2002 JoyI|\n00000090  6d 70 61 63 74 2c 20 41 6c 6c 20 52 69 67 68 74  |mpact, All Right|\n000000a0  73 20 52 65 73 65 72 76 65 64 2e 00 cc cc cc cc  |s Reserved......|\n000000b0  cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc  |................|\n000000c0  cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc  |................|\n000000d0  cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc  |................|\n000000e0  cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc  |................|\n000000f0  cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc  |................|"
+}

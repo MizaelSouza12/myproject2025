@@ -1,0 +1,285 @@
+# Sistemas Críticos Faltantes do WYDBR 2.0
+
+Este documento descreve as implementações críticas que ainda precisam ser desenvolvidas para completar o projeto WYDBR 2.0.
+
+## 1. Sistema de Combate Avançado
+
+### Descrição
+Sistema que gerencia todas as interações de combate entre entidades no jogo, incluindo cálculos de dano, buffs, debuffs, efeitos de habilidades e mecânicas especiais.
+
+### Componentes Faltantes
+- **Algoritmos de cálculo de dano** com suporte a fórmulas complexas baseadas em atributos e equipamentos
+- **Sistema de critical hit** com variações por classe e arma
+- **Mecânica de combo** para certas classes e habilidades especiais
+- **Sistema de interrupção de habilidades** baseado em timing e reação
+- **Mecânica de bloqueio ativo** que requer timing do jogador
+- **Sistema de vulnerabilidade** por tipo de dano e elemento
+
+### Arquivos Relacionados
+```
+src/game/combat/CombatManager.cpp
+src/game/combat/DamageCalculator.cpp
+src/game/combat/CriticalSystem.cpp
+src/game/combat/ComboSystem.cpp
+src/game/combat/SkillInterrupter.cpp
+```
+
+### Prioridade de Implementação
+**ALTA** - Essencial para a jogabilidade básica
+
+---
+
+## 2. Sistema de Economia e Marketplace
+
+### Descrição
+Sistema que gerencia todas as transações econômicas entre jogadores, incluindo comércio direto, leilões, sistema bancário e controle de inflação.
+
+### Componentes Faltantes
+- **Motor de leilões** com suporte a lances, buyout e leilões programados
+- **Sistema bancário** com juros, taxas e transferências seguras
+- **Algoritmo anti-inflação** que ajusta dinamicamente os preços de referência
+- **Sistema de detecção de fraude** para identificar padrões suspeitos de transações
+- **Rastreamento de itens** para auditoria e recuperação
+
+### Arquivos Relacionados
+```
+src/economy/AuctionHouse.cpp
+src/economy/BankSystem.cpp
+src/economy/InflationControl.cpp
+src/economy/TradeMonitor.cpp
+src/economy/ItemTracker.cpp
+```
+
+### Prioridade de Implementação
+**ALTA** - Crítico para a economia do jogo e experiência dos jogadores
+
+---
+
+## 3. Sistema de Guild/Clã
+
+### Descrição
+Sistema completo para gerenciar guildas de jogadores, incluindo hierarquia, territórios, guerras e benefícios.
+
+### Componentes Faltantes
+- **Sistema de gerenciamento de hierarquia** com permissões customizáveis
+- **Sistema de castle siege** para disputas territoriais entre guilds
+- **Tesouraria de guild** com registro de transações e controle de acesso
+- **Sistema de níveis de guild** com benefícios progressivos
+- **Alianças e rivalidades** entre guildas com efeitos na jogabilidade
+
+### Arquivos Relacionados
+```
+src/guild/GuildManager.cpp
+src/guild/CastleSiege.cpp
+src/guild/GuildBank.cpp
+src/guild/GuildProgression.cpp
+src/guild/AllianceSystem.cpp
+```
+
+### Prioridade de Implementação
+**MÉDIA** - Importante para retenção de jogadores de longo prazo
+
+---
+
+## 4. Sistema de Servidor Dinâmico
+
+### Descrição
+Sistema que gerencia o balanceamento de carga, escalonamento e estabilidade dos servidores de jogo em tempo real.
+
+### Componentes Faltantes
+- **Sistema de sharding dinâmico** que adapta a quantidade de servidores à demanda
+- **Migração transparente de jogadores** entre servidores sem desconexão
+- **Balanceamento de população** para evitar servidores vazios ou superlotados
+- **Sistema de fila inteligente** com priorização de jogadores premium
+- **Replicação de dados** entre servidores para resiliência
+
+### Arquivos Relacionados
+```
+src/server/ShardManager.cpp
+src/server/PlayerMigration.cpp
+src/server/PopulationBalancer.cpp
+src/server/QueueSystem.cpp
+src/server/DataReplication.cpp
+```
+
+### Prioridade de Implementação
+**ALTA** - Essencial para o funcionamento estável do jogo
+
+---
+
+## 5. Sistema Anti-Cheat
+
+### Descrição
+Sistema que previne e detecta o uso de hacks, bots e exploits dentro do jogo.
+
+### Componentes Faltantes
+- **Verificação de cliente** para detectar modificações não autorizadas
+- **Análise comportamental** para identificar padrões suspeitos de jogadores
+- **Sistema de relatórios** para que jogadores denunciem atividades suspeitas
+- **Verificações server-side** para validar ações dos jogadores
+- **Sistema de penalidades** com níveis progressivos de punição
+
+### Arquivos Relacionados
+```
+src/security/AntiCheat.cpp
+src/security/BehaviorAnalyzer.cpp
+src/security/ReportSystem.cpp
+src/security/ServerValidation.cpp
+src/security/PenaltyManager.cpp
+```
+
+### Prioridade de Implementação
+**ALTA** - Crítico para a integridade do jogo
+
+---
+
+## 6. Sistema de Eventos Mundiais
+
+### Descrição
+Sistema que gerencia eventos dinâmicos que afetam o mundo do jogo, desde invasões de monstros até eventos sazonais.
+
+### Componentes Faltantes
+- **Motor de eventos** para programar e gerenciar eventos globais e locais
+- **Sistema de recompensas** específicas para participação em eventos
+- **Mecânicas de eventos** especiais como invasões, catástrofes e celebrações
+- **Progressão de eventos** baseada nas ações coletivas dos jogadores
+- **Interface de administração** para controlar eventos em tempo real
+
+### Arquivos Relacionados
+```
+src/events/EventManager.cpp
+src/events/RewardSystem.cpp
+src/events/EventMechanics.cpp
+src/events/ProgressionTracker.cpp
+src/events/AdminInterface.cpp
+```
+
+### Prioridade de Implementação
+**MÉDIA** - Importante para manter o interesse dos jogadores ao longo do tempo
+
+---
+
+## 7. Sistema de Crafting Avançado
+
+### Descrição
+Sistema que permite aos jogadores criar, melhorar e personalizar itens através de profissões e habilidades.
+
+### Componentes Faltantes
+- **Árvores de receitas** complexas com múltiplos caminhos
+- **Sistema de qualidade** afetado por habilidades e materiais
+- **Componentes aleatórios** para adicionar variação em itens criados
+- **Sistema de maestria** com benefícios progressivos para especialização
+- **Crafting colaborativo** permitindo que múltiplos jogadores contribuam
+
+### Arquivos Relacionados
+```
+src/crafting/RecipeSystem.cpp
+src/crafting/QualityManager.cpp
+src/crafting/RandomAttributes.cpp
+src/crafting/MasterySystem.cpp
+src/crafting/CollaborativeCrafting.cpp
+```
+
+### Prioridade de Implementação
+**MÉDIA** - Importante para a diversidade de conteúdo do jogo
+
+---
+
+## 8. Sistema de PvP Balanceado
+
+### Descrição
+Sistema que gerencia todas as interações de jogador contra jogador, incluindo arenas, campos de batalha e PvP em mundo aberto.
+
+### Componentes Faltantes
+- **Sistema de matchmaking** baseado em habilidade e equipamento
+- **Arenas com diferentes modos de jogo** (1v1, 3v3, captura de bandeira, etc.)
+- **Sistema de classificação** com temporadas e recompensas
+- **Balanceamento específico para PvP** separado do PvE
+- **Sistema de facções** com território controlável e benefícios
+
+### Arquivos Relacionados
+```
+src/pvp/MatchmakingSystem.cpp
+src/pvp/ArenaManager.cpp
+src/pvp/RankingSystem.cpp
+src/pvp/BalanceManager.cpp
+src/pvp/FactionControl.cpp
+```
+
+### Prioridade de Implementação
+**MÉDIA** - Importante para jogadores competitivos
+
+---
+
+## 9. Sistema de Housing
+
+### Descrição
+Sistema que permite aos jogadores adquirir, personalizar e gerenciar propriedades no mundo do jogo.
+
+### Componentes Faltantes
+- **Persistência de decoração** para salvar e carregar o layout das casas
+- **Sistema de crafting** específico para mobília e decorações
+- **Gerenciamento de acesso** para controlar quem pode entrar e modificar
+- **Benefícios funcionais** como armazenamento, crafting e regeneração
+- **Sistema de vizinhança** com interações entre propriedades próximas
+
+### Arquivos Relacionados
+```
+src/housing/PropertyManager.cpp
+src/housing/DecorationSystem.cpp
+src/housing/AccessControl.cpp
+src/housing/HousingBenefits.cpp
+src/housing/NeighborhoodSystem.cpp
+```
+
+### Prioridade de Implementação
+**BAIXA** - Desejável mas não crítico para o lançamento inicial
+
+---
+
+## 10. Sistema de Progressão de Endgame
+
+### Descrição
+Sistema que proporciona conteúdo desafiador e recompensas para jogadores de alto nível que já completaram o conteúdo principal.
+
+### Componentes Faltantes
+- **Dungeons de nível mítico** com dificuldade escalável
+- **Sistema de raids** para grandes grupos com mecânicas complexas
+- **Progressão de equipamentos** além do cap normal de nível
+- **Sistema de desafios** diários e semanais com recompensas exclusivas
+- **Conquistas difíceis** com recompensas cosméticas exclusivas
+
+### Arquivos Relacionados
+```
+src/endgame/MythicDungeon.cpp
+src/endgame/RaidSystem.cpp
+src/endgame/GearProgression.cpp
+src/endgame/ChallengeSystem.cpp
+src/endgame/AchievementTracker.cpp
+```
+
+### Prioridade de Implementação
+**MÉDIA** - Importante para retenção de jogadores de longo prazo
+
+---
+
+## Cronograma Recomendado de Implementação
+
+1. **Fase 1 (Fundação)**
+   - Sistema de Combate Avançado
+   - Sistema de Servidor Dinâmico
+   - Sistema Anti-Cheat
+
+2. **Fase 2 (Economia e Comunidade)**
+   - Sistema de Economia e Marketplace
+   - Sistema de Guild/Clã
+   - Sistema de Crafting Avançado
+
+3. **Fase 3 (Engajamento)**
+   - Sistema de PvP Balanceado
+   - Sistema de Eventos Mundiais
+   - Sistema de Progressão de Endgame
+
+4. **Fase 4 (Qualidade de Vida)**
+   - Sistema de Housing
+   - Refinamentos e balanceamento geral 

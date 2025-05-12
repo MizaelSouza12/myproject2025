@@ -1,164 +1,146 @@
-# WYD MODERN 2025 STUDIO
+# WYDStudio
 
-Um ambiente de desenvolvimento e administração avançado para o jogo WYD (With Your Destiny), com recursos de processamento de linguagem natural específicos para a terminologia do jogo.
+WYDStudio é uma ferramenta avançada de administração para servidores WYD (With Your Destiny), oferecendo uma interface moderna e completa para gerenciamento, desenvolvimento e monitoramento.
 
-## Visão Geral
+## Características
 
-O WYD MODERN 2025 STUDIO é uma ferramenta administrativa para o jogo WYD que permite:
+- 🎮 Interface gráfica moderna com tema dark
+- 🛠️ Editores visuais para itens, mobs, mapas, skills e quests
+- 📊 Monitoramento em tempo real do servidor
+- 🤖 Sistema de IA integrado para automação e assistência
+- 👥 Gerenciamento avançado de jogadores
+- 💰 Controle econômico do servidor
+- 🎯 Sistema de eventos automatizado
+- 🔒 Sistema de permissões granular
+- 📦 Integração com TMSrv/DBSrv
 
-- Processamento avançado de comandos em linguagem natural
-- Reconhecimento de termos e gírias específicos dos jogadores
-- Interpretação contextual de comandos administrativos
-- Interface de usuário intuitiva para gerenciamento do jogo
-- Sistema de conhecimento específico sobre o jogo
+## Requisitos do Sistema
 
-## Estrutura do Projeto
+- Windows 10/11 64-bit
+- Visual Studio 2022 com C++ build tools
+- Qt 6.5.0 ou superior
+- CMake 3.16 ou superior
+- MySQL 8.0 ou superior
+- OpenSSL 1.1.1 ou superior
 
-```
-WYDStudio/
-├── bin/                # Executáveis compilados
-├── build/              # Arquivos de compilação temporários
-├── data/               # Dados e recursos
-│   └── expanded_language_terms.json   # Banco de termos expandido
-├── docs/               # Documentação
-│   └── EXPANDED_LANGUAGE_INTEGRATION.md  # Documentação da integração de linguagem
-├── examples/           # Exemplos de uso
-│   └── EnhancedLanguageExample.cpp   # Exemplo de processamento de linguagem
-├── include/            # Arquivos de cabeçalho
-│   ├── AdvancedAdminAgent.h          # Agente administrativo avançado
-│   ├── GameKnowledgeBase.h           # Base de conhecimento genérica de jogos
-│   ├── LanguageTermsLoader.h         # Carregador de termos de linguagem
-│   ├── NaturalLanguageProcessor.h    # Processador de linguagem natural
-│   └── WYDSpecificKnowledge.h        # Conhecimento específico do WYD
-├── src/                # Código fonte
-├── ui_test/            # Testes de interface
-│   ├── Makefile           # Makefile para testes de UI
-│   ├── UITest.h           # Definições de classes de UI
-│   └── UITestApp.cpp      # Aplicativo de teste de UI
-├── Makefile            # Makefile principal
-├── compile.sh          # Script de compilação
-├── verify_functionality.sh  # Script de verificação de funcionalidade
-└── README.md           # Este arquivo
-```
+## Instalação
 
-## Recursos Principais
+### 1. Dependências
 
-### 1. Processamento de Linguagem Natural Avançado
+1. Instale o Visual Studio 2022 com:
+   - Desenvolvimento para Desktop com C++
+   - CMake tools
+   - Windows SDK
 
-O sistema inclui um processador de linguagem natural que pode entender comandos expressos em linguagem natural, incluindo gírias e termos específicos do jogo WYD.
+2. Instale o Qt 6:
+   - Baixe o Qt Online Installer
+   - Selecione Qt 6.5.0 ou superior para MSVC 2022 64-bit
+   - Instale Qt Charts
 
-```cpp
-// Exemplo de uso:
-auto processor = std::make_shared<NaturalLanguageProcessor>();
-processor->Initialize();
+3. Instale o MySQL Server:
+   ```powershell
+   winget install Oracle.MySQL
+   ```
 
-// Processar um comando em linguagem natural
-RecognizedIntent intent = processor->ProcessText("Criar set E4 +10 para FM");
-```
+4. Configure as variáveis de ambiente:
+   ```powershell
+   setx Qt6_DIR "C:\Qt\6.5.0\msvc2022_64"
+   setx PATH "%PATH%;%Qt6_DIR%\bin"
+   ```
 
-### 2. Banco de Termos Expandido
+### 2. Compilação
 
-Um extenso banco de termos específicos do WYD permite reconhecer e interpretar corretamente a linguagem utilizada pelos jogadores, incluindo:
+1. Clone o repositório:
+   ```powershell
+   git clone https://github.com/wydbr/wydstudio.git
+   cd wydstudio
+   ```
 
-- Termos de equipamentos (E2, E3, E4, FoF, FoW)
-- Classes de personagens (FM, BM, TK, HT)
-- Sistemas automáticos (AutoBuff, AutoHP)
-- Eventos (Boss Time, ON/OFF)
-- Gírias (zika do PvP, upar dormindo, telar, etc.)
+2. Execute o script de build:
+   ```powershell
+   # Build de desenvolvimento
+   .\build.ps1
 
-### 3. Agente Administrativo Avançado
+   # Build de release com pacote de instalação
+   .\build.ps1 -Release -Package
+   ```
 
-Um agente administrativo inteligente que pode:
+### 3. Instalação
 
-- Interpretar comandos administrativos em linguagem natural
-- Executar ações no jogo com base nos comandos
-- Verificar a validade de ações antes de executá-las
-- Fornecer sugestões contextuais
+1. Instale usando o pacote gerado:
+   ```powershell
+   .\build-Release\WYDStudio-1.0.0-win64.exe
+   ```
 
-```cpp
-// Exemplo de uso:
-auto agent = std::make_shared<AdvancedAdminAgent>(processor, gameKnowledge);
-agent->Initialize();
+2. Configure o banco de dados:
+   ```sql
+   mysql -u root -p < sql/schema.sql
+   ```
 
-// Processar um comando administrativo
-std::string response = agent->ProcessQuery("Banir jogador XYZ por uso de hack");
-```
+## Uso
 
-### 4. Base de Conhecimento do Jogo
+### Primeira Execução
 
-Uma base de conhecimento especializada que contém informações sobre:
+1. Inicie o WYDStudio
+2. Faça login com as credenciais padrão:
+   - Usuário: admin
+   - Senha: admin123
+3. Configure as conexões com TMSrv e DBSrv
+4. Configure as permissões de usuários
 
-- Itens, suas propriedades e requisitos
-- Jogadores e suas características
-- Mapas, localizações e propriedades
-- Eventos do jogo e regras
+### Funcionalidades Principais
 
-### 5. Interface de Usuário para Testes
+#### Editor de Itens
+- Interface visual para edição de itens
+- Visualização 3D dos equipamentos
+- Sistema de templates
+- Importação/Exportação em massa
 
-Componentes de UI para testar o sistema, incluindo:
+#### Editor de Mobs
+- Editor visual de mobs e NPCs
+- Sistema de IA para comportamentos
+- Configuração de drops e experiência
+- Gerenciamento de spawns
 
-- Janelas, painéis, botões
-- Campos de texto, rótulos e listas
-- Sistema de manipulação de eventos
+#### Editor de Mapas
+- Editor visual de mapas
+- Sistema de colisão
+- Configuração de portais
+- Gerenciamento de eventos
 
-## Compilação e Uso
+#### Monitoramento
+- Métricas em tempo real
+- Gráficos de desempenho
+- Alertas configuráveis
+- Histórico de eventos
 
-### Requisitos
+#### Administração
+- Gerenciamento de contas
+- Sistema de banimento
+- Controle econômico
+- Logs detalhados
 
-- Compilador C++ com suporte a C++17
-- GNU Make
-- Bibliotecas padrão do C++
+#### Sistema de IA
+- Assistente inteligente
+- Detecção de bots
+- Análise de comportamento
+- Automação de tarefas
 
-### Compilação
+## Contribuição
 
-```bash
-# Compilação básica
-./compile.sh
-
-# Compilação com opções
-./compile.sh --debug --test
-```
-
-Opções disponíveis:
-- `--debug`: Compila em modo de depuração
-- `--no-examples`: Não compila exemplos
-- `--test`: Executa testes após compilação
-- `--ui-test`: Executa testes de UI após compilação
-
-### Verificação de Funcionalidade
-
-```bash
-./verify_functionality.sh
-```
-
-Este script verifica se todos os componentes do sistema estão funcionando corretamente.
-
-## Testes de Interface
-
-```bash
-cd ui_test
-make
-./UITestApp
-```
-
-## Integração de Novos Termos
-
-Para adicionar novos termos ao sistema, edite o arquivo `data/expanded_language_terms.json` seguindo o formato existente. Consulte a documentação em `docs/EXPANDED_LANGUAGE_INTEGRATION.md` para mais detalhes.
-
-## Exemplos
-
-### Exemplo de Processamento de Linguagem
-
-```bash
-bin/EnhancedLanguageExample
-```
-
-Este exemplo demonstra o processamento de comandos em linguagem natural com termos específicos do WYD.
+1. Fork o projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
+3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+4. Push para a branch (`git push origin feature/AmazingFeature`)
+5. Abra um Pull Request
 
 ## Licença
 
-Este projeto é parte do ambiente WYD MODERN 2025 STUDIO e é distribuído sob os termos de sua licença proprietária.
+Este projeto está licenciado sob a licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
 
-## Contato
+## Suporte
 
-Para mais informações, entre em contato com a equipe de desenvolvimento do WYD MODERN 2025 STUDIO.
+- 📧 Email: suporte@wydbr.com
+- 💬 Discord: [WYDBR Community](https://discord.gg/wydbr)
+- 📚 Documentação: [docs.wydbr.com](https://docs.wydbr.com)
+- 🐛 Issues: [GitHub Issues](https://github.com/wydbr/wydstudio/issues)

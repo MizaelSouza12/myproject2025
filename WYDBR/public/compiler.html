@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WYDBRASIL - Compilador</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/compiler.css">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <h1>WYDBRASIL</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">Início</a></li>
+                    <li><a href="/compiler" class="active">Compilador</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="compiler-main">
+            <h2>Compilador WYD</h2>
+            <div class="compiler-container">
+                <section class="file-selector">
+                    <h3>Selecionar Arquivo</h3>
+                    <div class="file-types">
+                        <div class="file-type" data-type="json">
+                            <h4>JSON → BIN</h4>
+                            <p>Converte arquivos JSON para o formato binário do WYD</p>
+                        </div>
+                        <div class="file-type" data-type="bin">
+                            <h4>BIN → JSON</h4>
+                            <p>Decompila arquivos binários do WYD para formato JSON</p>
+                        </div>
+                    </div>
+                    <div class="file-input">
+                        <input type="file" id="fileInput" class="hidden">
+                        <button id="selectFileBtn" class="btn">Selecionar Arquivo</button>
+                        <span id="selectedFile">Nenhum arquivo selecionado</span>
+                    </div>
+                </section>
+
+                <section class="compiler-options">
+                    <h3>Opções de Compilação</h3>
+                    <div class="option">
+                        <label for="outputPath">Caminho de Saída:</label>
+                        <input type="text" id="outputPath" placeholder="Caminho do arquivo de saída">
+                    </div>
+                    <div class="option">
+                        <label for="formatSelector">Formato:</label>
+                        <select id="formatSelector">
+                            <option value="auto">Automático</option>
+                            <option value="itemlist">ItemList</option>
+                            <option value="skilldata">SkillData</option>
+                            <option value="config">Config</option>
+                            <option value="other">Outro</option>
+                        </select>
+                    </div>
+                    <div class="option">
+                        <input type="checkbox" id="backup" checked>
+                        <label for="backup">Criar backup antes de processar</label>
+                    </div>
+                    <div class="actions">
+                        <button id="compileBtn" class="btn primary">Processar</button>
+                        <button id="resetBtn" class="btn secondary">Limpar</button>
+                    </div>
+                </section>
+
+                <section class="output-console">
+                    <h3>Console</h3>
+                    <div id="consoleOutput" class="console">
+                        <div class="console-line">Bem-vindo ao Compilador WYDBRASIL</div>
+                        <div class="console-line">Selecione um arquivo para iniciar...</div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 WYDBRASIL. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+    
+    <script src="js/script.js"></script>
+    <script src="js/compiler.js"></script>
+</body>
+</html>

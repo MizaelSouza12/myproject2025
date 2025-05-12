@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.12)
+cmake_minimum_required(VERSION 3.16)
 project(WYDStudio VERSION 1.0.0 LANGUAGES CXX)
 
 # Configuração do C++
@@ -8,117 +8,142 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 # Opções de compilação
 option(WYDSTUDIO_BUILD_TESTS "Compilar testes" OFF)
-option(WYDSTUDIO_USE_QT "Usar Qt para interface gráfica" ON)
-option(WYDSTUDIO_USE_IMGUI "Usar ImGui para interface gráfica" OFF)
+option(WYDSTUDIO_ENABLE_AI "Habilitar funcionalidades de IA" ON)
 
-# Definição de variáveis para caminhos de código-fonte
-set(WYDSTUDIO_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include)
-set(WYDSTUDIO_SRC_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src)
-set(WYDSTUDIO_RESOURCES_DIR ${CMAKE_CURRENT_SOURCE_DIR}/resources)
-set(WYDSTUDIO_MODELS_DIR ${CMAKE_CURRENT_SOURCE_DIR}/models)
+# Configuração do Qt
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+set(CMAKE_AUTOUIC ON)
 
-# Encontrar dependências
-find_package(nlohmann_json REQUIRED)
-
-# Configuração da GUI
-if(WYDSTUDIO_USE_QT)
-    set(CMAKE_AUTOMOC ON)
-    set(CMAKE_AUTORCC ON)
-    set(CMAKE_AUTOUIC ON)
-    find_package(Qt5 COMPONENTS Core Widgets Network REQUIRED)
-    add_definitions(-DWYDSTUDIO_USE_QT)
-elseif(WYDSTUDIO_USE_IMGUI)
-    # Configuração do ImGui
-    find_package(OpenGL REQUIRED)
-    find_package(GLFW3 REQUIRED)
-    add_definitions(-DWYDSTUDIO_USE_IMGUI)
-endif()
-
-# Listar arquivos de código-fonte
-file(GLOB_RECURSE WYDSTUDIO_SOURCES 
-    ${WYDSTUDIO_SRC_DIR}/*.cpp
+# Encontrar o Qt
+find_package(Qt6 COMPONENTS
+    Core
+    Gui
+    Widgets
+    Network
+    Sql
+    Charts
+    REQUIRED
 )
 
-file(GLOB_RECURSE WYDSTUDIO_HEADERS 
-    ${WYDSTUDIO_INCLUDE_DIR}/*.h
+# Encontrar outras dependências
+find_package(OpenSSL REQUIRED)
+find_package(MySQL REQUIRED)
+find_package(nlohmann_json REQUIRED)
+find_package(spdlog REQUIRED)
+find_package(fmt REQUIRED)
+
+# Definir diretórios de código-fonte
+set(WYDSTUDIO_SRC_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src)
+set(WYDSTUDIO_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include)
+set(WYDSTUDIO_RESOURCES_DIR ${CMAKE_CURRENT_SOURCE_DIR}/resources)
+
+# Coletar arquivos fonte
+file(GLOB_RECURSE WYDSTUDIO_SOURCES
+    ${WYDSTUDIO_SRC_DIR}/*.cpp
     ${WYDSTUDIO_SRC_DIR}/*.h
 )
 
+# Recursos do Qt
+set(WYDSTUDIO_RESOURCES
+    ${WYDSTUDIO_RESOURCES_DIR}/icons.qrc
+    ${WYDSTUDIO_RESOURCES_DIR}/styles.qrc
+)
+
 # Criar executável
-add_executable(${PROJECT_NAME} ${WYDSTUDIO_SOURCES} ${WYDSTUDIO_HEADERS})
+add_executable(${PROJECT_NAME}
+    ${WYDSTUDIO_SOURCES}
+    ${WYDSTUDIO_RESOURCES}
+)
 
 # Incluir diretórios
 target_include_directories(${PROJECT_NAME} PRIVATE
-    ${WYDSTUDIO_INCLUDE_DIR}
     ${WYDSTUDIO_SRC_DIR}
+    ${WYDSTUDIO_INCLUDE_DIR}
+    ${MySQL_INCLUDE_DIR}
 )
 
 # Vincular bibliotecas
 target_link_libraries(${PROJECT_NAME} PRIVATE
+    Qt6::Core
+    Qt6::Gui
+    Qt6::Widgets
+    Qt6::Network
+    Qt6::Sql
+    Qt6::Charts
+    OpenSSL::SSL
+    OpenSSL::Crypto
+    MySQL::MySQL
     nlohmann_json::nlohmann_json
+    spdlog::spdlog
+    fmt::fmt
 )
 
-# Vincular bibliotecas de GUI
-if(WYDSTUDIO_USE_QT)
-    target_link_libraries(${PROJECT_NAME} PRIVATE
-        Qt5::Core
-        Qt5::Widgets
-        Qt5::Network
-    )
-elseif(WYDSTUDIO_USE_IMGUI)
-    target_link_libraries(${PROJECT_NAME} PRIVATE
-        OpenGL::GL
-        glfw
+# Definições de compilação
+target_compile_definitions(${PROJECT_NAME} PRIVATE
+    QT_NO_KEYWORDS
+    SPDLOG_ACTIVE_LEVEL=SPDLOG_LEVEL_DEBUG
+)
+
+if(WYDSTUDIO_ENABLE_AI)
+    target_compile_definitions(${PROJECT_NAME} PRIVATE WYDSTUDIO_ENABLE_AI)
+endif()
+
+# Configurações específicas de plataforma
+if(WIN32)
+    # Ícone do Windows
+    set(APP_ICON_RESOURCE_WINDOWS "${WYDSTUDIO_RESOURCES_DIR}/wydstudio.rc")
+    target_sources(${PROJECT_NAME} PRIVATE ${APP_ICON_RESOURCE_WINDOWS})
+    
+    # Definições do Windows
+    target_compile_definitions(${PROJECT_NAME} PRIVATE
+        WIN32_LEAN_AND_MEAN
+        NOMINMAX
+        _CRT_SECURE_NO_WARNINGS
     )
 endif()
 
-# Configuração de instalação
-install(TARGETS ${PROJECT_NAME} DESTINATION bin)
-install(DIRECTORY ${WYDSTUDIO_RESOURCES_DIR} DESTINATION share/${PROJECT_NAME})
-install(DIRECTORY ${WYDSTUDIO_MODELS_DIR} DESTINATION share/${PROJECT_NAME})
+# Instalação
+install(TARGETS ${PROJECT_NAME}
+    RUNTIME DESTINATION bin
+    BUNDLE DESTINATION .
+)
 
-# Configuração para geração de documentação
-find_package(Doxygen)
-if(DOXYGEN_FOUND)
-    set(DOXYGEN_IN ${CMAKE_CURRENT_SOURCE_DIR}/docs/Doxyfile.in)
-    set(DOXYGEN_OUT ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile)
-    configure_file(${DOXYGEN_IN} ${DOXYGEN_OUT} @ONLY)
-    add_custom_target(doc
-        COMMAND ${DOXYGEN_EXECUTABLE} ${DOXYGEN_OUT}
-        WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
-        COMMENT "Gerando documentação API com Doxygen"
-        VERBATIM
-    )
-endif()
+install(DIRECTORY ${WYDSTUDIO_RESOURCES_DIR}/
+    DESTINATION share/${PROJECT_NAME}
+    FILES_MATCHING PATTERN "*.qss"
+)
 
-# Configuração para testes
+install(FILES ${WYDSTUDIO_RESOURCES_DIR}/config/default.json
+    DESTINATION share/${PROJECT_NAME}/config
+)
+
+# Testes
 if(WYDSTUDIO_BUILD_TESTS)
     enable_testing()
     add_subdirectory(tests)
 endif()
 
-# Configurações específicas de plataforma
+# Configuração do pacote
+set(CPACK_PACKAGE_NAME ${PROJECT_NAME})
+set(CPACK_PACKAGE_VENDOR "WYDBR Team")
+set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "WYDStudio - Ferramenta Avançada de Administração WYD")
+set(CPACK_PACKAGE_VERSION ${PROJECT_VERSION})
+set(CPACK_PACKAGE_INSTALL_DIRECTORY ${PROJECT_NAME})
+
 if(WIN32)
-    # Configurações específicas para Windows
-    target_compile_definitions(${PROJECT_NAME} PRIVATE WIN32_LEAN_AND_MEAN NOMINMAX)
-    # Ícone e recursos do Windows
-    set(WYDSTUDIO_RC_FILE ${WYDSTUDIO_RESOURCES_DIR}/WYDStudio.rc)
-    target_sources(${PROJECT_NAME} PRIVATE ${WYDSTUDIO_RC_FILE})
-elseif(UNIX AND NOT APPLE)
-    # Configurações específicas para Linux
-    target_link_libraries(${PROJECT_NAME} PRIVATE pthread dl)
-elseif(APPLE)
-    # Configurações específicas para macOS
-    set_target_properties(${PROJECT_NAME} PROPERTIES
-        MACOSX_BUNDLE TRUE
-        MACOSX_BUNDLE_INFO_PLIST ${WYDSTUDIO_RESOURCES_DIR}/Info.plist
-    )
+    set(CPACK_GENERATOR "NSIS")
+    set(CPACK_NSIS_PACKAGE_NAME ${PROJECT_NAME})
+    set(CPACK_NSIS_DISPLAY_NAME ${PROJECT_NAME})
+    set(CPACK_NSIS_ENABLE_UNINSTALL_BEFORE_INSTALL ON)
+    set(CPACK_NSIS_MODIFY_PATH ON)
+    set(CPACK_NSIS_MUI_ICON "${WYDSTUDIO_RESOURCES_DIR}/wydstudio.ico")
+    set(CPACK_NSIS_MUI_UNIICON "${WYDSTUDIO_RESOURCES_DIR}/wydstudio.ico")
+else()
+    set(CPACK_GENERATOR "DEB")
+    set(CPACK_DEBIAN_PACKAGE_MAINTAINER "WYDBR Team <contato@wydbr.com>")
+    set(CPACK_DEBIAN_PACKAGE_SECTION "games")
+    set(CPACK_DEBIAN_PACKAGE_DEPENDS "libqt6core6, libqt6gui6, libqt6widgets6, libqt6network6, libqt6sql6, libqt6charts6")
 endif()
 
-# Exibir resumo da configuração
-message(STATUS "WYDStudio configurado com:")
-message(STATUS "  C++ Standard: ${CMAKE_CXX_STANDARD}")
-message(STATUS "  Interface gráfica: ${WYDSTUDIO_USE_QT ? 'Qt' : (WYDSTUDIO_USE_IMGUI ? 'ImGui' : 'Nenhuma')}")
-message(STATUS "  Compilando testes: ${WYDSTUDIO_BUILD_TESTS}")
-message(STATUS "  Caminho de recursos: ${WYDSTUDIO_RESOURCES_DIR}")
-message(STATUS "  Caminho de modelos: ${WYDSTUDIO_MODELS_DIR}")
+include(CPack)

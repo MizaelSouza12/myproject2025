@@ -1,0 +1,72 @@
+FFFFFF
+FFFFFF Ajustes Avançados 
+FFFFAA
+FFFFAA Configurações gráficas e controles
+AAFFAA
+
+FFFFFF Configurações Gráficas
+FFFFAA
+FFFFAA Qualidade da Renderização
+AAFFAA Ultra Alto (Recomendado)
+AAFFAA Alto
+AAFFAA Médio
+AAFFAA Baixo
+AAFFAA Mínimo
+AAFFAA
+
+FFFFFF Distância de Visualização
+FFFFAA
+FFFFAA Campo de visão
+AAFFAA Máximo
+AAFFAA Alto
+AAFFAA Médio
+AAFFAA Baixo
+AAFFAA Mínimo
+AAFFAA
+
+FFFFFF Efeitos Especiais
+FFFFAA
+FFFFAA Qualidade dos efeitos
+AAFFAA Ativado
+AAFFAA Reduzido
+AAFFAA Desativado
+AAFFAA
+
+FFFFFF Configurações de Teclas
+FFFFAA
+FFFFAA Teclas de atalho do WYD
+AAFFAA Padrão
+AAFFAA Personalizadas
+AAFFAA
+
+FFFFFF Configurações de VOIP
+FFFFAA
+FFFFAA Push-to-Talk
+AAFFAA Tecla: [TECLA]
+AAFFAA Alterar Tecla
+AAFFAA Usar Botão do Mouse
+AAFFAA Ativar Detecção de Voz
+AAFFAA Desativar Chat de Voz
+AAFFAA
+
+FFFFFF Volume
+FFFFAA
+FFFFAA Ajustar volume do chat de voz
+AAFFAA 100%
+AAFFAA 75%
+AAFFAA 50%
+AAFFAA 25%
+AAFFAA Mudo
+AAFFAA
+
+FFFFFF
+FFFFFF Salvar Configurações
+FFFFAA
+FFFFAA Aplicar e Salvar
+AAFFAA
+
+FFFFFF
+FFFFFF Cancelar
+FFFFAA
+FFFFAA Voltar sem salvar
+AAFFAA

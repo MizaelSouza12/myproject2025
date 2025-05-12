@@ -1,0 +1,223 @@
+# Estrutura do arquivo SkillList.bin
+
+Este arquivo contém as definições de habilidades (skills) do jogo WYDBR 2.0, incluindo efeitos, requisitos e progressão.
+
+## Formato do arquivo binário
+
+O arquivo SkillList.bin é um arquivo binário com a seguinte estrutura:
+
+1. Cabeçalho (16 bytes):
+   - Assinatura (4 bytes): "SKIL"
+   - Versão (4 bytes): Número da versão atual (1)
+   - Contagem (4 bytes): Número total de habilidades no arquivo
+   - Reservado (4 bytes): Para uso futuro
+
+2. Entradas de habilidades:
+   Cada entrada tem tamanho fixo de 1024 bytes com a seguinte estrutura:
+   
+   - ID (4 bytes): Identificador único da habilidade (1-1000)
+   - Nome (64 bytes): Nome da habilidade (terminado em null)
+   - Descrição (256 bytes): Descrição detalhada da habilidade (terminado em null)
+   - Ícone (64 bytes): Caminho para o ícone da habilidade
+   - Efeito visual (64 bytes): Caminho para o efeito visual da habilidade
+   - Som (64 bytes): Caminho para o arquivo de som da habilidade
+   
+   - Tipo (4 bytes): Tipo da habilidade
+     * 0: Passiva
+     * 1: Ataque
+     * 2: Buff
+     * 3: Debuff
+     * 4: Cura
+     * 5: Invocação
+     * 6: Utilidade
+     * 7: Aura
+     * 8: Transformação
+   
+   - Elemento (4 bytes): Elemento da habilidade
+     * 0: Neutro
+     * 1: Fogo
+     * 2: Água
+     * 3: Terra
+     * 4: Vento
+     * 5: Luz
+     * 6: Escuridão
+   
+   - Alvo (4 bytes): Tipo de alvo
+     * 0: Nenhum
+     * 1: Self
+     * 2: Aliado único
+     * 3: Inimigo único
+     * 4: Área aliados
+     * 5: Área inimigos
+     * 6: Área mista
+   
+   - Nível máximo (4 bytes): Nível máximo da habilidade
+   
+   - Efeitos por nível (320 bytes): Até 20 níveis, cada um com:
+     * Custo de MP (2 bytes)
+     * Custo de HP (2 bytes)
+     * Custo de Stamina (2 bytes)
+     * Valor base de efeito (4 bytes)
+     * Escalamento com atributos (4 bytes): Flags de quais atributos escalam
+     * Tempo de recarga (cooldown) em segundos (2 bytes)
+     * Duração em segundos (2 bytes)
+   
+   - Requisitos (64 bytes):
+     * Nível mínimo (4 bytes)
+     * Classe requerida (4 bytes): Flags de classes que podem aprender
+     * Atributos mínimos (20 bytes): 5 atributos com 4 bytes cada
+     * Habilidades pré-requisito (32 bytes): IDs e níveis mínimos
+   
+   - Flags (4 bytes): Bits de flag para propriedades especiais
+     * Bit 0: Ignorar defesa
+     * Bit 1: Não pode falhar
+     * Bit 2: Penetra imunidade
+     * Bit 3: Pode ser crítico
+     * Bit 4: Pula animação
+     * Bit 5: Canalizável
+     * Bit 6: Interrompível
+     * Bit 7: Exclusiva
+     * Bit 8: Persistente após morte
+   
+   - Progressão (16 bytes):
+     * Pontos para aprender (1 byte)
+     * Pontos por nível (1 byte)
+     * Ouro por nível (4 bytes)
+     * Itens necessários (8 bytes): IDs de até 2 itens para aprender/melhorar
+   
+   - Mecânica (64 bytes):
+     * Alcance (4 bytes): Alcance em unidades de jogo
+     * Raio (4 bytes): Raio de efeito em área
+     * Velocidade de projétil (4 bytes): Se aplicável
+     * Ângulo (4 bytes): Ângulo do efeito em cone
+     * Máximo de alvos (4 bytes): Máximo de alvos afetados em AoE
+     * Quantidade de hits (4 bytes): Número de acertos por uso
+     * Chance de aplicar status (32 bytes): 8 efeitos de status e suas chances
+     * Outros valores (8 bytes): Reservado para mecânicas específicas
+   
+   - Dados reservados (32 bytes): Para expansões futuras
+
+## Geração do arquivo binário
+
+Para gerar o arquivo SkillList.bin a partir de dados em formato texto:
+
+1. Use a ferramenta de conversão fornecida no diretório tools/
+   ```
+   ./skill_converter SkillList.txt SkillList.bin
+   ```
+
+2. Ou crie seu próprio conversor usando o código exemplo abaixo:
+
+```cpp
+#include <fstream>
+#include <vector>
+#include <string>
+#include <cstring>
+
+struct SkillHeader {
+    char signature[4];  // "SKIL"
+    uint32_t version;   // 1
+    uint32_t count;     // Número de habilidades
+    uint32_t reserved;  // Reservado
+};
+
+struct SkillLevelData {
+    uint16_t mpCost;
+    uint16_t hpCost;
+    uint16_t staminaCost;
+    uint32_t baseValue;
+    uint32_t attributeScaling;  // Flags para escalonamento
+    uint16_t cooldown;          // Em segundos
+    uint16_t duration;          // Em segundos
+};
+
+struct SkillRequirements {
+    uint32_t minLevel;
+    uint32_t classFlags;
+    uint32_t minAttributes[5];  // STR, VIT, DEX, INT, WIS
+    struct {
+        uint16_t skillId;
+        uint16_t minLevel;
+    } prerequisiteSkills[4];
+};
+
+struct SkillProgression {
+    uint8_t pointsToLearn;
+    uint8_t pointsPerLevel;
+    uint32_t goldPerLevel;
+    uint32_t requiredItems[2];
+};
+
+struct SkillMechanics {
+    uint32_t range;
+    uint32_t radius;
+    uint32_t projectileSpeed;
+    uint32_t angle;
+    uint32_t maxTargets;
+    uint32_t hitCount;
+    struct {
+        uint16_t statusId;
+        uint16_t chance;  // 0-10000, representa percentual * 100
+    } statusEffects[4];
+    uint32_t reserved[2];
+};
+
+struct SkillEntry {
+    uint32_t id;
+    char name[64];
+    char description[256];
+    char iconPath[64];
+    char visualEffectPath[64];
+    char soundPath[64];
+    
+    uint32_t type;
+    uint32_t element;
+    uint32_t targetType;
+    uint32_t maxLevel;
+    
+    SkillLevelData levelData[20];
+    SkillRequirements requirements;
+    uint32_t flags;
+    SkillProgression progression;
+    SkillMechanics mechanics;
+    
+    char reserved[32];
+};
+
+void generateSkillList(const std::vector<SkillEntry>& skills, const std::string& outputFile) {
+    std::ofstream file(outputFile, std::ios::binary);
+    
+    SkillHeader header;
+    std::memcpy(header.signature, "SKIL", 4);
+    header.version = 1;
+    header.count = skills.size();
+    header.reserved = 0;
+    
+    file.write(reinterpret_cast<char*>(&header), sizeof(SkillHeader));
+    
+    for (const auto& skill : skills) {
+        file.write(reinterpret_cast<const char*>(&skill), sizeof(SkillEntry));
+    }
+    
+    file.close();
+}
+```
+
+## Notas adicionais
+
+- Todos os valores numéricos são armazenados em little-endian
+- Strings são terminadas em null (0) e preenchidas com zeros
+- Os IDs de habilidade devem ser únicos
+- Algumas categorias de habilidades especiais:
+  - IDs 1-100: Habilidades básicas disponíveis para todas as classes
+  - IDs 101-200: Habilidades de Guerreiro
+  - IDs 201-300: Habilidades de Arqueiro
+  - IDs 301-400: Habilidades de Mago
+  - IDs 401-500: Habilidades de Clérigo
+  - IDs 501-600: Habilidades de Ladrão
+  - IDs 601-700: Habilidades de classes avançadas
+  - IDs 701-800: Habilidades de profissão
+  - IDs 801-900: Habilidades de montaria/pet
+  - IDs 901-1000: Habilidades especiais/eventos
+
+Para edição manual de habilidades, recomenda-se usar o Editor de Habilidades disponível nas ferramentas de desenvolvimento. 

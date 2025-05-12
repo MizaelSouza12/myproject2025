@@ -1,0 +1,7 @@
+{
+  "format": "unknown",
+  "file_size": 6820,
+  "file_path": "/home/runner/workspace/WYD/v769ClientRelease/UI/SelCharScene.bin",
+  "file_name": "SelCharScene.bin",
+  "hex_sample": "00000000  01 00 00 00 02 05 00 00 00 00 00 00 ff ff ff ff  |................|\n00000010  da 00 00 00 23 02 00 00 6a 01 00 00 25 01 00 00  |....#...j...%...|\n00000020  00 00 00 00 04 00 00 00 00 00 00 00 02 00 00 00  |................|\n00000030  05 12 00 00 02 05 00 00 79 00 00 00 3c 00 00 00  |........y...<...|\n00000040  05 00 00 00 f0 00 00 00 38 00 00 00 ff ff ff ff  |........8.......|\n00000050  01 00 00 00 20 00 cc cc cc cc cc cc cc cc cc cc  |.... ...........|\n00000060  cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc  |................|\n00000070  cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc  |................|\n00000080  cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc  |................|\n00000090  cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc  |................|\n000000a0  cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc  |................|\n000000b0  cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc  |................|\n000000c0  cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc  |................|\n000000d0  cc cc cc cc 02 00 00 00 08 12 00 00 02 05 00 00  |................|\n000000e0  7e 00 00 00 1a 00 00 00 ee 00 00 00 64 00 00 00  |~...........d...|\n000000f0  28 00 00 00 ff ff ff ff 01 00 00 00 20 00 cc cc  |(........... ...|"
+}

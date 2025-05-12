@@ -1,0 +1,36 @@
+{
+  "assistants": [
+    {
+      "id": 1,
+      "name": "Mestre Kozan",
+      "appearance": "npc_advisor_male_elder.mesh",
+      "role": "tutorial",
+      "location": {
+        "mapId": 0,
+        "x": 2080,
+        "y": 2075
+      },
+      "dialogues": {
+        "greeting": "Olá, jovem aventureiro! Sou o Mestre Kozan, estou aqui para guiá-lo em sua jornada. Como posso ajudar?",
+        "topics": [
+          {
+            "id": "basics",
+            "name": "Noções básicas do jogo",
+            "response": "WYDBR é um mundo vasto cheio de aventuras! Use WASD para se mover, E para interagir com objetos e NPCs, e barra de espaço para atacar. Pressione I para abrir seu inventário, K para habilidades e P para o perfil do personagem."
+          },
+          {
+            "id": "combat",
+            "name": "Sistema de combate",
+            "response": "O combate em WYDBR é baseado em tempo real. Clique com o botão esquerdo para ataques básicos. Use as teclas 1-0 para ativar habilidades. Lembre-se de equipar armas adequadas à sua classe no inventário (tecla I)."
+          },
+          {
+            "id": "leveling",
+            "name": "Como evoluir meu personagem",
+            "response": "Para evoluir, você precisa ganhar experiência derrotando monstros ou completando missões. A cada nível, você ganha pontos de habilidade (tecla K) e pontos de atributo (tecla P). Distribua-os com sabedoria!"
+          }
+        ],
+        "farewell": "Que os deuses iluminem seu caminho, aventureiro! Volte quando precisar de mais orientações."
+      }
+    }
+  ]
+}

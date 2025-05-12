@@ -1,0 +1,7 @@
+{
+  "format": "unknown",
+  "file_size": 60,
+  "file_path": "/home/runner/workspace/WYD/v769ClientRelease/UI/SelCamAction2.bin",
+  "file_name": "SelCamAction2.bin",
+  "hex_sample": "00000000  02 00 00 00 00 00 00 00 00 00 00 00 00 80 ff 44  |...............D|\n00000010  00 00 00 40 00 80 ff 44 db 0f 49 3f 50 77 56 3d  |...@...D..I?PwV=|\n00000020  bc 02 00 00 00 00 00 00 00 80 ff 44 00 00 00 40  |...........D...@|\n00000030  00 80 ff 44 db 0f 49 3f 35 fa 0e be              |...D..I?5...|"
+}

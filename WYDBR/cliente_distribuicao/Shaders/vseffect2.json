@@ -1,0 +1,230 @@
+{
+  "format": "item",
+  "items": [
+    {
+      "id": 257,
+      "mesh_id": 65534,
+      "price": 5570558,
+      "price_sell": 1196769860,
+      "requirements": {
+        "level": 80,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 28
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 23662,
+      "mesh_id": 26707,
+      "price": 1919247457,
+      "price_sell": 1702065756,
+      "requirements": {
+        "level": 33,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 88
+      },
+      "effects": {
+        "damage": [
+          1,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 41,
+      "mesh_id": 0,
+      "price": 408,
+      "price_sell": 44,
+      "requirements": {
+        "level": 196,
+        "str": 1,
+        "int": 0,
+        "dex": 0,
+        "con": 49
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 524,
+      "mesh_id": 0,
+      "price": 58,
+      "price_sell": 540,
+      "requirements": {
+        "level": 64,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 72
+      },
+      "effects": {
+        "damage": [
+          2,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 72,
+      "mesh_id": 0,
+      "price": 660,
+      "price_sell": 76,
+      "requirements": {
+        "level": 192,
+        "str": 2,
+        "int": 0,
+        "dex": 0,
+        "con": 95
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 29285,
+      "mesh_id": 43776,
+      "price": 31,
+      "price_sell": 2147483648,
+      "requirements": {
+        "level": 31,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 5
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 128
+      }
+    },
+    {
+      "id": 23,
+      "mesh_id": 0,
+      "price": 2147942405,
+      "price_sell": 2430861315,
+      "requirements": {
+        "level": 20,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          15
+        ],
+        "defense": 192
+      }
+    },
+    {
+      "id": 5,
+      "mesh_id": 33023,
+      "price": 5,
+      "price_sell": 2148466693,
+      "requirements": {
+        "level": 4,
+        "str": 0,
+        "int": 228,
+        "dex": 144,
+        "con": 30
+      },
+      "effects": {
+        "damage": [
+          0,
+          228
+        ],
+        "defense": 160
+      }
+    },
+    {
+      "id": 1,
+      "mesh_id": 32783,
+      "price": 2162425857,
+      "price_sell": 5,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 15,
+        "dex": 128,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          228
+        ],
+        "defense": 128
+      }
+    },
+    {
+      "id": 6,
+      "mesh_id": 32996,
+      "price": 7,
+      "price_sell": 2148007942,
+      "requirements": {
+        "level": 6,
+        "str": 0,
+        "int": 255,
+        "dex": 128,
+        "con": 8
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 32775,
+      "price": 2158231552,
+      "price_sell": 2158231560,
+      "requirements": {
+        "level": 6,
+        "str": 0,
+        "int": 15,
+        "dex": 128,
+        "con": 6
+      },
+      "effects": {
+        "damage": [
+          0,
+          228
+        ],
+        "defense": 160
+      }
+    }
+  ],
+  "item_count": 11,
+  "file_path": "/home/runner/workspace/WYD/v769ClientRelease/shader/vseffect2.bin",
+  "file_size": 748,
+  "file_name": "vseffect2.bin",
+  "hex_sample": "00000000  01 01 fe ff fe ff 54 00 44 42 55 47 28 00 00 00  |......T.DBUG(...|\n00000010  34 01 00 00 00 00 00 00 01 00 00 00 50 00 00 00  |4...........P...|\n00000020  1c 00 00 00 54 00 00 00 00 00 00 00 00 00 00 00  |....T...........|\n00000030  00 00 00 00 44 3a 5c 43 6c 69 65 6e 74 2d 76 65  |....D:\\Client-ve|\n00000040  72 5c 72 75 6e 5c 53 68 61 64 65 72 5c 76 73 65  |r\\run\\Shader\\vse|\n00000050  66 66 65 63 74 32 2e 76 73 68 00 ab 28 00 00 00  |ffect2.vsh..(...|\n00000060  21 00 00 00 58 01 00 00 22 00 00 00 64 01 00 00  |!...X...\"...d...|\n00000070  23 00 00 00 70 01 00 00 25 00 00 00 7c 01 00 00  |#...p...%...|...|\n00000080  28 00 00 00 88 01 00 00 29 00 00 00 98 01 00 00  |(.......).......|\n00000090  2c 00 00 00 a8 01 00 00 2d 00 00 00 b4 01 00 00  |,.......-.......|\n000000a0  30 00 00 00 c4 01 00 00 31 00 00 00 d4 01 00 00  |0.......1.......|\n000000b0  32 00 00 00 e0 01 00 00 35 00 00 00 f0 01 00 00  |2.......5.......|\n000000c0  36 00 00 00 00 02 00 00 39 00 00 00 0c 02 00 00  |6.......9.......|\n000000d0  3a 00 00 00 1c 02 00 00 3b 00 00 00 28 02 00 00  |:.......;...(...|\n000000e0  3c 00 00 00 38 02 00 00 40 00 00 00 48 02 00 00  |<...8...@...H...|\n000000f0  42 00 00 00 58 02 00 00 43 00 00 00 68 02 00 00  |B...X...C...h...|"
+}

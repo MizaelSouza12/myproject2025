@@ -1,0 +1,34 @@
+{
+  "itemRestrictions": {
+    "blockedItems": [4031, 4032, 4033, 4900, 4901, 4902],
+    "limitedItems": {
+      "4111": {
+        "maxPerTrade": 1,
+        "minLevel": 200,
+        "description": "Gema de Noatun - Item raro limitado a 1 por troca"
+      },
+      "4112": {
+        "maxPerTrade": 5,
+        "minLevel": 150,
+        "description": "Moeda de Ouro - Limitada a 5 por troca"
+      }
+    }
+  },
+  "tradingRules": {
+    "maxItemsPerTrade": 12,
+    "maxGoldPerTrade": 2000000000,
+    "minLevelToTrade": 20,
+    "cooldownBetweenTrades": 2,
+    "itemInspectionTime": 10,
+    "confirmationRequired": true,
+    "logAllTrades": true
+  },
+  "securityFeatures": {
+    "requirePasswordForHighValue": true,
+    "highValueThreshold": 50000000,
+    "preventTradeInCombat": true,
+    "preventTradeInDungeon": true,
+    "autoDeclineOnAfk": true,
+    "afkTimeoutSeconds": 60
+  }
+}

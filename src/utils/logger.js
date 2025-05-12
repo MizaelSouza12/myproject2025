@@ -1,63 +1,57 @@
-const chalk = require('chalk');
+const winston = require('winston');
+const path = require('path');
 
-class Logger {
-  static LEVELS = {
-    DEBUG: 0,
-    INFO: 1,
-    WARN: 2,
-    ERROR: 3
-  };
+// Configuração do formato de log
+const logFormat = winston.format.combine(
+    winston.format.timestamp(),
+    winston.format.json()
+);
 
-  constructor(options = {}) {
-    this.level = options.level || Logger.LEVELS.INFO;
-    this.prefix = options.prefix || 'WYDStudio';
-  }
+// Criar diretório de logs se não existir
+const logDir = path.join(process.cwd(), 'logs');
+require('fs').mkdirSync(logDir, { recursive: true });
 
-  format(level, message) {
-    const timestamp = new Date().toISOString();
-    const prefix = chalk.cyan(`[${this.prefix}]`);
-    const levelStr = this.getLevelString(level);
-    return `${prefix} ${levelStr} ${message}`;
-  }
+// Criar logger
+const logger = winston.createLogger({
+    level: process.env.LOG_LEVEL || 'info',
+    format: logFormat,
+    transports: [
+        // Arquivo de log para todos os níveis
+        new winston.transports.File({
+            filename: path.join(logDir, 'wydbr.log'),
+            maxsize: 5242880, // 5MB
+            maxFiles: 5,
+            tailable: true
+        }),
+        // Arquivo separado para erros
+        new winston.transports.File({
+            filename: path.join(logDir, 'error.log'),
+            level: 'error',
+            maxsize: 5242880, // 5MB
+            maxFiles: 5,
+            tailable: true
+        }),
+        // Console para desenvolvimento
+        new winston.transports.Console({
+            format: winston.format.combine(
+                winston.format.colorize(),
+                winston.format.simple()
+            )
+        })
+    ]
+});
 
-  getLevelString(level) {
-    switch(level) {
-      case Logger.LEVELS.DEBUG:
-        return chalk.gray('[DEBUG]');
-      case Logger.LEVELS.INFO:
-        return chalk.blue('[INFO]');
-      case Logger.LEVELS.WARN:
-        return chalk.yellow('[WARN]');
-      case Logger.LEVELS.ERROR:
-        return chalk.red('[ERROR]');
-      default:
-        return chalk.white('[LOG]');
-    }
-  }
+// Adicionar handler para exceções não tratadas
+logger.exceptions.handle(
+    new winston.transports.File({
+        filename: path.join(logDir, 'exceptions.log'),
+        maxsize: 5242880, // 5MB
+        maxFiles: 5,
+        tailable: true
+    })
+);
 
-  debug(message) {
-    if (this.level <= Logger.LEVELS.DEBUG) {
-      console.log(this.format(Logger.LEVELS.DEBUG, message));
-    }
-  }
+// Não encerrar em exceções não tratadas
+logger.exitOnError = false;
 
-  info(message) {
-    if (this.level <= Logger.LEVELS.INFO) {
-      console.log(this.format(Logger.LEVELS.INFO, message));
-    }
-  }
-
-  warn(message) {
-    if (this.level <= Logger.LEVELS.WARN) {
-      console.warn(this.format(Logger.LEVELS.WARN, message));
-    }
-  }
-
-  error(message) {
-    if (this.level <= Logger.LEVELS.ERROR) {
-      console.error(this.format(Logger.LEVELS.ERROR, message));
-    }
-  }
-}
-
-module.exports = Logger; 
+module.exports = logger; 

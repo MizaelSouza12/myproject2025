@@ -1,0 +1,4770 @@
+{
+  "format": "item",
+  "items": [
+    {
+      "id": 1801,
+      "mesh_id": 0,
+      "price": 1097334784,
+      "price_sell": 1099169792,
+      "requirements": {
+        "level": 9,
+        "str": 7,
+        "int": 0,
+        "dex": 0,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          104
+        ],
+        "defense": 65
+      }
+    },
+    {
+      "id": 52429,
+      "mesh_id": 16396,
+      "price": 1070141403,
+      "price_sell": 0,
+      "requirements": {
+        "level": 205,
+        "str": 204,
+        "int": 12,
+        "dex": 64,
+        "con": 228
+      },
+      "effects": {
+        "damage": [
+          203,
+          150
+        ],
+        "defense": 64
+      }
+    },
+    {
+      "id": 1801,
+      "mesh_id": 0,
+      "price": 1729,
+      "price_sell": 1099694080,
+      "requirements": {
+        "level": 193,
+        "str": 6,
+        "int": 0,
+        "dex": 0,
+        "con": 193
+      },
+      "effects": {
+        "damage": [
+          6,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 16772,
+      "price": 1074580685,
+      "price_sell": 0,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 140,
+        "dex": 65,
+        "con": 205
+      },
+      "effects": {
+        "damage": [
+          204,
+          12
+        ],
+        "defense": 64
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 1801,
+      "price_sell": 1729,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 193
+      },
+      "effects": {
+        "damage": [
+          6,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 16836,
+      "price": 1104412672,
+      "price_sell": 1074580685,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 140,
+        "dex": 65,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          50
+        ],
+        "defense": 66
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 0,
+      "price_sell": 1801,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 26209,
+      "mesh_id": 16486,
+      "price": 1084437294,
+      "price_sell": 1729,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 193
+      },
+      "effects": {
+        "damage": [
+          6,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 16852,
+      "price": 1107951616,
+      "price_sell": 1074580685,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 104,
+        "dex": 65,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          118
+        ],
+        "defense": 66
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 0,
+      "price_sell": 1801,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 13102,
+      "mesh_id": 16643,
+      "price": 1091672472,
+      "price_sell": 501,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 245
+      },
+      "effects": {
+        "damage": [
+          1,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 1741,
+      "mesh_id": 0,
+      "price": 1730,
+      "price_sell": 1099694080,
+      "requirements": {
+        "level": 194,
+        "str": 6,
+        "int": 0,
+        "dex": 0,
+        "con": 200
+      },
+      "effects": {
+        "damage": [
+          6,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 16844,
+      "price": 1074580685,
+      "price_sell": 0,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 50,
+        "dex": 66,
+        "con": 205
+      },
+      "effects": {
+        "damage": [
+          204,
+          12
+        ],
+        "defense": 64
+      }
+    },
+    {
+      "id": 52429,
+      "mesh_id": 16396,
+      "price": 1083624420,
+      "price_sell": 0,
+      "requirements": {
+        "level": 205,
+        "str": 204,
+        "int": 12,
+        "dex": 64,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 1801,
+      "mesh_id": 0,
+      "price": 7,
+      "price_sell": 1103364096,
+      "requirements": {
+        "level": 7,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 9
+      },
+      "effects": {
+        "damage": [
+          7,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 16998,
+      "price": 1074580685,
+      "price_sell": 0,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 18,
+        "dex": 66,
+        "con": 205
+      },
+      "effects": {
+        "damage": [
+          204,
+          12
+        ],
+        "defense": 64
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 1745,
+      "price_sell": 531,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 19
+      },
+      "effects": {
+        "damage": [
+          2,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 1801,
+      "mesh_id": 0,
+      "price": 1736,
+      "price_sell": 1108213760,
+      "requirements": {
+        "level": 200,
+        "str": 6,
+        "int": 0,
+        "dex": 0,
+        "con": 193
+      },
+      "effects": {
+        "damage": [
+          6,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 16998,
+      "price": 1074580685,
+      "price_sell": 0,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 118,
+        "dex": 66,
+        "con": 205
+      },
+      "effects": {
+        "damage": [
+          204,
+          12
+        ],
+        "defense": 64
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 1745,
+      "price_sell": 501,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 245
+      },
+      "effects": {
+        "damage": [
+          1,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 1741,
+      "mesh_id": 0,
+      "price": 1801,
+      "price_sell": 1097334784,
+      "requirements": {
+        "level": 9,
+        "str": 7,
+        "int": 0,
+        "dex": 0,
+        "con": 200
+      },
+      "effects": {
+        "damage": [
+          6,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 16942,
+      "price": 1074580685,
+      "price_sell": 0,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 204,
+        "dex": 65,
+        "con": 205
+      },
+      "effects": {
+        "damage": [
+          204,
+          12
+        ],
+        "defense": 64
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 647,
+      "price_sell": 1729,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 193
+      },
+      "effects": {
+        "damage": [
+          6,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 16934,
+      "price": 1099169792,
+      "price_sell": 1074580685,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 38,
+        "dex": 66,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          140
+        ],
+        "defense": 65
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 0,
+      "price_sell": 7,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 16256,
+      "price": 1065353216,
+      "price_sell": 506,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 250
+      },
+      "effects": {
+        "damage": [
+          1,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 1801,
+      "mesh_id": 0,
+      "price": 1731,
+      "price_sell": 1108738048,
+      "requirements": {
+        "level": 195,
+        "str": 6,
+        "int": 0,
+        "dex": 0,
+        "con": 9
+      },
+      "effects": {
+        "damage": [
+          7,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 17063,
+      "price": 1074580685,
+      "price_sell": 1083624420,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 177,
+        "dex": 66,
+        "con": 205
+      },
+      "effects": {
+        "damage": [
+          204,
+          12
+        ],
+        "defense": 64
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 1801,
+      "price_sell": 1736,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 200
+      },
+      "effects": {
+        "damage": [
+          6,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 16898,
+      "price": 1113980928,
+      "price_sell": 1074580685,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 188,
+        "dex": 65,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          155
+        ],
+        "defense": 66
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 0,
+      "price_sell": 1801,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 13101,
+      "mesh_id": 16499,
+      "price": 1084017864,
+      "price_sell": 501,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 245
+      },
+      "effects": {
+        "damage": [
+          1,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 1741,
+      "mesh_id": 0,
+      "price": 481,
+      "price_sell": 1110048768,
+      "requirements": {
+        "level": 225,
+        "str": 1,
+        "int": 0,
+        "dex": 0,
+        "con": 193
+      },
+      "effects": {
+        "damage": [
+          6,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 17014,
+      "price": 1074580685,
+      "price_sell": 0,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 58,
+        "dex": 66,
+        "con": 205
+      },
+      "effects": {
+        "damage": [
+          204,
+          12
+        ],
+        "defense": 64
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 1729,
+      "price_sell": 1801,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 9
+      },
+      "effects": {
+        "damage": [
+          7,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 13102,
+      "mesh_id": 16499,
+      "price": 1729,
+      "price_sell": 1110310912,
+      "requirements": {
+        "level": 193,
+        "str": 6,
+        "int": 0,
+        "dex": 0,
+        "con": 193
+      },
+      "effects": {
+        "damage": [
+          6,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 16942,
+      "price": 1074580685,
+      "price_sell": 0,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 169,
+        "dex": 66,
+        "con": 205
+      },
+      "effects": {
+        "damage": [
+          204,
+          12
+        ],
+        "defense": 64
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 531,
+      "price_sell": 1092196762,
+      "requirements": {
+        "level": 205,
+        "str": 204,
+        "int": 12,
+        "dex": 64,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 1801,
+      "mesh_id": 0,
+      "price": 1801,
+      "price_sell": 1107427328,
+      "requirements": {
+        "level": 9,
+        "str": 7,
+        "int": 0,
+        "dex": 0,
+        "con": 193
+      },
+      "effects": {
+        "damage": [
+          6,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 16852,
+      "price": 1074580685,
+      "price_sell": 0,
+      "requirements": {
+        "level": 16,
+        "str": 0,
+        "int": 114,
+        "dex": 66,
+        "con": 201
+      },
+      "effects": {
+        "damage": [
+          204,
+          140
+        ],
+        "defense": 64
+      }
+    },
+    {
+      "id": 52429,
+      "mesh_id": 16396,
+      "price": 0,
+      "price_sell": 0,
+      "requirements": {
+        "level": 205,
+        "str": 204,
+        "int": 12,
+        "dex": 64,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 1729,
+      "mesh_id": 0,
+      "price": 1801,
+      "price_sell": 1109786624,
+      "requirements": {
+        "level": 9,
+        "str": 7,
+        "int": 0,
+        "dex": 0,
+        "con": 200
+      },
+      "effects": {
+        "damage": [
+          6,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 16906,
+      "price": 1074580685,
+      "price_sell": 0,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 140,
+        "dex": 65,
+        "con": 205
+      },
+      "effects": {
+        "damage": [
+          204,
+          12
+        ],
+        "defense": 64
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 7,
+      "price_sell": 1801,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 9
+      },
+      "effects": {
+        "damage": [
+          7,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 26222,
+      "mesh_id": 16694,
+      "price": 1736,
+      "price_sell": 1111359488,
+      "requirements": {
+        "level": 200,
+        "str": 6,
+        "int": 0,
+        "dex": 0,
+        "con": 19
+      },
+      "effects": {
+        "damage": [
+          2,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 1741,
+      "mesh_id": 0,
+      "price": 1111621632,
+      "price_sell": 1108475904,
+      "requirements": {
+        "level": 245,
+        "str": 1,
+        "int": 0,
+        "dex": 0,
+        "con": 8
+      },
+      "effects": {
+        "damage": [
+          0,
+          66
+        ],
+        "defense": 66
+      }
+    },
+    {
+      "id": 65508,
+      "mesh_id": 16925,
+      "price": 1115291656,
+      "price_sell": 1082969289,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 128,
+        "dex": 63,
+        "con": 205
+      },
+      "effects": {
+        "damage": [
+          6,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 17055,
+      "price": 1074580685,
+      "price_sell": 0,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 195,
+        "dex": 66,
+        "con": 205
+      },
+      "effects": {
+        "damage": [
+          204,
+          12
+        ],
+        "defense": 64
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 1750,
+      "price_sell": 482,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 226
+      },
+      "effects": {
+        "damage": [
+          1,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 16938,
+      "price": 1113980928,
+      "price_sell": 1074580685,
+      "requirements": {
+        "level": 144,
+        "str": 153,
+        "int": 205,
+        "dex": 65,
+        "con": 148
+      },
+      "effects": {
+        "damage": [
+          153,
+          190
+        ],
+        "defense": 66
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 16906,
+      "price": 1074580685,
+      "price_sell": 0,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 118,
+        "dex": 66,
+        "con": 205
+      },
+      "effects": {
+        "damage": [
+          204,
+          12
+        ],
+        "defense": 64
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 506,
+      "price_sell": 1085485869,
+      "requirements": {
+        "level": 205,
+        "str": 204,
+        "int": 12,
+        "dex": 64,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 1801,
+      "mesh_id": 0,
+      "price": 1729,
+      "price_sell": 1108213760,
+      "requirements": {
+        "level": 193,
+        "str": 6,
+        "int": 0,
+        "dex": 0,
+        "con": 19
+      },
+      "effects": {
+        "damage": [
+          2,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 483,
+      "mesh_id": 0,
+      "price": 1102315520,
+      "price_sell": 1120993280,
+      "requirements": {
+        "level": 200,
+        "str": 6,
+        "int": 0,
+        "dex": 0,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          26
+        ],
+        "defense": 66
+      }
+    },
+    {
+      "id": 52429,
+      "mesh_id": 16396,
+      "price": 0,
+      "price_sell": 0,
+      "requirements": {
+        "level": 201,
+        "str": 204,
+        "int": 140,
+        "dex": 64,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          128
+        ],
+        "defense": 63
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 0,
+      "price_sell": 1741,
+      "requirements": {
+        "level": 219,
+        "str": 15,
+        "int": 73,
+        "dex": 64,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 1723,
+      "mesh_id": 0,
+      "price": 1099694080,
+      "price_sell": 1122435072,
+      "requirements": {
+        "level": 250,
+        "str": 1,
+        "int": 0,
+        "dex": 0,
+        "con": 80
+      },
+      "effects": {
+        "damage": [
+          102,
+          72
+        ],
+        "defense": 66
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 16970,
+      "price": 1110310912,
+      "price_sell": 1074580685,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 164,
+        "dex": 65,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          223
+        ],
+        "defense": 66
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 0,
+      "price_sell": 1801,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 1801,
+      "mesh_id": 0,
+      "price": 1109786624,
+      "price_sell": 1116536832,
+      "requirements": {
+        "level": 209,
+        "str": 6,
+        "int": 0,
+        "dex": 0,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          58
+        ],
+        "defense": 66
+      }
+    },
+    {
+      "id": 52429,
+      "mesh_id": 16396,
+      "price": 0,
+      "price_sell": 0,
+      "requirements": {
+        "level": 205,
+        "str": 204,
+        "int": 12,
+        "dex": 64,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 1750,
+      "mesh_id": 0,
+      "price": 1801,
+      "price_sell": 1114505216,
+      "requirements": {
+        "level": 9,
+        "str": 7,
+        "int": 0,
+        "dex": 0,
+        "con": 205
+      },
+      "effects": {
+        "damage": [
+          6,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 8,
+      "mesh_id": 17018,
+      "price": 1082969289,
+      "price_sell": 1065353216,
+      "requirements": {
+        "level": 209,
+        "str": 6,
+        "int": 0,
+        "dex": 0,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          62
+        ],
+        "defense": 66
+      }
+    },
+    {
+      "id": 52429,
+      "mesh_id": 16396,
+      "price": 0,
+      "price_sell": 0,
+      "requirements": {
+        "level": 205,
+        "str": 204,
+        "int": 12,
+        "dex": 64,
+        "con": 228
+      },
+      "effects": {
+        "damage": [
+          203,
+          150
+        ],
+        "defense": 64
+      }
+    },
+    {
+      "id": 1747,
+      "mesh_id": 0,
+      "price": 1801,
+      "price_sell": 1112145920,
+      "requirements": {
+        "level": 9,
+        "str": 7,
+        "int": 0,
+        "dex": 0,
+        "con": 9
+      },
+      "effects": {
+        "damage": [
+          7,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 16844,
+      "price": 1074580685,
+      "price_sell": 0,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 159,
+        "dex": 66,
+        "con": 205
+      },
+      "effects": {
+        "damage": [
+          204,
+          12
+        ],
+        "defense": 64
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 1801,
+      "price_sell": 1736,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 200
+      },
+      "effects": {
+        "damage": [
+          6,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 16938,
+      "price": 1117454336,
+      "price_sell": 1074580685,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 74,
+        "dex": 66,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          102
+        ],
+        "defense": 66
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 16256,
+      "price": 0,
+      "price_sell": 501,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 145,
+        "dex": 66,
+        "con": 205
+      },
+      "effects": {
+        "damage": [
+          204,
+          12
+        ],
+        "defense": 64
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 1730,
+      "price_sell": 1723,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 187
+      },
+      "effects": {
+        "damage": [
+          6,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 16950,
+      "price": 1116930048,
+      "price_sell": 1074580685,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 2,
+        "dex": 66,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          205
+        ],
+        "defense": 66
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 0,
+      "price_sell": 1741,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 16256,
+      "price": 1065353216,
+      "price_sell": 1745,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 209
+      },
+      "effects": {
+        "damage": [
+          6,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 16256,
+      "price": 1741,
+      "price_sell": 1109262336,
+      "requirements": {
+        "level": 205,
+        "str": 6,
+        "int": 0,
+        "dex": 0,
+        "con": 193
+      },
+      "effects": {
+        "damage": [
+          6,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 17014,
+      "price": 1074580685,
+      "price_sell": 0,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 165,
+        "dex": 66,
+        "con": 205
+      },
+      "effects": {
+        "damage": [
+          204,
+          12
+        ],
+        "defense": 64
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 506,
+      "price_sell": 1077936125,
+      "requirements": {
+        "level": 205,
+        "str": 204,
+        "int": 12,
+        "dex": 64,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 1745,
+      "mesh_id": 0,
+      "price": 1736,
+      "price_sell": 1114767360,
+      "requirements": {
+        "level": 200,
+        "str": 6,
+        "int": 0,
+        "dex": 0,
+        "con": 197
+      },
+      "effects": {
+        "damage": [
+          6,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 17109,
+      "price": 1074580685,
+      "price_sell": 0,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 244,
+        "dex": 65,
+        "con": 205
+      },
+      "effects": {
+        "damage": [
+          204,
+          12
+        ],
+        "defense": 64
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 501,
+      "price_sell": 1065353216,
+      "requirements": {
+        "level": 205,
+        "str": 204,
+        "int": 12,
+        "dex": 64,
+        "con": 228
+      },
+      "effects": {
+        "damage": [
+          203,
+          150
+        ],
+        "defense": 64
+      }
+    },
+    {
+      "id": 1801,
+      "mesh_id": 0,
+      "price": 501,
+      "price_sell": 1111359492,
+      "requirements": {
+        "level": 245,
+        "str": 1,
+        "int": 0,
+        "dex": 0,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          128
+        ],
+        "defense": 63
+      }
+    },
+    {
+      "id": 1801,
+      "mesh_id": 0,
+      "price": 1102839808,
+      "price_sell": 1123614720,
+      "requirements": {
+        "level": 200,
+        "str": 6,
+        "int": 0,
+        "dex": 0,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          54
+        ],
+        "defense": 66
+      }
+    },
+    {
+      "id": 52429,
+      "mesh_id": 16396,
+      "price": 0,
+      "price_sell": 0,
+      "requirements": {
+        "level": 201,
+        "str": 204,
+        "int": 140,
+        "dex": 64,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          128
+        ],
+        "defense": 63
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 0,
+      "price_sell": 1741,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 531,
+      "mesh_id": 0,
+      "price": 1105461248,
+      "price_sell": 1122828288,
+      "requirements": {
+        "level": 42,
+        "str": 51,
+        "int": 227,
+        "dex": 64,
+        "con": 204
+      },
+      "effects": {
+        "damage": [
+          204,
+          20
+        ],
+        "defense": 65
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 16978,
+      "price": 1115960124,
+      "price_sell": 1074580685,
+      "requirements": {
+        "level": 149,
+        "str": 153,
+        "int": 153,
+        "dex": 64,
+        "con": 193
+      },
+      "effects": {
+        "damage": [
+          6,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 13115,
+      "mesh_id": 17057,
+      "price": 1082969289,
+      "price_sell": 1065353216,
+      "requirements": {
+        "level": 205,
+        "str": 6,
+        "int": 0,
+        "dex": 0,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          62
+        ],
+        "defense": 66
+      }
+    },
+    {
+      "id": 52429,
+      "mesh_id": 16396,
+      "price": 0,
+      "price_sell": 0,
+      "requirements": {
+        "level": 205,
+        "str": 204,
+        "int": 12,
+        "dex": 64,
+        "con": 228
+      },
+      "effects": {
+        "damage": [
+          203,
+          150
+        ],
+        "defense": 64
+      }
+    },
+    {
+      "id": 1736,
+      "mesh_id": 0,
+      "price": 1736,
+      "price_sell": 1110835200,
+      "requirements": {
+        "level": 200,
+        "str": 6,
+        "int": 0,
+        "dex": 0,
+        "con": 193
+      },
+      "effects": {
+        "damage": [
+          6,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 16772,
+      "price": 1074580685,
+      "price_sell": 0,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 231,
+        "dex": 66,
+        "con": 205
+      },
+      "effects": {
+        "damage": [
+          204,
+          12
+        ],
+        "defense": 64
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 531,
+      "price_sell": 1090833608,
+      "requirements": {
+        "level": 205,
+        "str": 204,
+        "int": 12,
+        "dex": 64,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 1736,
+      "mesh_id": 0,
+      "price": 1741,
+      "price_sell": 1110835200,
+      "requirements": {
+        "level": 205,
+        "str": 6,
+        "int": 0,
+        "dex": 0,
+        "con": 245
+      },
+      "effects": {
+        "damage": [
+          1,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 506,
+      "mesh_id": 0,
+      "price": 1115894577,
+      "price_sell": 1105933145,
+      "requirements": {
+        "level": 43,
+        "str": 51,
+        "int": 211,
+        "dex": 64,
+        "con": 151
+      },
+      "effects": {
+        "damage": [
+          153,
+          57
+        ],
+        "defense": 64
+      }
+    },
+    {
+      "id": 13101,
+      "mesh_id": 16499,
+      "price": 1730,
+      "price_sell": 1113980928,
+      "requirements": {
+        "level": 194,
+        "str": 6,
+        "int": 0,
+        "dex": 0,
+        "con": 9
+      },
+      "effects": {
+        "damage": [
+          7,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 16780,
+      "price": 1074580685,
+      "price_sell": 0,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 6,
+        "dex": 66,
+        "con": 205
+      },
+      "effects": {
+        "damage": [
+          204,
+          12
+        ],
+        "defense": 64
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 501,
+      "price_sell": 1065353216,
+      "requirements": {
+        "level": 205,
+        "str": 204,
+        "int": 12,
+        "dex": 64,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 1801,
+      "mesh_id": 0,
+      "price": 1741,
+      "price_sell": 1115750400,
+      "requirements": {
+        "level": 205,
+        "str": 6,
+        "int": 0,
+        "dex": 0,
+        "con": 245
+      },
+      "effects": {
+        "damage": [
+          1,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 1739,
+      "mesh_id": 0,
+      "price": 1116274688,
+      "price_sell": 1104412672,
+      "requirements": {
+        "level": 200,
+        "str": 6,
+        "int": 0,
+        "dex": 0,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          106
+        ],
+        "defense": 66
+      }
+    },
+    {
+      "id": 52429,
+      "mesh_id": 16396,
+      "price": 0,
+      "price_sell": 0,
+      "requirements": {
+        "level": 205,
+        "str": 204,
+        "int": 12,
+        "dex": 64,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 1729,
+      "mesh_id": 0,
+      "price": 1735,
+      "price_sell": 1109000192,
+      "requirements": {
+        "level": 199,
+        "str": 6,
+        "int": 0,
+        "dex": 0,
+        "con": 205
+      },
+      "effects": {
+        "damage": [
+          6,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 52417,
+      "mesh_id": 17088,
+      "price": 1083388719,
+      "price_sell": 1065353216,
+      "requirements": {
+        "level": 19,
+        "str": 2,
+        "int": 0,
+        "dex": 0,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          137
+        ],
+        "defense": 66
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 16950,
+      "price": 1120075776,
+      "price_sell": 1074580685,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 38,
+        "dex": 66,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          213
+        ],
+        "defense": 66
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 0,
+      "price_sell": 1801,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 506,
+      "mesh_id": 0,
+      "price": 1115815947,
+      "price_sell": 1110887640,
+      "requirements": {
+        "level": 147,
+        "str": 153,
+        "int": 121,
+        "dex": 64,
+        "con": 48
+      },
+      "effects": {
+        "damage": [
+          51,
+          131
+        ],
+        "defense": 64
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 17025,
+      "price": 1111621632,
+      "price_sell": 1074580685,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 74,
+        "dex": 66,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          177
+        ],
+        "defense": 66
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 0,
+      "price_sell": 7,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 501,
+      "mesh_id": 0,
+      "price": 1113980908,
+      "price_sell": 1117061112,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 128,
+        "dex": 63,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          128
+        ],
+        "defense": 63
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 17022,
+      "price": 1113980928,
+      "price_sell": 1074580685,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 54,
+        "dex": 66,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          209
+        ],
+        "defense": 66
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 0,
+      "price_sell": 1801,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 506,
+      "mesh_id": 0,
+      "price": 1113063418,
+      "price_sell": 1118633984,
+      "requirements": {
+        "level": 252,
+        "str": 255,
+        "int": 143,
+        "dex": 64,
+        "con": 199
+      },
+      "effects": {
+        "damage": [
+          204,
+          108
+        ],
+        "defense": 64
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 16978,
+      "price": 1119158272,
+      "price_sell": 1074580685,
+      "requirements": {
+        "level": 152,
+        "str": 153,
+        "int": 17,
+        "dex": 65,
+        "con": 205
+      },
+      "effects": {
+        "damage": [
+          6,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 65533,
+      "mesh_id": 16901,
+      "price": 1082969289,
+      "price_sell": 1065353216,
+      "requirements": {
+        "level": 9,
+        "str": 7,
+        "int": 0,
+        "dex": 0,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          38
+        ],
+        "defense": 66
+      }
+    },
+    {
+      "id": 52429,
+      "mesh_id": 16396,
+      "price": 0,
+      "price_sell": 0,
+      "requirements": {
+        "level": 205,
+        "str": 204,
+        "int": 12,
+        "dex": 64,
+        "con": 219
+      },
+      "effects": {
+        "damage": [
+          15,
+          201
+        ],
+        "defense": 63
+      }
+    },
+    {
+      "id": 1736,
+      "mesh_id": 0,
+      "price": 501,
+      "price_sell": 1113980908,
+      "requirements": {
+        "level": 245,
+        "str": 1,
+        "int": 0,
+        "dex": 0,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          128
+        ],
+        "defense": 63
+      }
+    },
+    {
+      "id": 7,
+      "mesh_id": 0,
+      "price": 1117061120,
+      "price_sell": 1104412672,
+      "requirements": {
+        "level": 205,
+        "str": 6,
+        "int": 0,
+        "dex": 0,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          62
+        ],
+        "defense": 66
+      }
+    },
+    {
+      "id": 52425,
+      "mesh_id": 16524,
+      "price": 1065353216,
+      "price_sell": 0,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 155,
+        "dex": 66,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          132
+        ],
+        "defense": 65
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 0,
+      "price_sell": 1736,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 1801,
+      "mesh_id": 0,
+      "price": 1114505216,
+      "price_sell": 1117716480,
+      "requirements": {
+        "level": 245,
+        "str": 1,
+        "int": 0,
+        "dex": 0,
+        "con": 248
+      },
+      "effects": {
+        "damage": [
+          255,
+          144
+        ],
+        "defense": 66
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 16938,
+      "price": 1123090432,
+      "price_sell": 1074580685,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 145,
+        "dex": 66,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          34
+        ],
+        "defense": 66
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 0,
+      "price_sell": 1745,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 1736,
+      "mesh_id": 0,
+      "price": 1116405760,
+      "price_sell": 1112932352,
+      "requirements": {
+        "level": 200,
+        "str": 6,
+        "int": 0,
+        "dex": 0,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          147
+        ],
+        "defense": 66
+      }
+    },
+    {
+      "id": 52429,
+      "mesh_id": 16396,
+      "price": 0,
+      "price_sell": 0,
+      "requirements": {
+        "level": 205,
+        "str": 204,
+        "int": 12,
+        "dex": 64,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 506,
+      "mesh_id": 0,
+      "price": 1082549859,
+      "price_sell": 1081291565,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 1730,
+      "mesh_id": 0,
+      "price": 1115291648,
+      "price_sell": 1117454336,
+      "requirements": {
+        "level": 250,
+        "str": 1,
+        "int": 0,
+        "dex": 0,
+        "con": 9
+      },
+      "effects": {
+        "damage": [
+          0,
+          132
+        ],
+        "defense": 66
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 17047,
+      "price": 1108738048,
+      "price_sell": 1074580685,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 137,
+        "dex": 66,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          118
+        ],
+        "defense": 66
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 0,
+      "price_sell": 1801,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 16256,
+      "price": 1065353216,
+      "price_sell": 1741,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 205
+      },
+      "effects": {
+        "damage": [
+          6,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 17055,
+      "price": 1104412672,
+      "price_sell": 1074580685,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 155,
+        "dex": 66,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          10
+        ],
+        "defense": 66
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 0,
+      "price_sell": 1747,
+      "requirements": {
+        "level": 219,
+        "str": 15,
+        "int": 201,
+        "dex": 63,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 13100,
+      "mesh_id": 16579,
+      "price": 1091882188,
+      "price_sell": 506,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 250
+      },
+      "effects": {
+        "damage": [
+          1,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 1801,
+      "mesh_id": 0,
+      "price": 1741,
+      "price_sell": 1116667904,
+      "requirements": {
+        "level": 205,
+        "str": 6,
+        "int": 0,
+        "dex": 0,
+        "con": 245
+      },
+      "effects": {
+        "damage": [
+          1,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 7,
+      "mesh_id": 0,
+      "price": 1112145920,
+      "price_sell": 1122566144,
+      "requirements": {
+        "level": 9,
+        "str": 7,
+        "int": 0,
+        "dex": 0,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          137
+        ],
+        "defense": 66
+      }
+    },
+    {
+      "id": 52429,
+      "mesh_id": 16396,
+      "price": 0,
+      "price_sell": 0,
+      "requirements": {
+        "level": 205,
+        "str": 204,
+        "int": 12,
+        "dex": 64,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 1801,
+      "mesh_id": 0,
+      "price": 1729,
+      "price_sell": 1115291648,
+      "requirements": {
+        "level": 193,
+        "str": 6,
+        "int": 0,
+        "dex": 0,
+        "con": 197
+      },
+      "effects": {
+        "damage": [
+          6,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 16804,
+      "price": 1074580685,
+      "price_sell": 0,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 163,
+        "dex": 66,
+        "con": 250
+      },
+      "effects": {
+        "damage": [
+          255,
+          127
+        ],
+        "defense": 64
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 483,
+      "price_sell": 1736,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 200
+      },
+      "effects": {
+        "damage": [
+          6,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 16256,
+      "price": 1741,
+      "price_sell": 1113980928,
+      "requirements": {
+        "level": 205,
+        "str": 6,
+        "int": 0,
+        "dex": 0,
+        "con": 200
+      },
+      "effects": {
+        "damage": [
+          6,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 16954,
+      "price": 1074580685,
+      "price_sell": 0,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 102,
+        "dex": 66,
+        "con": 205
+      },
+      "effects": {
+        "damage": [
+          204,
+          12
+        ],
+        "defense": 64
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 1801,
+      "price_sell": 1729,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 193
+      },
+      "effects": {
+        "damage": [
+          6,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 16970,
+      "price": 1123614720,
+      "price_sell": 1074580685,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 155,
+        "dex": 66,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          82
+        ],
+        "defense": 66
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 0,
+      "price_sell": 1736,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 1741,
+      "mesh_id": 0,
+      "price": 1116667904,
+      "price_sell": 1117061120,
+      "requirements": {
+        "level": 245,
+        "str": 1,
+        "int": 0,
+        "dex": 0,
+        "con": 6
+      },
+      "effects": {
+        "damage": [
+          0,
+          143
+        ],
+        "defense": 66
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 17069,
+      "price": 1103888384,
+      "price_sell": 1074580685,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 169,
+        "dex": 66,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          6
+        ],
+        "defense": 66
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 16256,
+      "price": 0,
+      "price_sell": 531,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 203,
+        "dex": 66,
+        "con": 205
+      },
+      "effects": {
+        "damage": [
+          204,
+          12
+        ],
+        "defense": 64
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 1741,
+      "price_sell": 1739,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 203
+      },
+      "effects": {
+        "damage": [
+          6,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 17033,
+      "price": 1118896128,
+      "price_sell": 1074580685,
+      "requirements": {
+        "level": 61,
+        "str": 51,
+        "int": 139,
+        "dex": 66,
+        "con": 110
+      },
+      "effects": {
+        "damage": [
+          102,
+          173
+        ],
+        "defense": 66
+      }
+    },
+    {
+      "id": 65520,
+      "mesh_id": 16985,
+      "price": 1082969289,
+      "price_sell": 1065353216,
+      "requirements": {
+        "level": 205,
+        "str": 6,
+        "int": 0,
+        "dex": 0,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          161
+        ],
+        "defense": 66
+      }
+    },
+    {
+      "id": 52429,
+      "mesh_id": 16396,
+      "price": 1078530011,
+      "price_sell": 0,
+      "requirements": {
+        "level": 205,
+        "str": 204,
+        "int": 12,
+        "dex": 64,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          128
+        ],
+        "defense": 63
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 0,
+      "price_sell": 1801,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 1730,
+      "mesh_id": 0,
+      "price": 1115291648,
+      "price_sell": 1121517568,
+      "requirements": {
+        "level": 250,
+        "str": 1,
+        "int": 0,
+        "dex": 0,
+        "con": 40
+      },
+      "effects": {
+        "damage": [
+          51,
+          109
+        ],
+        "defense": 66
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 17073,
+      "price": 1105461248,
+      "price_sell": 1074580685,
+      "requirements": {
+        "level": 254,
+        "str": 255,
+        "int": 15,
+        "dex": 65,
+        "con": 203
+      },
+      "effects": {
+        "damage": [
+          6,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 16938,
+      "price": 1074580685,
+      "price_sell": 1070141403,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 133,
+        "dex": 66,
+        "con": 205
+      },
+      "effects": {
+        "damage": [
+          204,
+          12
+        ],
+        "defense": 64
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 501,
+      "price_sell": 1065353216,
+      "requirements": {
+        "level": 205,
+        "str": 204,
+        "int": 12,
+        "dex": 64,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 506,
+      "mesh_id": 0,
+      "price": 1081710995,
+      "price_sell": 1080033275,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 1747,
+      "mesh_id": 0,
+      "price": 1117192192,
+      "price_sell": 1117454336,
+      "requirements": {
+        "level": 9,
+        "str": 7,
+        "int": 0,
+        "dex": 0,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          137
+        ],
+        "defense": 66
+      }
+    },
+    {
+      "id": 52429,
+      "mesh_id": 16396,
+      "price": 0,
+      "price_sell": 0,
+      "requirements": {
+        "level": 205,
+        "str": 204,
+        "int": 12,
+        "dex": 64,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 531,
+      "mesh_id": 0,
+      "price": 1091672472,
+      "price_sell": 1091882188,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 506,
+      "mesh_id": 0,
+      "price": 1116340231,
+      "price_sell": 1120403437,
+      "requirements": {
+        "level": 99,
+        "str": 102,
+        "int": 70,
+        "dex": 64,
+        "con": 150
+      },
+      "effects": {
+        "damage": [
+          153,
+          137
+        ],
+        "defense": 64
+      }
+    },
+    {
+      "id": 39315,
+      "mesh_id": 16505,
+      "price": 1801,
+      "price_sell": 1114505216,
+      "requirements": {
+        "level": 9,
+        "str": 7,
+        "int": 0,
+        "dex": 0,
+        "con": 205
+      },
+      "effects": {
+        "damage": [
+          6,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 8,
+      "mesh_id": 17018,
+      "price": 1082969289,
+      "price_sell": 1065353216,
+      "requirements": {
+        "level": 205,
+        "str": 6,
+        "int": 0,
+        "dex": 0,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          165
+        ],
+        "defense": 66
+      }
+    },
+    {
+      "id": 52429,
+      "mesh_id": 16396,
+      "price": 1083624420,
+      "price_sell": 0,
+      "requirements": {
+        "level": 205,
+        "str": 204,
+        "int": 12,
+        "dex": 64,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 1801,
+      "mesh_id": 0,
+      "price": 7,
+      "price_sell": 1117323264,
+      "requirements": {
+        "level": 7,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 9
+      },
+      "effects": {
+        "damage": [
+          7,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 16918,
+      "price": 1074580685,
+      "price_sell": 0,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 82,
+        "dex": 66,
+        "con": 205
+      },
+      "effects": {
+        "damage": [
+          204,
+          12
+        ],
+        "defense": 64
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 1801,
+      "price_sell": 1731,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 195
+      },
+      "effects": {
+        "damage": [
+          6,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 16256,
+      "price": 1741,
+      "price_sell": 1117847552,
+      "requirements": {
+        "level": 205,
+        "str": 6,
+        "int": 0,
+        "dex": 0,
+        "con": 200
+      },
+      "effects": {
+        "damage": [
+          6,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 17145,
+      "price": 1074580685,
+      "price_sell": 0,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 201,
+        "dex": 66,
+        "con": 205
+      },
+      "effects": {
+        "damage": [
+          204,
+          12
+        ],
+        "defense": 64
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 1801,
+      "price_sell": 501,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 245
+      },
+      "effects": {
+        "damage": [
+          1,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 1745,
+      "mesh_id": 0,
+      "price": 1741,
+      "price_sell": 1118109696,
+      "requirements": {
+        "level": 205,
+        "str": 6,
+        "int": 0,
+        "dex": 0,
+        "con": 9
+      },
+      "effects": {
+        "damage": [
+          7,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 17014,
+      "price": 1074580685,
+      "price_sell": 0,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 161,
+        "dex": 66,
+        "con": 205
+      },
+      "effects": {
+        "damage": [
+          204,
+          12
+        ],
+        "defense": 64
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 1736,
+      "price_sell": 1801,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 9
+      },
+      "effects": {
+        "damage": [
+          7,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 65526,
+      "mesh_id": 17090,
+      "price": 1102839806,
+      "price_sell": 1082969289,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 128,
+        "dex": 63,
+        "con": 205
+      },
+      "effects": {
+        "damage": [
+          6,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 17057,
+      "price": 1074580685,
+      "price_sell": 0,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 22,
+        "dex": 66,
+        "con": 205
+      },
+      "effects": {
+        "damage": [
+          204,
+          12
+        ],
+        "defense": 64
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 1801,
+      "price_sell": 1736,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 200
+      },
+      "effects": {
+        "damage": [
+          6,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 16664,
+      "price": 1747,
+      "price_sell": 1116798976,
+      "requirements": {
+        "level": 211,
+        "str": 6,
+        "int": 0,
+        "dex": 0,
+        "con": 7
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 17018,
+      "price": 1074580685,
+      "price_sell": 0,
+      "requirements": {
+        "level": 16,
+        "str": 0,
+        "int": 122,
+        "dex": 66,
+        "con": 252
+      },
+      "effects": {
+        "damage": [
+          255,
+          143
+        ],
+        "defense": 64
+      }
+    },
+    {
+      "id": 52429,
+      "mesh_id": 16396,
+      "price": 0,
+      "price_sell": 0,
+      "requirements": {
+        "level": 205,
+        "str": 204,
+        "int": 12,
+        "dex": 64,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 1733,
+      "mesh_id": 0,
+      "price": 501,
+      "price_sell": 1120075766,
+      "requirements": {
+        "level": 245,
+        "str": 1,
+        "int": 0,
+        "dex": 0,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          128
+        ],
+        "defense": 63
+      }
+    },
+    {
+      "id": 7,
+      "mesh_id": 0,
+      "price": 1119420416,
+      "price_sell": 1112145920,
+      "requirements": {
+        "level": 200,
+        "str": 6,
+        "int": 0,
+        "dex": 0,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          163
+        ],
+        "defense": 66
+      }
+    },
+    {
+      "id": 52429,
+      "mesh_id": 16396,
+      "price": 0,
+      "price_sell": 0,
+      "requirements": {
+        "level": 205,
+        "str": 204,
+        "int": 12,
+        "dex": 64,
+        "con": 219
+      },
+      "effects": {
+        "damage": [
+          15,
+          73
+        ],
+        "defense": 64
+      }
+    },
+    {
+      "id": 1801,
+      "mesh_id": 0,
+      "price": 1731,
+      "price_sell": 1118502912,
+      "requirements": {
+        "level": 195,
+        "str": 6,
+        "int": 0,
+        "dex": 0,
+        "con": 9
+      },
+      "effects": {
+        "damage": [
+          7,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 17073,
+      "price": 1074580685,
+      "price_sell": 0,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 102,
+        "dex": 66,
+        "con": 205
+      },
+      "effects": {
+        "damage": [
+          204,
+          12
+        ],
+        "defense": 64
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 1745,
+      "price_sell": 1741,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 205
+      },
+      "effects": {
+        "damage": [
+          6,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 16256,
+      "price": 1745,
+      "price_sell": 1118502912,
+      "requirements": {
+        "level": 209,
+        "str": 6,
+        "int": 0,
+        "dex": 0,
+        "con": 9
+      },
+      "effects": {
+        "damage": [
+          7,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 17107,
+      "price": 1074580685,
+      "price_sell": 0,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 147,
+        "dex": 66,
+        "con": 205
+      },
+      "effects": {
+        "damage": [
+          204,
+          12
+        ],
+        "defense": 64
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 1747,
+      "price_sell": 1801,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 9
+      },
+      "effects": {
+        "damage": [
+          7,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 17067,
+      "price": 1118371840,
+      "price_sell": 1074580685,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 209,
+        "dex": 66,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          132
+        ],
+        "defense": 65
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 0,
+      "price_sell": 1801,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 1736,
+      "mesh_id": 0,
+      "price": 1120993280,
+      "price_sell": 1101266944,
+      "requirements": {
+        "level": 19,
+        "str": 2,
+        "int": 0,
+        "dex": 0,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          185
+        ],
+        "defense": 66
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 17107,
+      "price": 1099694080,
+      "price_sell": 1074580685,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 191,
+        "dex": 66,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          102
+        ],
+        "defense": 66
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 0,
+      "price_sell": 1728,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 128,
+        "dex": 63,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 1730,
+      "price_sell": 1801,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 9
+      },
+      "effects": {
+        "damage": [
+          7,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 17067,
+      "price": 1119420416,
+      "price_sell": 1074580685,
+      "requirements": {
+        "level": 243,
+        "str": 255,
+        "int": 153,
+        "dex": 66,
+        "con": 214
+      },
+      "effects": {
+        "damage": [
+          204,
+          231
+        ],
+        "defense": 66
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 17014,
+      "price": 1074580685,
+      "price_sell": 0,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 231,
+        "dex": 66,
+        "con": 205
+      },
+      "effects": {
+        "damage": [
+          204,
+          12
+        ],
+        "defense": 64
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 1733,
+      "price_sell": 506,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 250
+      },
+      "effects": {
+        "damage": [
+          1,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 1736,
+      "mesh_id": 0,
+      "price": 1741,
+      "price_sell": 1118896128,
+      "requirements": {
+        "level": 205,
+        "str": 6,
+        "int": 0,
+        "dex": 0,
+        "con": 200
+      },
+      "effects": {
+        "damage": [
+          6,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 16812,
+      "price": 1074580685,
+      "price_sell": 0,
+      "requirements": {
+        "level": 250,
+        "str": 255,
+        "int": 171,
+        "dex": 65,
+        "con": 201
+      },
+      "effects": {
+        "damage": [
+          204,
+          140
+        ],
+        "defense": 64
+      }
+    },
+    {
+      "id": 52429,
+      "mesh_id": 16396,
+      "price": 0,
+      "price_sell": 0,
+      "requirements": {
+        "level": 205,
+        "str": 204,
+        "int": 12,
+        "dex": 64,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 1801,
+      "mesh_id": 0,
+      "price": 1729,
+      "price_sell": 1119420416,
+      "requirements": {
+        "level": 193,
+        "str": 6,
+        "int": 0,
+        "dex": 0,
+        "con": 200
+      },
+      "effects": {
+        "damage": [
+          6,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 16946,
+      "price": 1074580685,
+      "price_sell": 0,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 195,
+        "dex": 66,
+        "con": 205
+      },
+      "effects": {
+        "damage": [
+          204,
+          12
+        ],
+        "defense": 64
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 1801,
+      "price_sell": 1729,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 193
+      },
+      "effects": {
+        "damage": [
+          6,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 17089,
+      "price": 1116418861,
+      "price_sell": 1074580685,
+      "requirements": {
+        "level": 149,
+        "str": 153,
+        "int": 153,
+        "dex": 64,
+        "con": 250
+      },
+      "effects": {
+        "damage": [
+          1,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 1741,
+      "mesh_id": 0,
+      "price": 1118896128,
+      "price_sell": 1119944704,
+      "requirements": {
+        "level": 203,
+        "str": 6,
+        "int": 0,
+        "dex": 0,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          217
+        ],
+        "defense": 66
+      }
+    },
+    {
+      "id": 52429,
+      "mesh_id": 16396,
+      "price": 0,
+      "price_sell": 0,
+      "requirements": {
+        "level": 205,
+        "str": 204,
+        "int": 12,
+        "dex": 64,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 1741,
+      "mesh_id": 0,
+      "price": 501,
+      "price_sell": 1121386498,
+      "requirements": {
+        "level": 245,
+        "str": 1,
+        "int": 0,
+        "dex": 0,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          128
+        ],
+        "defense": 63
+      }
+    },
+    {
+      "id": 501,
+      "mesh_id": 0,
+      "price": 1121779716,
+      "price_sell": 1101791222,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 128,
+        "dex": 63,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          128
+        ],
+        "defense": 63
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 17067,
+      "price": 1121517568,
+      "price_sell": 1074580685,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 159,
+        "dex": 66,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          249
+        ],
+        "defense": 66
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 0,
+      "price_sell": 1801,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 1736,
+      "mesh_id": 0,
+      "price": 1122041856,
+      "price_sell": 1101266944,
+      "requirements": {
+        "level": 9,
+        "str": 7,
+        "int": 0,
+        "dex": 0,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          209
+        ],
+        "defense": 66
+      }
+    },
+    {
+      "id": 52429,
+      "mesh_id": 16396,
+      "price": 1078530011,
+      "price_sell": 0,
+      "requirements": {
+        "level": 205,
+        "str": 204,
+        "int": 12,
+        "dex": 64,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 482,
+      "mesh_id": 0,
+      "price": 1745,
+      "price_sell": 1121517568,
+      "requirements": {
+        "level": 209,
+        "str": 6,
+        "int": 0,
+        "dex": 0,
+        "con": 193
+      },
+      "effects": {
+        "damage": [
+          6,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 16780,
+      "price": 1074580685,
+      "price_sell": 0,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 129,
+        "dex": 66,
+        "con": 205
+      },
+      "effects": {
+        "damage": [
+          204,
+          12
+        ],
+        "defense": 64
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 7,
+      "price_sell": 1801,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 9
+      },
+      "effects": {
+        "damage": [
+          7,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 2,
+      "mesh_id": 17119,
+      "price": 1107663255,
+      "price_sell": 1082969289,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 128,
+        "dex": 63,
+        "con": 9
+      },
+      "effects": {
+        "damage": [
+          7,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 16902,
+      "price": 1074580685,
+      "price_sell": 0,
+      "requirements": {
+        "level": 209,
+        "str": 204,
+        "int": 168,
+        "dex": 66,
+        "con": 205
+      },
+      "effects": {
+        "damage": [
+          204,
+          12
+        ],
+        "defense": 64
+      }
+    },
+    {
+      "id": 52429,
+      "mesh_id": 16396,
+      "price": 0,
+      "price_sell": 0,
+      "requirements": {
+        "level": 205,
+        "str": 204,
+        "int": 12,
+        "dex": 64,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 506,
+      "mesh_id": 0,
+      "price": 1081710995,
+      "price_sell": 1082969289,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 1729,
+      "mesh_id": 0,
+      "price": 1121517568,
+      "price_sell": 1112145920,
+      "requirements": {
+        "level": 19,
+        "str": 2,
+        "int": 0,
+        "dex": 0,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          193
+        ],
+        "defense": 66
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 17123,
+      "price": 1107689472,
+      "price_sell": 1074580685,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 185,
+        "dex": 66,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          211
+        ],
+        "defense": 66
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 0,
+      "price_sell": 1801,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 1727,
+      "mesh_id": 0,
+      "price": 1122172928,
+      "price_sell": 1108738048,
+      "requirements": {
+        "level": 9,
+        "str": 7,
+        "int": 0,
+        "dex": 0,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          173
+        ],
+        "defense": 66
+      }
+    },
+    {
+      "id": 52429,
+      "mesh_id": 16396,
+      "price": 1070141403,
+      "price_sell": 0,
+      "requirements": {
+        "level": 205,
+        "str": 204,
+        "int": 12,
+        "dex": 64,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 1739,
+      "mesh_id": 0,
+      "price": 483,
+      "price_sell": 1119289344,
+      "requirements": {
+        "level": 227,
+        "str": 1,
+        "int": 0,
+        "dex": 0,
+        "con": 227
+      },
+      "effects": {
+        "damage": [
+          1,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 17051,
+      "price": 1074580685,
+      "price_sell": 0,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 241,
+        "dex": 66,
+        "con": 205
+      },
+      "effects": {
+        "damage": [
+          204,
+          12
+        ],
+        "defense": 64
+      }
+    },
+    {
+      "id": 52429,
+      "mesh_id": 16396,
+      "price": 0,
+      "price_sell": 0,
+      "requirements": {
+        "level": 205,
+        "str": 204,
+        "int": 12,
+        "dex": 64,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 1729,
+      "mesh_id": 0,
+      "price": 1740,
+      "price_sell": 1119813632,
+      "requirements": {
+        "level": 204,
+        "str": 6,
+        "int": 0,
+        "dex": 0,
+        "con": 7
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 17109,
+      "price": 1074580685,
+      "price_sell": 0,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 159,
+        "dex": 66,
+        "con": 205
+      },
+      "effects": {
+        "damage": [
+          204,
+          12
+        ],
+        "defense": 64
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 1730,
+      "price_sell": 7,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 7
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 13101,
+      "mesh_id": 16499,
+      "price": 1729,
+      "price_sell": 1121517568,
+      "requirements": {
+        "level": 193,
+        "str": 6,
+        "int": 0,
+        "dex": 0,
+        "con": 187
+      },
+      "effects": {
+        "damage": [
+          6,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 16772,
+      "price": 1074580685,
+      "price_sell": 0,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 227,
+        "dex": 66,
+        "con": 205
+      },
+      "effects": {
+        "damage": [
+          204,
+          12
+        ],
+        "defense": 64
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 1745,
+      "price_sell": 1740,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 204
+      },
+      "effects": {
+        "damage": [
+          6,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 17087,
+      "price": 1122435072,
+      "price_sell": 1074580685,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 217,
+        "dex": 66,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          155
+        ],
+        "defense": 66
+      }
+    },
+    {
+      "id": 52196,
+      "mesh_id": 16534,
+      "price": 0,
+      "price_sell": 1723,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 1724,
+      "mesh_id": 0,
+      "price": 1123745792,
+      "price_sell": 1099694080,
+      "requirements": {
+        "level": 193,
+        "str": 6,
+        "int": 0,
+        "dex": 0,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          217
+        ],
+        "defense": 66
+      }
+    },
+    {
+      "id": 52429,
+      "mesh_id": 16396,
+      "price": 0,
+      "price_sell": 0,
+      "requirements": {
+        "level": 205,
+        "str": 204,
+        "int": 12,
+        "dex": 64,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 1801,
+      "mesh_id": 0,
+      "price": 1801,
+      "price_sell": 1123352576,
+      "requirements": {
+        "level": 9,
+        "str": 7,
+        "int": 0,
+        "dex": 0,
+        "con": 187
+      },
+      "effects": {
+        "damage": [
+          6,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 17145,
+      "price": 1074580685,
+      "price_sell": 0,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 217,
+        "dex": 66,
+        "con": 205
+      },
+      "effects": {
+        "damage": [
+          204,
+          12
+        ],
+        "defense": 64
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 0,
+      "price": 1748,
+      "price_sell": 1727,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 0,
+        "dex": 0,
+        "con": 191
+      },
+      "effects": {
+        "damage": [
+          6,
+          0
+        ],
+        "defense": 0
+      }
+    },
+    {
+      "id": 0,
+      "mesh_id": 17105,
+      "price": 1121255424,
+      "price_sell": 1074580685,
+      "requirements": {
+        "level": 0,
+        "str": 0,
+        "int": 217,
+        "dex": 66,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          191
+        ],
+        "defense": 66
+      }
+    },
+    {
+      "id": 52196,
+      "mesh_id": 16534,
+      "price": 0,
+      "price_sell": 1724,
+      "requirements": {
+        "level": 219,
+        "str": 15,
+        "int": 201,
+        "dex": 63,
+        "con": 0
+      },
+      "effects": {
+        "damage": [
+          0,
+          0
+        ],
+        "defense": 0
+      }
+    }
+  ],
+  "item_count": 238,
+  "file_path": "/home/runner/workspace/WYD/v769ClientRelease/Env/Field1730.dat",
+  "file_size": 16184,
+  "file_name": "Field1730.dat",
+  "hex_sample": "00000000  09 07 00 00 00 00 68 41 00 00 84 41 cd cc 0c 40  |......hA...A...@|\n00000010  00 00 00 00 00 00 00 00 09 07 00 00 09 07 00 00  |................|\n00000020  00 00 68 41 00 00 cc 41 cd cc 0c 40 00 00 00 00  |..hA...A...@....|\n00000030  00 00 00 00 09 07 00 00 c4 06 00 00 00 00 8c 41  |...............A|\n00000040  00 00 8c 41 cd cc 0c 40 db 0f c9 3f 00 00 00 00  |...A...@...?....|\n00000050  c4 06 00 00 c5 06 00 00 00 00 8c 41 00 00 b4 41  |...........A...A|\n00000060  cd cc 0c 40 e4 cb 96 40 00 00 00 00 c5 06 00 00  |...@...@........|\n00000070  09 07 00 00 00 00 68 41 00 00 0a 42 cd cc 0c 40  |......hA...B...@|\n00000080  00 00 00 00 00 00 00 00 09 07 00 00 c1 06 00 00  |................|\n00000090  00 00 8c 41 00 00 dc 41 cd cc 0c 40 db 0f c9 3f  |...A...A...@...?|\n000000a0  00 00 00 00 c1 06 00 00 c1 06 00 00 00 00 8c 41  |...............A|\n000000b0  00 00 02 42 cd cc 0c 40 e4 cb 96 40 00 00 00 00  |...B...@...@....|\n000000c0  c1 06 00 00 09 07 00 00 00 00 bc 41 00 00 84 41  |...........A...A|\n000000d0  cd cc 0c 40 00 00 00 00 00 00 00 00 09 07 00 00  |...@............|\n000000e0  c1 06 00 00 00 00 bc 41 00 00 8c 41 cd cc 0c 40  |.......A...A...@|\n000000f0  00 00 00 00 00 00 00 00 c1 06 00 00 09 07 00 00  |................|"
+}

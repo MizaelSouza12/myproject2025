@@ -1,0 +1,52 @@
+=================================================
+          WYDBRASIL - MANUAL DE INSTALAÇÃO
+=================================================
+
+Bem-vindo ao WYDBRASIL, a versão moderna do clássico WYD!
+
+-------------------------------------------------
+REQUISITOS MÍNIMOS
+-------------------------------------------------
+- Windows 7, 8, 10 ou 11 (64 bits recomendado)
+- Processador: Intel Core i3 ou equivalente
+- Memória RAM: 4 GB
+- Placa de vídeo: DirectX 9.0c compatível
+- Espaço em disco: 2 GB livre
+- Conexão com a internet: 1 Mbps ou superior
+
+-------------------------------------------------
+INSTALAÇÃO
+-------------------------------------------------
+1. Extraia todos os arquivos deste pacote para uma pasta de sua escolha
+2. Execute o arquivo "start.bat" para iniciar o jogo
+3. Na primeira execução, será realizada uma verificação de arquivos
+
+-------------------------------------------------
+NOVOS RECURSOS
+-------------------------------------------------
+Este cliente inclui os seguintes novos recursos:
+
+- Ajustes Avançados (ALT+A)
+  Configurações gráficas e de controles avançadas
+
+- Compartilhamento de Tela (ALT+C)
+  Permita que outros jogadores vejam sua tela
+
+- Acesso Remoto (ALT+R)
+  Acesse a tela de outros jogadores
+
+- Chat de Voz (ALT+V, ALT+G)
+  Comunique-se por voz com outros jogadores
+
+- Teleporte Rápido (Tecla D)
+  Teleporte entre as principais cidades
+
+-------------------------------------------------
+SUPORTE
+-------------------------------------------------
+Para suporte, acesse:
+https://www.wydbrasil.com/suporte
+
+=================================================
+© WYDBRASIL 2025 - Todos os direitos reservados
+=================================================

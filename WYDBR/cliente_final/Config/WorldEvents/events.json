@@ -1,0 +1,55 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "name": "Invasão de Dragões",
+      "description": "Dragões furiosos atacam as principais cidades!",
+      "type": "invasion",
+      "mapIds": [0, 1, 2, 3],
+      "duration": 60,
+      "minimumPlayers": 10,
+      "rewards": {
+        "experience": 50000,
+        "gold": 100000,
+        "items": [
+          {"itemId": 412, "chance": 50},
+          {"itemId": 413, "chance": 25},
+          {"itemId": 4700, "chance": 5}
+        ]
+      },
+      "triggers": {
+        "scheduledTimes": ["12:00", "20:00"],
+        "cooldownHours": 12
+      },
+      "weatherEffects": {
+        "skyColor": "#FF4400",
+        "fogDensity": 0.3,
+        "lightningFrequency": 5,
+        "ambientSounds": ["dragon_roar.wav", "thunder_distant.wav"]
+      }
+    },
+    {
+      "id": 2,
+      "name": "Tempestade Arcana",
+      "description": "Energias mágicas descontroladas causam fenômenos estranhos!",
+      "type": "weather",
+      "mapIds": [0, 1, 2, 3, 4, 5],
+      "duration": 120,
+      "effects": {
+        "magicDamageBonus": 15,
+        "teleportRandomChance": 5,
+        "transformationChance": 10
+      },
+      "triggers": {
+        "randomChance": 10,
+        "minTimeBetween": 48
+      },
+      "weatherEffects": {
+        "skyColor": "#9900FF",
+        "fogDensity": 0.2,
+        "particleEffects": ["magic_sparks", "floating_runes"],
+        "ambientSounds": ["magic_wind.wav", "crystal_hum.wav"]
+      }
+    }
+  ]
+}

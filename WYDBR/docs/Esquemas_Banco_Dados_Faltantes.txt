@@ -1,0 +1,604 @@
+# Esquemas de Banco de Dados Faltantes - WYDBR 2.0
+
+Este documento descreve os esquemas de banco de dados que devem ser implementados para suportar todos os recursos do sistema WYDBR 2.0. As tabelas estão organizadas por sistema funcional.
+
+## 1. Sistema de Personagens e Contas
+
+### Tabela: accounts
+```sql
+CREATE TABLE accounts (
+    account_id          BIGINT PRIMARY KEY AUTO_INCREMENT,
+    username            VARCHAR(32) NOT NULL UNIQUE,
+    email               VARCHAR(128) NOT NULL UNIQUE,
+    password_hash       CHAR(64) NOT NULL,
+    salt                CHAR(32) NOT NULL,
+    creation_date       TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    last_login_date     TIMESTAMP NULL,
+    last_login_ip       VARCHAR(45) NULL,
+    access_level        TINYINT NOT NULL DEFAULT 0,
+    is_banned           BOOLEAN NOT NULL DEFAULT FALSE,
+    ban_reason          VARCHAR(255) NULL,
+    ban_expiry          TIMESTAMP NULL,
+    cash_points         INT NOT NULL DEFAULT 0,
+    bonus_points        INT NOT NULL DEFAULT 0,
+    referral_id         BIGINT NULL,
+    two_factor_enabled  BOOLEAN NOT NULL DEFAULT FALSE,
+    two_factor_secret   VARCHAR(64) NULL,
+    recovery_email      VARCHAR(128) NULL,
+    last_password_change TIMESTAMP NULL,
+    newsletter_opt_in   BOOLEAN NOT NULL DEFAULT FALSE,
+    gdpr_consent        BOOLEAN NOT NULL DEFAULT FALSE,
+    gdpr_consent_date   TIMESTAMP NULL,
+    
+    INDEX idx_username (username),
+    INDEX idx_email (email),
+    INDEX idx_last_login (last_login_date),
+    INDEX idx_access_level (access_level),
+    INDEX idx_ban_status (is_banned, ban_expiry)
+);
+```
+
+### Tabela: characters
+```sql
+CREATE TABLE characters (
+    character_id        BIGINT PRIMARY KEY AUTO_INCREMENT,
+    account_id          BIGINT NOT NULL,
+    name                VARCHAR(32) NOT NULL UNIQUE,
+    class               TINYINT NOT NULL,
+    level               SMALLINT NOT NULL DEFAULT 1,
+    exp                 BIGINT NOT NULL DEFAULT 0,
+    strength            SMALLINT NOT NULL DEFAULT 10,
+    vitality            SMALLINT NOT NULL DEFAULT 10,
+    dexterity           SMALLINT NOT NULL DEFAULT 10,
+    intelligence        SMALLINT NOT NULL DEFAULT 10,
+    wisdom              SMALLINT NOT NULL DEFAULT 10,
+    current_hp          INT NOT NULL DEFAULT 100,
+    max_hp              INT NOT NULL DEFAULT 100,
+    current_mp          INT NOT NULL DEFAULT 100,
+    max_mp              INT NOT NULL DEFAULT 100,
+    current_stamina     INT NOT NULL DEFAULT 100,
+    max_stamina         INT NOT NULL DEFAULT 100,
+    status_points       INT NOT NULL DEFAULT 0,
+    skill_points        INT NOT NULL DEFAULT 0,
+    gold                BIGINT NOT NULL DEFAULT 0,
+    guild_id            BIGINT NULL,
+    guild_rank          TINYINT NULL,
+    creation_date       TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    last_access_date    TIMESTAMP NULL,
+    delete_date         TIMESTAMP NULL,
+    current_map_id      INT NOT NULL DEFAULT 1,
+    current_x           SMALLINT NOT NULL DEFAULT 0,
+    current_y           SMALLINT NOT NULL DEFAULT 0,
+    respawn_map_id      INT NOT NULL DEFAULT 1,
+    respawn_x           SMALLINT NOT NULL DEFAULT 0,
+    respawn_y           SMALLINT NOT NULL DEFAULT 0,
+    play_time_seconds   INT NOT NULL DEFAULT 0,
+    hair_style          TINYINT NOT NULL DEFAULT 0,
+    hair_color          TINYINT NOT NULL DEFAULT 0,
+    face_style          TINYINT NOT NULL DEFAULT 0,
+    pk_status           TINYINT NOT NULL DEFAULT 0,
+    pk_points           INT NOT NULL DEFAULT 0,
+    
+    FOREIGN KEY (account_id) REFERENCES accounts(account_id) ON DELETE CASCADE,
+    FOREIGN KEY (guild_id) REFERENCES guilds(guild_id) ON DELETE SET NULL,
+    
+    INDEX idx_account_id (account_id),
+    INDEX idx_name (name),
+    INDEX idx_level (level),
+    INDEX idx_guild (guild_id),
+    INDEX idx_map (current_map_id),
+    INDEX idx_creation (creation_date)
+);
+```
+
+### Tabela: character_items
+```sql
+CREATE TABLE character_items (
+    item_id             BIGINT PRIMARY KEY AUTO_INCREMENT,
+    character_id        BIGINT NOT NULL,
+    template_id         INT NOT NULL,
+    slot_type           TINYINT NOT NULL,  -- 0: inventory, 1: equipment, 2: bank, etc
+    slot_position       SMALLINT NOT NULL,
+    quantity            INT NOT NULL DEFAULT 1,
+    durability          SMALLINT NULL,
+    upgrade_level       TINYINT NOT NULL DEFAULT 0,
+    attributes          JSON NULL,         -- special item attributes
+    bind_status         TINYINT NOT NULL DEFAULT 0,  -- 0: not bound, 1: bound to character, 2: bound to account
+    expiry_date         TIMESTAMP NULL,
+    crafted_by          BIGINT NULL,
+    acquisition_date    TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    
+    FOREIGN KEY (character_id) REFERENCES characters(character_id) ON DELETE CASCADE,
+    
+    INDEX idx_character_slot (character_id, slot_type, slot_position),
+    INDEX idx_template (template_id),
+    INDEX idx_expiry (expiry_date)
+);
+```
+
+### Tabela: character_skills
+```sql
+CREATE TABLE character_skills (
+    character_id        BIGINT NOT NULL,
+    skill_id            INT NOT NULL,
+    skill_level         TINYINT NOT NULL DEFAULT 1,
+    cooldown_end        TIMESTAMP NULL,
+    shortcuts           JSON NULL,        -- UI shortcut positions
+    
+    PRIMARY KEY (character_id, skill_id),
+    FOREIGN KEY (character_id) REFERENCES characters(character_id) ON DELETE CASCADE,
+    
+    INDEX idx_skill (skill_id, skill_level)
+);
+```
+
+### Tabela: character_quests
+```sql
+CREATE TABLE character_quests (
+    character_id        BIGINT NOT NULL,
+    quest_id            INT NOT NULL,
+    status              TINYINT NOT NULL DEFAULT 0,  -- 0: not started, 1: in progress, 2: completed, 3: failed
+    start_time          TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    completion_time     TIMESTAMP NULL,
+    current_objectives  JSON NOT NULL,    -- progress on objectives
+    rewards_claimed     BOOLEAN NOT NULL DEFAULT FALSE,
+    
+    PRIMARY KEY (character_id, quest_id),
+    FOREIGN KEY (character_id) REFERENCES characters(character_id) ON DELETE CASCADE,
+    
+    INDEX idx_status (character_id, status),
+    INDEX idx_quest (quest_id, status)
+);
+```
+
+## 2. Sistema de Social e Guild
+
+### Tabela: guilds
+```sql
+CREATE TABLE guilds (
+    guild_id            BIGINT PRIMARY KEY AUTO_INCREMENT,
+    name                VARCHAR(32) NOT NULL UNIQUE,
+    logo                INT NOT NULL DEFAULT 0,
+    level               SMALLINT NOT NULL DEFAULT 1,
+    exp                 BIGINT NOT NULL DEFAULT 0,
+    points              INT NOT NULL DEFAULT 0,
+    creation_date       TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    leader_id           BIGINT NOT NULL,
+    notice              VARCHAR(512) NULL,
+    description         TEXT NULL,
+    gold                BIGINT NOT NULL DEFAULT 0,
+    territory_id        INT NULL,
+    alliance_id         BIGINT NULL,
+    hostile_guilds      JSON NULL,        -- list of hostile guild IDs
+    dissolution_date    TIMESTAMP NULL,   -- when scheduled for dissolution
+    last_activity_date  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    
+    FOREIGN KEY (leader_id) REFERENCES characters(character_id),
+    FOREIGN KEY (alliance_id) REFERENCES guild_alliances(alliance_id) ON DELETE SET NULL,
+    
+    INDEX idx_name (name),
+    INDEX idx_level (level),
+    INDEX idx_leader (leader_id),
+    INDEX idx_alliance (alliance_id),
+    INDEX idx_territory (territory_id),
+    INDEX idx_activity (last_activity_date)
+);
+```
+
+### Tabela: guild_members
+```sql
+CREATE TABLE guild_members (
+    guild_id            BIGINT NOT NULL,
+    character_id        BIGINT NOT NULL,
+    rank                TINYINT NOT NULL DEFAULT 0,
+    permissions         INT NOT NULL DEFAULT 0,
+    join_date           TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    last_contribution   TIMESTAMP NULL,
+    donation_gold       BIGINT NOT NULL DEFAULT 0,
+    donation_items      INT NOT NULL DEFAULT 0,
+    contribution_points INT NOT NULL DEFAULT 0,
+    
+    PRIMARY KEY (guild_id, character_id),
+    FOREIGN KEY (guild_id) REFERENCES guilds(guild_id) ON DELETE CASCADE,
+    FOREIGN KEY (character_id) REFERENCES characters(character_id) ON DELETE CASCADE,
+    
+    INDEX idx_rank (guild_id, rank),
+    INDEX idx_contribution (guild_id, contribution_points DESC)
+);
+```
+
+### Tabela: guild_storage
+```sql
+CREATE TABLE guild_storage (
+    item_id             BIGINT PRIMARY KEY AUTO_INCREMENT,
+    guild_id            BIGINT NOT NULL,
+    template_id         INT NOT NULL,
+    slot_position       SMALLINT NOT NULL,
+    quantity            INT NOT NULL DEFAULT 1,
+    durability          SMALLINT NULL,
+    upgrade_level       TINYINT NOT NULL DEFAULT 0,
+    attributes          JSON NULL,
+    added_by            BIGINT NOT NULL,
+    added_date          TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    
+    FOREIGN KEY (guild_id) REFERENCES guilds(guild_id) ON DELETE CASCADE,
+    FOREIGN KEY (added_by) REFERENCES characters(character_id),
+    
+    INDEX idx_guild_slot (guild_id, slot_position),
+    INDEX idx_template (template_id)
+);
+```
+
+### Tabela: guild_log
+```sql
+CREATE TABLE guild_log (
+    log_id              BIGINT PRIMARY KEY AUTO_INCREMENT,
+    guild_id            BIGINT NOT NULL,
+    action_type         TINYINT NOT NULL,
+    action_date         TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    character_id        BIGINT NULL,
+    target_character_id BIGINT NULL,
+    item_id             BIGINT NULL,
+    gold_amount         BIGINT NULL,
+    description         VARCHAR(255) NULL,
+    
+    FOREIGN KEY (guild_id) REFERENCES guilds(guild_id) ON DELETE CASCADE,
+    FOREIGN KEY (character_id) REFERENCES characters(character_id) ON DELETE SET NULL,
+    FOREIGN KEY (target_character_id) REFERENCES characters(character_id) ON DELETE SET NULL,
+    
+    INDEX idx_guild_date (guild_id, action_date),
+    INDEX idx_action (guild_id, action_type)
+);
+```
+
+### Tabela: friends
+```sql
+CREATE TABLE friends (
+    character_id        BIGINT NOT NULL,
+    friend_id           BIGINT NOT NULL,
+    added_date          TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    notes               VARCHAR(255) NULL,
+    
+    PRIMARY KEY (character_id, friend_id),
+    FOREIGN KEY (character_id) REFERENCES characters(character_id) ON DELETE CASCADE,
+    FOREIGN KEY (friend_id) REFERENCES characters(character_id) ON DELETE CASCADE,
+    
+    INDEX idx_friend (friend_id)
+);
+```
+
+## 3. Sistema de Economia e Marketplace
+
+### Tabela: marketplace_listings
+```sql
+CREATE TABLE marketplace_listings (
+    listing_id          BIGINT PRIMARY KEY AUTO_INCREMENT,
+    seller_id           BIGINT NOT NULL,
+    item_template_id    INT NOT NULL,
+    item_id             BIGINT NULL,       -- NULL for commodity listings
+    quantity            INT NOT NULL DEFAULT 1,
+    price_per_unit      BIGINT NOT NULL,
+    price_total         BIGINT NOT NULL,
+    listing_type        TINYINT NOT NULL,  -- 0: direct sale, 1: auction
+    start_time          TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    end_time            TIMESTAMP NOT NULL,
+    status              TINYINT NOT NULL DEFAULT 0,  -- 0: active, 1: sold, 2: expired, 3: cancelled
+    current_bid         BIGINT NULL,
+    current_bidder_id   BIGINT NULL,
+    buyout_price        BIGINT NULL,
+    item_attributes     JSON NULL,         -- attributes for commodity listings
+    
+    FOREIGN KEY (seller_id) REFERENCES characters(character_id),
+    FOREIGN KEY (item_id) REFERENCES character_items(item_id) ON DELETE SET NULL,
+    FOREIGN KEY (current_bidder_id) REFERENCES characters(character_id) ON DELETE SET NULL,
+    
+    INDEX idx_seller (seller_id),
+    INDEX idx_item_template (item_template_id),
+    INDEX idx_status_end (status, end_time),
+    INDEX idx_type_template (listing_type, item_template_id)
+);
+```
+
+### Tabela: marketplace_history
+```sql
+CREATE TABLE marketplace_history (
+    history_id          BIGINT PRIMARY KEY AUTO_INCREMENT,
+    listing_id          BIGINT NOT NULL,
+    seller_id           BIGINT NOT NULL,
+    buyer_id            BIGINT NOT NULL,
+    item_template_id    INT NOT NULL,
+    quantity            INT NOT NULL,
+    price_per_unit      BIGINT NOT NULL,
+    price_total         BIGINT NOT NULL,
+    sale_time           TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    listing_type        TINYINT NOT NULL,  -- 0: direct sale, 1: auction
+    
+    FOREIGN KEY (seller_id) REFERENCES characters(character_id) ON DELETE CASCADE,
+    FOREIGN KEY (buyer_id) REFERENCES characters(character_id) ON DELETE CASCADE,
+    
+    INDEX idx_seller (seller_id),
+    INDEX idx_buyer (buyer_id),
+    INDEX idx_item_template (item_template_id),
+    INDEX idx_sale_time (sale_time)
+);
+```
+
+### Tabela: economy_transactions
+```sql
+CREATE TABLE economy_transactions (
+    transaction_id      BIGINT PRIMARY KEY AUTO_INCREMENT,
+    character_id        BIGINT NULL,
+    account_id          BIGINT NULL,
+    transaction_type    TINYINT NOT NULL,  -- 0: gold, 1: item, 2: cash points
+    amount              BIGINT NOT NULL,
+    recipient_id        BIGINT NULL,      -- for transfers
+    item_id             BIGINT NULL,
+    item_template_id    INT NULL,
+    quantity            INT NULL,
+    transaction_time    TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    source              TINYINT NOT NULL,  -- 0: drop, 1: quest, 2: trade, 3: market, 4: billing
+    description         VARCHAR(255) NULL,
+    
+    FOREIGN KEY (character_id) REFERENCES characters(character_id) ON DELETE SET NULL,
+    FOREIGN KEY (account_id) REFERENCES accounts(account_id) ON DELETE SET NULL,
+    FOREIGN KEY (recipient_id) REFERENCES characters(character_id) ON DELETE SET NULL,
+    
+    INDEX idx_character (character_id, transaction_time),
+    INDEX idx_account (account_id, transaction_time),
+    INDEX idx_type_time (transaction_type, transaction_time),
+    INDEX idx_source (source, transaction_time)
+);
+```
+
+## 4. Sistema de Eventos e Mundo
+
+### Tabela: world_instances
+```sql
+CREATE TABLE world_instances (
+    instance_id         BIGINT PRIMARY KEY AUTO_INCREMENT,
+    template_id         INT NOT NULL,
+    owner_type          TINYINT NOT NULL,  -- 0: system, 1: character, 2: guild, 3: party
+    owner_id            BIGINT NULL,
+    creation_time       TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    expiry_time         TIMESTAMP NULL,
+    max_players         INT NOT NULL DEFAULT 1,
+    current_players     INT NOT NULL DEFAULT 0,
+    difficulty          TINYINT NOT NULL DEFAULT 0,
+    status              TINYINT NOT NULL DEFAULT 0,  -- 0: active, 1: completed, 2: failed
+    progress            JSON NULL,         -- progress data
+    
+    INDEX idx_template (template_id),
+    INDEX idx_owner (owner_type, owner_id),
+    INDEX idx_expiry (expiry_time)
+);
+```
+
+### Tabela: world_events
+```sql
+CREATE TABLE world_events (
+    event_id            BIGINT PRIMARY KEY AUTO_INCREMENT,
+    event_template_id   INT NOT NULL,
+    start_time          TIMESTAMP NOT NULL,
+    end_time            TIMESTAMP NOT NULL,
+    status              TINYINT NOT NULL DEFAULT 0,  -- 0: scheduled, 1: active, 2: completed, 3: cancelled
+    map_id              INT NULL,
+    instance_id         BIGINT NULL,
+    parameters          JSON NULL,         -- event-specific parameters
+    
+    FOREIGN KEY (instance_id) REFERENCES world_instances(instance_id) ON DELETE SET NULL,
+    
+    INDEX idx_template (event_template_id),
+    INDEX idx_time (start_time, end_time),
+    INDEX idx_status (status),
+    INDEX idx_map (map_id)
+);
+```
+
+### Tabela: event_participants
+```sql
+CREATE TABLE event_participants (
+    event_id            BIGINT NOT NULL,
+    character_id        BIGINT NOT NULL,
+    join_time           TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    leave_time          TIMESTAMP NULL,
+    score               INT NOT NULL DEFAULT 0,
+    rewards_claimed     BOOLEAN NOT NULL DEFAULT FALSE,
+    
+    PRIMARY KEY (event_id, character_id),
+    FOREIGN KEY (event_id) REFERENCES world_events(event_id) ON DELETE CASCADE,
+    FOREIGN KEY (character_id) REFERENCES characters(character_id) ON DELETE CASCADE,
+    
+    INDEX idx_score (event_id, score DESC)
+);
+```
+
+### Tabela: castle_sieges
+```sql
+CREATE TABLE castle_sieges (
+    castle_id           INT NOT NULL PRIMARY KEY,
+    owner_guild_id      BIGINT NULL,
+    last_siege_time     TIMESTAMP NULL,
+    next_siege_time     TIMESTAMP NOT NULL,
+    tax_rate            TINYINT NOT NULL DEFAULT 0,
+    tax_income          BIGINT NOT NULL DEFAULT 0,
+    defense_points      INT NOT NULL DEFAULT 0,
+    npc_guards          JSON NULL,         -- active NPC guards
+    
+    FOREIGN KEY (owner_guild_id) REFERENCES guilds(guild_id) ON DELETE SET NULL,
+    
+    INDEX idx_next_siege (next_siege_time)
+);
+```
+
+## 5. Sistema de Logging e Auditoria
+
+### Tabela: game_logs
+```sql
+CREATE TABLE game_logs (
+    log_id              BIGINT PRIMARY KEY AUTO_INCREMENT,
+    log_time            TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    log_type            TINYINT NOT NULL,
+    severity            TINYINT NOT NULL DEFAULT 0,
+    account_id          BIGINT NULL,
+    character_id        BIGINT NULL,
+    ip_address          VARCHAR(45) NULL,
+    message             TEXT NOT NULL,
+    additional_data     JSON NULL,
+    
+    FOREIGN KEY (account_id) REFERENCES accounts(account_id) ON DELETE SET NULL,
+    FOREIGN KEY (character_id) REFERENCES characters(character_id) ON DELETE SET NULL,
+    
+    INDEX idx_time (log_time),
+    INDEX idx_type_severity (log_type, severity),
+    INDEX idx_account (account_id),
+    INDEX idx_character (character_id)
+);
+```
+
+### Tabela: chat_logs
+```sql
+CREATE TABLE chat_logs (
+    log_id              BIGINT PRIMARY KEY AUTO_INCREMENT,
+    message_time        TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    channel_type        TINYINT NOT NULL,  -- 0: general, 1: whisper, 2: guild, 3: party, etc.
+    sender_id           BIGINT NOT NULL,
+    recipient_id        BIGINT NULL,      -- for whispers
+    guild_id            BIGINT NULL,      -- for guild chat
+    party_id            BIGINT NULL,      -- for party chat
+    message             TEXT NOT NULL,
+    reported            BOOLEAN NOT NULL DEFAULT FALSE,
+    
+    FOREIGN KEY (sender_id) REFERENCES characters(character_id) ON DELETE CASCADE,
+    FOREIGN KEY (recipient_id) REFERENCES characters(character_id) ON DELETE CASCADE,
+    FOREIGN KEY (guild_id) REFERENCES guilds(guild_id) ON DELETE CASCADE,
+    
+    INDEX idx_time (message_time),
+    INDEX idx_channel (channel_type),
+    INDEX idx_sender (sender_id),
+    INDEX idx_recipient (recipient_id),
+    INDEX idx_guild (guild_id),
+    INDEX idx_reported (reported)
+);
+```
+
+### Tabela: login_history
+```sql
+CREATE TABLE login_history (
+    history_id          BIGINT PRIMARY KEY AUTO_INCREMENT,
+    account_id          BIGINT NOT NULL,
+    login_time          TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    logout_time         TIMESTAMP NULL,
+    ip_address          VARCHAR(45) NOT NULL,
+    success             BOOLEAN NOT NULL DEFAULT TRUE,
+    failure_reason      VARCHAR(255) NULL,
+    client_version      VARCHAR(32) NULL,
+    device_info         VARCHAR(255) NULL,
+    
+    FOREIGN KEY (account_id) REFERENCES accounts(account_id) ON DELETE CASCADE,
+    
+    INDEX idx_account (account_id),
+    INDEX idx_login_time (login_time),
+    INDEX idx_ip (ip_address),
+    INDEX idx_success (success)
+);
+```
+
+## 6. Sistema de Billing e Pagamentos
+
+### Tabela: billing_transactions
+```sql
+CREATE TABLE billing_transactions (
+    transaction_id      BIGINT PRIMARY KEY AUTO_INCREMENT,
+    account_id          BIGINT NOT NULL,
+    transaction_time    TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    amount              DECIMAL(10,2) NOT NULL,
+    currency            CHAR(3) NOT NULL DEFAULT 'USD',
+    payment_method      VARCHAR(32) NOT NULL,
+    payment_gateway     VARCHAR(32) NOT NULL,
+    gateway_transaction_id VARCHAR(128) NOT NULL,
+    status              TINYINT NOT NULL DEFAULT 0,  -- 0: pending, 1: completed, 2: failed, 3: refunded
+    cash_points_added   INT NOT NULL DEFAULT 0,
+    bonus_points_added  INT NOT NULL DEFAULT 0,
+    package_id          INT NULL,
+    promotion_id        INT NULL,
+    country_code        CHAR(2) NULL,
+    ip_address          VARCHAR(45) NOT NULL,
+    
+    FOREIGN KEY (account_id) REFERENCES accounts(account_id),
+    
+    INDEX idx_account (account_id),
+    INDEX idx_time (transaction_time),
+    INDEX idx_status (status),
+    INDEX idx_gateway_id (payment_gateway, gateway_transaction_id)
+);
+```
+
+### Tabela: cash_shop_purchases
+```sql
+CREATE TABLE cash_shop_purchases (
+    purchase_id         BIGINT PRIMARY KEY AUTO_INCREMENT,
+    account_id          BIGINT NOT NULL,
+    character_id        BIGINT NULL,
+    item_id             INT NOT NULL,
+    quantity            INT NOT NULL DEFAULT 1,
+    price_points        INT NOT NULL,
+    price_bonus         INT NOT NULL DEFAULT 0,
+    purchase_time       TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    gift_to_account_id  BIGINT NULL,
+    gift_to_character_id BIGINT NULL,
+    gift_message        VARCHAR(255) NULL,
+    
+    FOREIGN KEY (account_id) REFERENCES accounts(account_id),
+    FOREIGN KEY (character_id) REFERENCES characters(character_id) ON DELETE SET NULL,
+    FOREIGN KEY (gift_to_account_id) REFERENCES accounts(account_id) ON DELETE SET NULL,
+    FOREIGN KEY (gift_to_character_id) REFERENCES characters(character_id) ON DELETE SET NULL,
+    
+    INDEX idx_account (account_id),
+    INDEX idx_character (character_id),
+    INDEX idx_time (purchase_time),
+    INDEX idx_item (item_id)
+);
+```
+
+## Procedimentos de Manutenção do Banco de Dados
+
+### 1. Particionamento de Tabelas de Log
+Para as tabelas de log que crescem rapidamente (game_logs, chat_logs, login_history), implementar particionamento por data:
+
+```sql
+ALTER TABLE game_logs
+PARTITION BY RANGE (UNIX_TIMESTAMP(log_time)) (
+    PARTITION p_current VALUES LESS THAN (UNIX_TIMESTAMP('9999-12-31'))
+);
+
+-- Adicionar novas partições mensais via script de manutenção:
+ALTER TABLE game_logs REORGANIZE PARTITION p_current INTO (
+    PARTITION p202401 VALUES LESS THAN (UNIX_TIMESTAMP('2024-02-01')),
+    PARTITION p_current VALUES LESS THAN (UNIX_TIMESTAMP('9999-12-31'))
+);
+```
+
+### 2. Jobs Agendados
+Implementar jobs para:
+1. Rotação de logs antigos para tabelas de arquivamento
+2. Limpeza de itens expirados
+3. Atualização de estatísticas para otimizador de consultas
+4. Verificação de integridade de dados entre tabelas relacionadas
+
+## Considerações de Escalabilidade
+
+1. **Sharding por Guild/Instância:**
+   - Para servidores de alta população, considerar sharding de dados de guild e instâncias em bancos separados
+
+2. **Réplicas de Leitura:**
+   - Configurar réplicas de leitura para queries intensivas (leaderboards, marketplace, logs)
+
+3. **Caching:**
+   - Implementar camada de cache para dados frequentemente acessados:
+     - Dados de personagens
+     - Itens de inventário
+     - Configurações de guild
+     - Listings do marketplace
+
+4. **Índices Compostos:**
+   - Otimizar queries comuns com índices compostos, revisando regularmente o uso de índices 

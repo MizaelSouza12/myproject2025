@@ -1,0 +1,37 @@
+=================================================
+WYDBRASIL 2.0 - GUIA DE PRIMEIROS PASSOS
+=================================================
+
+1. INSTALAÇÃO
+   - Execute "iniciar.bat" ou qualquer uma das opções de inicialização
+   - O launcher irá verificar e baixar atualizações se necessário
+   - Siga as instruções na tela para completar a configuração
+
+2. OPÇÕES GRÁFICAS
+   - Para melhor desempenho em PCs modernos: iniciar_dx11.bat
+   - Para PCs com hardware mais antigo: iniciar_compatibilidade.bat
+   - Para personalizar configurações: Execute WydConfig.exe
+
+3. CONTROLES BÁSICOS
+   - WASD = Movimento
+   - Mouse Esquerdo = Atacar/Interagir
+   - Botão Direito = Menu de Ações
+   - I = Inventário
+   - K = Habilidades
+   - P = Perfil
+   - D = Teleporte rápido
+   - ALT+V = Chat de voz (Push-to-talk)
+   - F11 = Compartilhar tela
+
+4. RECURSOS AVANÇADOS
+   - Sistema de Refinamento: Aprimore suas armas e armaduras
+   - Comércio Seguro: Sistema de troca avançado contra golpes
+   - Eventos Mundiais: Participe de invasões e eventos especiais
+   - Comunicação: Use o chat de voz integrado e compartilhe sua tela
+
+5. SUPORTE E COMUNIDADE
+   - Site oficial: www.wydbrasil.com
+   - Discord: discord.gg/wydbrasil
+   - Fórum: forum.wydbrasil.com
+
+Bem-vindo ao WYDBRASIL 2.0! Sua aventura aguarda!

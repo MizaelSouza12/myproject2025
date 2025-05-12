@@ -1,0 +1,27 @@
+[Servers]
+; Formato: ID|Nome|Endereço|Porta|Status|População|Tipo
+1|WYDBRASIL Main|game1.wydbrasil.com|8281|1|0|0
+2|WYDBRASIL Beta|beta.wydbrasil.com|8281|1|0|2
+3|WYDBRASIL PvP|pvp.wydbrasil.com|8281|1|0|1
+4|WYDBRASIL Event|event.wydbrasil.com|8281|0|0|3
+
+[ServerTypes]
+; Tipos de servidor
+0|Normal
+1|PvP
+2|Beta
+3|Evento
+
+[ServerStatus]
+; Status do servidor
+0|Offline
+1|Online
+2|Manutenção
+3|Lotado
+
+[PopulationLevels]
+; Níveis de população
+0|Baixa
+1|Média
+2|Alta
+3|Cheia

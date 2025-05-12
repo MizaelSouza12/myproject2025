@@ -1,0 +1,65 @@
+FFFFFF
+FFFFFF Compartilhamento de Tela
+FFFFAA
+FFFFAA Gerenciar acesso remoto
+AAFFAA
+
+FFFFFF Status
+FFFFAA
+FFFFAA Compartilhamento:
+AAFFAA [DESATIVADO]
+AAFFAA
+
+FFFFFF Senha de Acesso
+FFFFAA
+FFFFAA Configurar senha para acesso remoto
+AAFFAA Definir Nova Senha
+AAFFAA
+
+FFFFFF Link de Acesso
+FFFFAA
+FFFFAA https://wydbrscreenweb.wyd/@[login]
+AAFFAA Copiar Link
+AAFFAA
+
+FFFFFF Restrições
+FFFFAA
+FFFFAA Bloquear movimentação de itens
+AAFFAA [DESATIVADO]
+AAFFAA
+
+FFFFFF Bloquear trocas de senha
+FFFFAA
+FFFFAA Impedir alteração de senha
+AAFFAA [DESATIVADO]
+AAFFAA
+
+FFFFFF Bloquear exclusão de personagens
+FFFFAA
+FFFFAA Impedir exclusão de personagens
+AAFFAA [DESATIVADO]
+AAFFAA
+
+FFFFFF Ativar todas as restrições
+FFFFAA
+FFFFAA Modo seguro (todas as restrições)
+AAFFAA [DESATIVADO]
+AAFFAA
+
+FFFFFF Conexões Ativas
+FFFFAA
+FFFFAA Nenhuma conexão ativa
+AAFFAA
+AAFFAA
+
+FFFFFF
+FFFFFF Salvar Configurações
+FFFFAA
+FFFFAA Aplicar e Salvar
+AAFFAA
+
+FFFFFF
+FFFFFF Cancelar
+FFFFAA
+FFFFAA Voltar sem salvar
+AAFFAA

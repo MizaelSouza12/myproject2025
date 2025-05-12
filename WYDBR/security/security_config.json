@@ -1,0 +1,9 @@
+{
+  "lastUpdate": "2025-05-07T00:00:00.000Z",
+  "security": {
+    "fileIntegrityCheck": true,
+    "preventScriptExecution": true,
+    "executableOnly": true,
+    "signatureVerification": false
+  }
+}

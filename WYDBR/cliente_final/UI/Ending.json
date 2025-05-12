@@ -1,0 +1,7 @@
+{
+  "format": "unknown",
+  "file_size": 64000,
+  "file_path": "/home/runner/workspace/WYD/v769ClientRelease/UI/Ending.bin",
+  "file_name": "Ending.bin",
+  "hex_sample": "00000000  ff 2d 06 d0 00 0f 20 f9 18 1b fe cc 0d 37 0f 30  |.-.... ......7.0|\n00000010  1c c9 d2 df d7 ca d0 d7 d2 d5 d6 11 d3 ec dc e5  |................|\n00000020  d8 c8 d6 07 d4 12 e3 ec e2 1a f1 fa dd e5 e1 d9  |................|\n00000030  ef 1d ea e1 e7 df ec 2a f9 fa fa f5 ef e7 f4 32  |.......*.......2|\n00000040  fb 36 f5 ed fa 38 06 0e 06 37 02 fb 0c 19 02 11  |.6...8...7......|\n00000050  10 20 14 42 14 24 14 45 0b 0c 0e 2a 10 36 1e 40  |. .B.$.E...*.6.@|\n00000060  12 3a 19 12 15 47 24 5f 1c 2b 1d 15 22 60 2d 5b  |.:...G$_.+..\"`-[|\n00000070  28 1f 25 1d 2a 68 37 38 38 33 2d 25 32 70 37 2a  |(.%.*h7883-%2p7*|\n00000080  31 44 4a 30 3d 30 37 4a 50 36 49 77 44 3b 41 39  |1DJ0=07JP6IwD;A9|\n00000090  46 84 44 5c 4f 84 59 4c 50 47 4a 48 57 87 5d 40  |F.D\\O.YLPGJHW.]@|\n000000a0  5f 8d 5a 51 57 4f 5c 9a 5a 72 5b 88 5c 5a 69 99  |_.ZQWO\\.Zr[.\\Zi.|\n000000b0  73 54 70 79 64 56 76 91 78 88 72 73 7c 89 81 74  |sTpydVv.x.rs|..t|\n000000c0  7a 81 7c 7f 80 bb 7d 96 86 8f 82 72 80 b1 7e bc  |z.|...}....r..~.|\n000000d0  8d 96 8c c4 9b a4 87 8f 8b 83 99 c7 94 8b 91 89  |................|\n000000e0  96 d4 a3 a4 a4 9f 99 91 9e dc a5 e0 9f 97 a4 e2  |................|\n000000f0  b0 b8 b0 e1 ac a5 b6 c3 ac bb ba ca be ec be ce  |................|"
+}

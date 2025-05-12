@@ -1,0 +1,50 @@
+-- Script SQL para criação das tabelas de configurações de usuário
+-- Este script deve ser executado pelo administrador do banco de dados
+
+-- Tabela de configurações de usuário
+CREATE TABLE IF NOT EXISTS user_settings (
+    user_id INT PRIMARY KEY,
+    graphics_quality INT DEFAULT 2,          -- 0: Baixo, 1: Médio, 2: Alto, 3: Ultra
+    audio_volume_master FLOAT DEFAULT 1.0,   -- 0.0 a 1.0
+    audio_volume_effects FLOAT DEFAULT 1.0,  -- 0.0 a 1.0
+    audio_volume_music FLOAT DEFAULT 0.8,    -- 0.0 a 1.0
+    audio_volume_voice FLOAT DEFAULT 1.0,    -- 0.0 a 1.0
+    show_fps BOOLEAN DEFAULT FALSE,          -- Mostrar FPS
+    show_ping BOOLEAN DEFAULT FALSE,         -- Mostrar PING
+    show_cpu_usage BOOLEAN DEFAULT FALSE,    -- Mostrar uso de CPU
+    show_memory_usage BOOLEAN DEFAULT FALSE, -- Mostrar uso de memória
+    push_to_talk_key VARCHAR(32) DEFAULT 'V',-- Tecla para Push-to-Talk
+    voice_activation BOOLEAN DEFAULT FALSE,  -- Ativação por voz
+    voice_threshold FLOAT DEFAULT 0.2,       -- Limiar de ativação por voz
+    voice_quality INT DEFAULT 1,             -- 0: Baixo, 1: Médio, 2: Alto
+    last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Tabela de compartilhamento de tela
+CREATE TABLE IF NOT EXISTS screen_sharing_settings (
+    user_id INT PRIMARY KEY,
+    allow_movement BOOLEAN DEFAULT FALSE,    -- Permitir movimentação durante compartilhamento
+    password_protected BOOLEAN DEFAULT TRUE, -- Exigir senha para acessar
+    last_password VARCHAR(64) DEFAULT '',    -- Última senha utilizada (hash)
+    auto_accept_friends BOOLEAN DEFAULT TRUE,-- Aceitar automaticamente amigos
+    max_viewers INT DEFAULT 5,               -- Máximo de espectadores
+    quality_level INT DEFAULT 1,             -- 0: Baixo, 1: Médio, 2: Alto
+    last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES user_settings(user_id)
+);
+
+-- Tabela de locais de teletransporte salvos
+CREATE TABLE IF NOT EXISTS teleport_locations (
+    id SERIAL PRIMARY KEY,
+    user_id INT NOT NULL,
+    location_name VARCHAR(64) NOT NULL,
+    position_x INT NOT NULL,
+    position_y INT NOT NULL,
+    map_id INT NOT NULL,
+    creation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    last_used TIMESTAMP DEFAULT NULL,
+    FOREIGN KEY (user_id) REFERENCES user_settings(user_id)
+);
+
+-- Índices para melhorar performance
+CREATE INDEX IF NOT EXISTS idx_teleport_user_id ON teleport_locations(user_id);

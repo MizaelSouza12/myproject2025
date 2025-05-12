@@ -1,0 +1,180 @@
+FFFFAA << Contrato dos Esp�ritos >>  
+FFFFFF 
+FFFFFF Na guerra lend�ria, o General Kafma
+FFFFFF liderava o batalh�o comandado por 4
+FFFFFF contratantes dos esp�ritos.
+FFFFFF 
+FFFFFF Esse foi o fator principal para
+FFFFFF acabar com a tropa inimiga.
+FFFFFF Elime, esp�rito da �gua. Sylphed, esp�rito do Vento.
+FFFFFF Thelio do Fogo e Noas, da Terra...
+FFFFFF O seu poder est� chegando ao limite.
+FFFFFF 
+FFFFFF A partir de agora voc� poder� realizar 
+FFFFFF contratos com os 4 esp�ritos.
+FFFFFF 
+FFFFFF Os cristais dos esp�ritos s�o essenciais para
+FFFFFF realizar os contratos. Os cristais
+FFFFFF podem ser achados na Dungeon de Kefra.
+FFFFFF O contrato com os esp�ritos pode ser 
+FFFFFF realizado apenas no 355� nivel
+FFFFAA << Primeiro: Esp�rito da �gua >> 
+FFFFFF 
+FFFFFF Para fazer o contrato com Elime � necess�rio
+FFFFFF ser um Arch de level de 355 ou superior e precisa
+FFFFFF sacrificar 100.000.000 de experi�ncia, e o item
+FFFFFF Cristal de Elime.
+FFFFFF 
+FFFFFF Pelo contrato com Elime voc� ganha 80 de MP,
+FFFFFF e a autoriza��o para poder realizar contrato
+FFFFFF com esp�rito do Vento, Sylphed.
+FFFFFF O Cristal de Elime pode ser obtido matando o 
+FFFFFF Esp�rito_Maldito que reside na Dungeon de Kefra.
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFAA << Segundo: Esp�rito do Vento >>  
+FFFFFF 
+FFFFFF Para o contrato com Sylphed � necess�rio ser
+FFFFFF um Arch de level de 355 ou superior e precisa
+FFFFFF sacrificar 100.000.000 de experi�ncia, e o item
+FFFFFF Cristal de Sylphed.
+FFFFFF 
+FFFFFF Pelo contrato com Sylphed voc� ganha 30 de AC,
+FFFFFF e a autoriza��o para poder realizar contrato
+FFFFFF com esp�rito de fogo, Thelio.
+FFFFFF O Cristal de Sylphed pode ser obtido matando o
+FFFFFF Esqueleto_Maldito que reside na Dungeon de Kefra.
+FFFFFF  
+FFFFFF Se n�o possuir o contrato com esp�rito da �gua,
+FFFFFF n�o � poss�vel realizar com o esp�rito do vento.
+FFFFFF 
+FFFFFF  
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFAA << Terceiro: Esp�rito do Fogo >>  
+FFFFFF 
+FFFFFF Para o contrato com Thelio � necess�rio 
+FFFFFF ser um personagem Arch de
+FFFFFF level 355 ou superior e precisa sacrificar
+FFFFFF 100.000.000 de experi�ncia e o Cristal de Thelion.
+FFFFFF 
+FFFFFF Pelo contrato com Thelion voc� ganha 80 de HP
+FFFFFF e a autoriza��o para poder realizar contrato
+FFFFFF com esp�rito de terra Noas.
+FFFFFF 
+FFFFFF O Cristal de Thelion pode ser obtido matando o
+FFFFFF Monge_Canibal que reside na Dungeon de Kefra.
+FFFFFF 
+FFFFFF Se n�o possuir o contrato com esp�rito do vento,
+FFFFFF n�o � poss�vel realizar com o esp�rito de fogo.
+FFFFFF  
+FFFFFF  
+FFFFFF 
+FFFFFF 
+FFFFAA << Quarto: Esp�rito da Terra >> 
+FFFFFF 
+FFFFFF Para o contrato com Noas � necess�rio ser 
+FFFFFF um personagem Arch com level de 355 ou superior
+FFFFFF e precisa sacrificar 100.000.000 de experi�ncia, 
+FFFFFF e o item Cristal de Noas.
+FFFFFF 
+FFFFFF Pelo contrato voc� ganha 60 de HP, 20 de AC
+FFFFFF e 60 de MP. 
+FFFFFF 
+FFFFFF O Cristal de Noas pode ser obtido matando o
+FFFFFF Morcego que reside na Dungeon de Kefra.
+FFFFFF 
+FFFFFF Se n�o possuir o contrato com o do fogo, n�o
+FFFFFF � poss�vel realizar com o esp�rito da terra.
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFAA << Desbloqueio do lvl 355 >> 
+FFFFFF 
+FFFFFF Ao atingir o lvl 355, a experi�ncia do 
+FFFFFF personagem bloqueia.
+FFFFFF Utilize o NPC Lindy, localizado no 
+FFFFFF Reino (X: 1707 Y:1727)
+FFFFFF 
+FFAAFF Item necess�rio: 
+FFAAFF [1] Pergaminho Selado
+FFFFFF 
+AAFFFF Ap�s o desbloqueio, o ganho de 
+AAFFFF experi�ncia ser� normalizado e s� 
+AAFFFF voltarar a desbloquear no lvl 370.
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFAA << Desbloqueio do lvl 370 >> 
+FFFFFF 
+FFFFFF Ao atingir o lvl 370, a experi�ncia do 
+FFFFFF personagem bloqueia.
+FFFFFF Utilize o NPC Lindy, localizado no 
+FFFFFF Reino (X: 1707 Y:1727)
+FFFFFF 
+FFAAFF Item necess�rio: 
+FFAAFF [1] Pergaminho Selado
+FFAAFF [1] Poeira de Ori
+FFFFFF 
+AAFFFF Ap�s o desbloqueio, o ganho de 
+AAFFFF experi�ncia ser� normalizado.
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFAA << Cria��o de Personagem Celestial >> 
+FFFFFF 
+FFFFFF Ao atingir o n�vel 400, o Arch
+FFFFFF poder� ser evolu�do para um Celestial.
+FFFFFF Para Criar um Celestial com o poder m�ximo,
+FFFFFF lembre-se de completar todas as Quests Arch:
+FFAAFF 
+FFAAFF Personagem Mortal: Level 400.
+FFAAFF Primeiro: [Esp�rito da �gua]
+FFAAFF Segundo: [Esp�rito da Vento]
+FFAAFF [Terceiro: [Esp�rito do Fogo]
+FFAAFF Quarto: [Esp�rito da Terra]
+FFAAFF Personagem Arch: Level 400.
+AAFFFF 
+AAFFFF Para criar o Celestial, utilize uma
+AAFFFF Pedra Ideal no personagem Arch.
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFFF 
+FFFFAA << Cria��o de Pedra Ideal >> 
+FFFFFF 
+FFFFFF Para criar uma pedra ideal, equipe
+FFFFFF uma Pedra da Imortalidade (M�vel), 
+FFFFFF Um Sephirot aleat�rio e fale com o Rei
+FFFFFF do seu Reino com os seguintes 
+FFFFFF itens no invent�rio:
+FFAAFF 
+FFAAFF Pedra Secreta da �gua.
+FFAAFF Pedra Secreta do Sol.
+FFAAFF Pedra Secreta do Vento.
+FFAAFF Pedra Secreta da Terra.
+FFAAFF Utilize o NPC Odin (Kefra) para compor
+FFAAFF as Pedras acima.
+AAFFFF 
+AAFFFF Lembre-se de falar com o Rei com um
+AAFFFF personagem Arch ou Celestial.
+AAFFFF Personagens Mortais n�o possuem o
+AAFFFF poder de criar Pedras Ideais.
+FFFFFF 

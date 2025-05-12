@@ -1,0 +1,60 @@
+{
+  "locations": [
+    {
+      "id": 1,
+      "name": "Armia",
+      "mapId": 0,
+      "x": 2100,
+      "y": 2100,
+      "level": 0,
+      "requireItem": false
+    },
+    {
+      "id": 2,
+      "name": "Sindria",
+      "mapId": 1,
+      "x": 2450,
+      "y": 1850,
+      "level": 0,
+      "requireItem": false
+    },
+    {
+      "id": 3,
+      "name": "Nippleheim",
+      "mapId": 2,
+      "x": 2000,
+      "y": 2100,
+      "level": 115,
+      "requireItem": false
+    },
+    {
+      "id": 4,
+      "name": "Purmai",
+      "mapId": 3,
+      "x": 1750,
+      "y": 1750,
+      "level": 0,
+      "requireItem": false
+    },
+    {
+      "id": 5,
+      "name": "Noatun",
+      "mapId": 4,
+      "x": 2000,
+      "y": 1700,
+      "level": 200,
+      "requireItem": true,
+      "itemId": 4111
+    },
+    {
+      "id": 6,
+      "name": "Reino",
+      "mapId": 5,
+      "x": 1200,
+      "y": 1200,
+      "level": 0,
+      "requireGuild": true,
+      "guildRank": 6
+    }
+  ]
+}

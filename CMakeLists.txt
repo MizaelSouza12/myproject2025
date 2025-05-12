@@ -38,6 +38,24 @@ include_directories(
 # Adicionar subdiretórios
 add_subdirectory(src)
 
+# Adiciona os arquivos do sistema de IA
+set(AI_SOURCES
+    src/ai/AIKnowledgeBase.cpp
+    src/ai/CommandTokenizer.cpp
+    src/ai/ContextAnalyzer.cpp
+)
+
+set(AI_HEADERS
+    src/ai/AIKnowledgeBase.h
+    src/ai/CommandTokenizer.h
+    src/ai/ContextAnalyzer.h
+)
+
+# Adiciona os testes do sistema de IA
+set(AI_TEST_SOURCES
+    tests/ai/AISystemTest.cpp
+)
+
 # Configurar executáveis
 if(BUILD_CLIENT)
     add_executable(WYDBR
@@ -204,6 +222,29 @@ if(BUILD_TESTS)
     enable_testing()
     add_subdirectory(tests)
 endif()
+
+# Configura o target da biblioteca de IA
+add_library(wydai STATIC ${AI_SOURCES} ${AI_HEADERS})
+target_link_libraries(wydai
+    PRIVATE
+    Qt5::Core
+    nlohmann_json::nlohmann_json
+    spdlog::spdlog
+)
+
+# Configura o target dos testes de IA
+add_executable(ai_tests ${AI_TEST_SOURCES})
+target_link_libraries(ai_tests
+    PRIVATE
+    wydai
+    GTest::GTest
+    GTest::Main
+    Qt5::Core
+    nlohmann_json::nlohmann_json
+)
+
+# Adiciona os testes ao CTest
+add_test(NAME ai_tests COMMAND ai_tests)
 
 # Mensagem de configuração
 message(STATUS "WYDBR 2.0 Game Logic Library")

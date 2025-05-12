@@ -1,0 +1,7 @@
+{
+  "format": "unknown",
+  "file_size": 1140,
+  "file_path": "/home/runner/workspace/WYD/v769ClientRelease/UI/LoginScene2.bin",
+  "file_name": "LoginScene2.bin",
+  "hex_sample": "00000000  0c 00 00 00 01 03 00 00 00 00 00 00 ff ff ff ff  |................|\n00000010  9e 02 00 00 44 02 00 00 c8 00 00 00 10 00 00 00  |....D...........|\n00000020  88 88 88 ff 00 00 00 00 88 88 aa ff 00 00 00 00  |................|\n00000030  00 00 00 00 43 6c 69 65 6e 74 20 56 65 72 73 69  |....Client Versi|\n00000040  6f 6e 2e 34 2e 30 00 cc cc cc cc cc cc cc cc cc  |on.4.0..........|\n00000050  cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc  |................|\n00000060  cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc  |................|\n00000070  cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc  |................|\n00000080  cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc  |................|\n00000090  cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc  |................|\n000000a0  cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc cc  |................|\n000000b0  cc cc cc cc 01 00 00 00 00 12 00 00 00 00 00 00  |................|\n000000c0  46 00 00 00 22 01 00 00 d2 00 00 00 e3 00 00 00  |F...\"...........|\n000000d0  82 00 00 00 ff ff ff ff 04 00 00 00 0d 00 00 00  |................|\n000000e0  01 14 00 00 00 12 00 00 fe ff ff ff 48 00 00 00  |............H...|\n000000f0  41 00 00 00 40 00 00 00 0c 00 00 00 ff ff ff ff  |A...@...........|"
+}

@@ -1,0 +1,351 @@
+# Protocolos de Comunicação entre Servidores - WYDBR 2.0
+
+Este documento descreve os protocolos de comunicação necessários entre os diferentes servidores do sistema WYDBR 2.0, incluindo formatos de mensagens, fluxos de dados e mecanismos de segurança.
+
+## 1. Visão Geral da Arquitetura de Comunicação
+
+O sistema WYDBR 2.0 é composto por vários servidores especializados que se comunicam entre si para oferecer uma experiência de jogo completa:
+
+```
+                            ┌─────────────┐
+                            │   CLIENTE   │
+                            └──────┬──────┘
+                                   │
+                                   ▼
+                            ┌─────────────┐
+                            │    NRSrv    │
+                            └──────┬──────┘
+                                   │
+                     ┌─────────────┴──────────────┐
+                     │                            │
+               ┌─────▼─────┐                ┌─────▼─────┐
+          ┌────┤   TMSrv   ├────┐           │   BISrv   │
+          │    └─────┬─────┘    │           └─────┬─────┘
+     ┌────▼─────┐   ┌▼────────┐ └────┐            │
+     │  TSSSrv  │   │  DBSrv  │      │       ┌────▼────┐
+     └──────────┘   └─────────┘      │       │  LogSrv │
+                                     │       └─────────┘
+                               ┌─────▼────┐
+                               │ AdminTool │
+                               └──────────┘
+```
+
+## 2. Especificação dos Protocolos
+
+### 2.1 Protocolo NRSrv ↔ TMSrv
+
+#### Finalidade
+Gerencia o roteamento de conexões de clientes para o servidor de jogo apropriado e monitora a saúde dos servidores.
+
+#### Formato de Mensagem
+- Cabeçalho (16 bytes):
+  * Assinatura (4 bytes): "NRTM"
+  * Tamanho do Corpo (4 bytes): Comprimento em bytes
+  * Tipo de Mensagem (2 bytes): Identificador da operação
+  * ID da Sessão (4 bytes): Identificador da sessão/conexão
+  * Checksum (2 bytes): Verificação de integridade
+
+- Tipos de Mensagens:
+  * `0x0001`: HealthCheck (NRSrv → TMSrv)
+  * `0x0002`: HealthStatus (TMSrv → NRSrv)
+  * `0x0003`: NewConnection (NRSrv → TMSrv)
+  * `0x0004`: ConnectionAccepted (TMSrv → NRSrv)
+  * `0x0005`: ConnectionRejected (TMSrv → NRSrv)
+  * `0x0006`: ServerLoad (TMSrv → NRSrv)
+  * `0x0007`: ConfigUpdate (NRSrv → TMSrv)
+  * `0x0008`: Shutdown (NRSrv → TMSrv)
+  * `0x0009`: Maintenance (NRSrv → TMSrv)
+
+#### Exemplos de Fluxos
+1. **Verificação de Saúde**:
+   ```
+   NRSrv → TMSrv: HealthCheck {timestamp, metrics_requested}
+   TMSrv → NRSrv: HealthStatus {cpu_load, memory_usage, player_count, uptime}
+   ```
+
+2. **Roteamento de Conexão**:
+   ```
+   NRSrv → TMSrv: NewConnection {client_ip, account_id, character_id, encryption_key}
+   TMSrv → NRSrv: ConnectionAccepted {session_id, server_channel, address_to_connect}
+   ```
+
+### 2.2 Protocolo TMSrv ↔ DBSrv
+
+#### Finalidade
+Gerencia toda a comunicação relacionada a dados persistentes, incluindo salvamento e carregamento de informações de personagens, itens, quests, etc.
+
+#### Formato de Mensagem
+- Cabeçalho (20 bytes):
+  * Assinatura (4 bytes): "TMDB"
+  * Tamanho do Corpo (4 bytes): Comprimento em bytes
+  * Tipo de Mensagem (2 bytes): Identificador da operação
+  * ID da Transação (8 bytes): Identificador único da transação
+  * Checksum (2 bytes): Verificação de integridade
+
+- Tipos de Mensagens:
+  * `0x0001`: QueryRequest (TMSrv → DBSrv)
+  * `0x0002`: QueryResponse (DBSrv → TMSrv)
+  * `0x0003`: Transaction (TMSrv → DBSrv)
+  * `0x0004`: TransactionResult (DBSrv → TMSrv)
+  * `0x0005`: BulkLoad (TMSrv → DBSrv)
+  * `0x0006`: BulkLoadResult (DBSrv → TMSrv)
+  * `0x0007`: CacheInvalidate (DBSrv → TMSrv)
+  * `0x0008`: Backup (TMSrv → DBSrv)
+  * `0x0009`: LockRequest (TMSrv → DBSrv)
+  * `0x000A`: LockResponse (DBSrv → TMSrv)
+
+#### Exemplos de Fluxos
+1. **Carregamento de Personagem**:
+   ```
+   TMSrv → DBSrv: QueryRequest {type: "character_load", character_id: 12345}
+   DBSrv → TMSrv: QueryResponse {status: "success", character_data: {...}}
+   ```
+
+2. **Salvamento de Itens**:
+   ```
+   TMSrv → DBSrv: Transaction {type: "item_save", character_id: 12345, items: [{...}, {...}]}
+   DBSrv → TMSrv: TransactionResult {status: "success", affected_items: 2}
+   ```
+
+### 2.3 Protocolo TMSrv ↔ BISrv
+
+#### Finalidade
+Gerencia transações de compra na loja virtual, validação de cash points e recompensas premium.
+
+#### Formato de Mensagem
+- Cabeçalho (16 bytes):
+  * Assinatura (4 bytes): "TMBI"
+  * Tamanho do Corpo (4 bytes): Comprimento em bytes
+  * Tipo de Mensagem (2 bytes): Identificador da operação
+  * ID da Transação (4 bytes): Identificador da transação
+  * Checksum (2 bytes): Verificação de integridade
+
+- Tipos de Mensagens:
+  * `0x0001`: PointsCheck (TMSrv → BISrv)
+  * `0x0002`: PointsStatus (BISrv → TMSrv)
+  * `0x0003`: PurchaseRequest (TMSrv → BISrv)
+  * `0x0004`: PurchaseResult (BISrv → TMSrv)
+  * `0x0005`: GiftSend (TMSrv → BISrv)
+  * `0x0006`: GiftResult (BISrv → TMSrv)
+  * `0x0007`: SubscriptionCheck (TMSrv → BISrv)
+  * `0x0008`: SubscriptionStatus (BISrv → TMSrv)
+  * `0x0009`: PromotionUpdate (BISrv → TMSrv)
+
+#### Exemplos de Fluxos
+1. **Verificação de Saldo**:
+   ```
+   TMSrv → BISrv: PointsCheck {account_id: 5678}
+   BISrv → TMSrv: PointsStatus {cash_points: 1000, bonus_points: 200}
+   ```
+
+2. **Compra na Loja Virtual**:
+   ```
+   TMSrv → BISrv: PurchaseRequest {account_id: 5678, item_id: 101, quantity: 1, price: 500}
+   BISrv → TMSrv: PurchaseResult {status: "success", transaction_id: 987654, remaining_points: 500}
+   ```
+
+### 2.4 Protocolo TMSrv ↔ TSSSrv
+
+#### Finalidade
+Gerencia notificações do sistema, eventos globais e comunicação entre servidores de jogo para funcionalidades que atravessam instâncias.
+
+#### Formato de Mensagem
+- Cabeçalho (12 bytes):
+  * Assinatura (4 bytes): "TMTS"
+  * Tamanho do Corpo (4 bytes): Comprimento em bytes
+  * Tipo de Mensagem (2 bytes): Identificador da operação
+  * Checksum (2 bytes): Verificação de integridade
+
+- Tipos de Mensagens:
+  * `0x0001`: GlobalEvent (TSSSrv → TMSrv)
+  * `0x0002`: EventResult (TMSrv → TSSSrv)
+  * `0x0003`: SystemNotice (TSSSrv → TMSrv)
+  * `0x0004`: ChatBroadcast (TMSrv → TSSSrv)
+  * `0x0005`: ServerMessage (TSSSrv → TMSrv)
+  * `0x0006`: PlayerLocation (TMSrv → TSSSrv)
+  * `0x0007`: PlayerSearch (TMSrv → TSSSrv)
+  * `0x0008`: PlayerFound (TSSSrv → TMSrv)
+  * `0x0009`: GuildUpdate (TMSrv → TSSSrv)
+
+#### Exemplos de Fluxos
+1. **Notificação Global**:
+   ```
+   TSSSrv → TMSrv: GlobalEvent {event_type: "invasion", location: "Ciudad", start_time: "2023-01-01 20:00:00"}
+   TMSrv → TSSSrv: EventResult {status: "received", server_id: 3}
+   ```
+
+2. **Busca de Jogador**:
+   ```
+   TMSrv → TSSSrv: PlayerSearch {character_name: "Warrior123"}
+   TSSSrv → TMSrv: PlayerFound {server_id: 2, map_id: 42, coordinates: {x: 150, y: 230}}
+   ```
+
+### 2.5 Protocolo NRSrv ↔ BISrv
+
+#### Finalidade
+Gerencia autenticação de sessões e validação de cadastros e pagamentos durante o login.
+
+#### Formato de Mensagem
+- Cabeçalho (16 bytes):
+  * Assinatura (4 bytes): "NRBI"
+  * Tamanho do Corpo (4 bytes): Comprimento em bytes
+  * Tipo de Mensagem (2 bytes): Identificador da operação
+  * ID da Sessão (4 bytes): Identificador da sessão
+  * Checksum (2 bytes): Verificação de integridade
+
+- Tipos de Mensagens:
+  * `0x0001`: AuthRequest (NRSrv → BISrv)
+  * `0x0002`: AuthResponse (BISrv → NRSrv)
+  * `0x0003`: AccountStatus (NRSrv → BISrv)
+  * `0x0004`: StatusResponse (BISrv → NRSrv)
+  * `0x0005`: PremiumCheck (NRSrv → BISrv)
+  * `0x0006`: PremiumStatus (BISrv → NRSrv)
+  * `0x0007`: BanUpdate (BISrv → NRSrv)
+  * `0x0008`: SessionValidate (NRSrv → BISrv)
+
+#### Exemplos de Fluxos
+1. **Autenticação de Conta**:
+   ```
+   NRSrv → BISrv: AuthRequest {username: "player", password_hash: "abc123", client_ip: "192.168.1.100"}
+   BISrv → NRSrv: AuthResponse {status: "success", account_id: 5678, access_level: 1, session_token: "xyz789"}
+   ```
+
+2. **Verificação de Conta Premium**:
+   ```
+   NRSrv → BISrv: PremiumCheck {account_id: 5678}
+   BISrv → NRSrv: PremiumStatus {is_premium: true, subscription_end: "2023-12-31", perks: ["vip_access", "extra_storage"]}
+   ```
+
+### 2.6 Protocolo Todos ↔ LogSrv
+
+#### Finalidade
+Centraliza os logs de todos os servidores para monitoramento, depuração e auditoria.
+
+#### Formato de Mensagem
+- Cabeçalho (16 bytes):
+  * Assinatura (4 bytes): "LOGS"
+  * Tamanho do Corpo (4 bytes): Comprimento em bytes
+  * Tipo de Log (2 bytes): Categoria do log
+  * Servidor de Origem (2 bytes): Identificador do servidor
+  * Timestamp (4 bytes): Unix timestamp
+  * Checksum (2 bytes): Verificação de integridade
+
+- Tipos de Logs:
+  * `0x0001`: System
+  * `0x0002`: Security
+  * `0x0003`: Performance
+  * `0x0004`: Player
+  * `0x0005`: Transaction
+  * `0x0006`: Combat
+  * `0x0007`: Quest
+  * `0x0008`: Guild
+  * `0x0009`: Chat
+  * `0x000A`: Error
+  * `0x000B`: Debug
+  * `0x000C`: Audit
+
+#### Exemplos de Fluxos
+1. **Log de Segurança**:
+   ```
+   TMSrv → LogSrv: {type: "Security", server_id: 3, message: "Possível hack detectado", player_id: 12345, action: "teleporte_inválido", details: {...}}
+   ```
+
+2. **Log de Performance**:
+   ```
+   DBSrv → LogSrv: {type: "Performance", server_id: 1, message: "Tempo de resposta elevado", query_type: "character_load", execution_time: 1500, threshold: 1000}
+   ```
+
+## 3. Segurança e Criptografia
+
+### 3.1 Esquema de Criptografia
+
+- **Autenticação de Servidor para Servidor**:
+  * Certificados TLS mutuamente autenticados para todas as comunicações entre servidores
+  * Rotação de chaves a cada 24 horas
+  * Lista de revogação de certificados centralizada
+
+- **Criptografia de Payload**:
+  * AES-256-GCM para criptografia de dados sensíveis
+  * Chaves de sessão derivadas via ECDHE
+  * Vetores de inicialização (IVs) únicos por transação
+
+- **Integridade de Mensagens**:
+  * HMAC-SHA256 para verificação de integridade
+  * Números de sequência para prevenir replay attacks
+  * Timestamping para evitar mensagens expiradas
+
+### 3.2 Autenticação
+
+- **Credenciais de Serviço**:
+  * Cada servidor possui identidade própria com certificado X.509
+  * Autenticação mútua obrigatória em todas as conexões
+  * Autorização baseada em funções e capacidades
+
+- **Gerenciamento de Sessões**:
+  * Tokens JWT para sessões entre servidores
+  * Tempo de vida máximo de 12 horas
+  * Revogação centralizada de tokens
+
+## 4. Tolerância a Falhas
+
+### 4.1 Detecção de Falhas
+
+- **Heartbeats**:
+  * Intervalos de 5 segundos entre heartbeats
+  * Detecção de falha após 3 heartbeats perdidos
+  * Monitoramento de latência com alertas para atrasos > 100ms
+
+- **Circuit Breaking**:
+  * Interrupção automática após 5 falhas consecutivas
+  * Tentativas graduais de reconexão (exponential backoff)
+  * Estado de semi-aberto para testes de recuperação
+
+### 4.2 Recuperação
+
+- **Reenvio de Mensagens**:
+  * Fila persistente para mensagens não confirmadas
+  * Retry automático com política configurável
+  * Dead letter queue para mensagens não entregues após 10 tentativas
+
+- **Consistência Eventual**:
+  * Transações idempotentes para garantir processamento único
+  * Números de sequência para detecção de duplicatas
+  * Reconciliação periódica de estado entre servidores
+
+## 5. Protocolos Faltantes a Implementar
+
+### 5.1 TMSrv → TMSrv (Comunicação Inter-Servidor)
+
+Protocolo para comunicação direta entre instâncias de TMSrv para transferência de jogadores, sincronização de eventos e chat global.
+
+### 5.2 DBSrv → DBSrv (Replicação)
+
+Protocolo para sincronização entre múltiplas instâncias de DBSrv para replicação, sharding e load balancing.
+
+### 5.3 AdminTool ↔ Todos os Servidores
+
+Protocolo seguro para administração remota, diagnóstico e configuração em tempo real.
+
+### 5.4 Mobile API Gateway ↔ Servidores
+
+Protocolo para aplicativo móvel companion acessar funcionalidades limitadas (chat, mercado, gestão de guild).
+
+## 6. Implementação e Testes
+
+### 6.1 Ferramentas de Desenvolvimento
+
+- **Protocol Buffers**: Para serialização eficiente de dados
+- **Wireshark**: Para análise e debugging de protocolos
+- **JMeter**: Para testes de carga e stress de comunicação
+
+### 6.2 Ambiente de Teste
+
+- Infraestrutura de teste dedicada para simulação de comunicação entre servidores
+- Injeção automática de falhas para testar resiliência
+- Análise de desempenho sob diferentes padrões de tráfego
+
+### 6.3 Monitoramento
+
+- Dashboards para visualização de métricas de comunicação
+- Alertas para falhas de comunicação ou tempos de resposta elevados
+- Auditoria de segurança para detectar tentativas de intrusão 

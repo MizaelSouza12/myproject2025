@@ -1,0 +1,36 @@
+001 FFFFFF [Campo de Treino] Quest 
+040 FFAAAA [Defensor da Alma] Quest
+045 FFFFFF [Conquista do Castelo Orc] Quest 
+050 FFFFFF [Cubo da Maldade - Normal] Quest
+060 FFFFFF [Defensor da Terra M�stica] Quest
+070 FFAAAA [Ben��o de Deus] Quest
+071 FFFFFF [Sala Secreta] Quest
+075 FFFFFF [Monstro Comerciante] Quest
+085 FFFFFF [Pesadelo - Normal] Quest
+090 FFFFFF [Cubo da Maldade - M�stico] Quest
+100 FFAAAA [Formatura dos Cav. Aprendizes] Quest
+100 FFFFFF [Pedra da Troca] Quest
+116 FFAAAA [Jardim do Deus] Quest
+110 FFFFFF [Zona Elemental da �gua - Normal] Quest
+120 FFFFFF [Equil�brio da For�a] Quest
+150 FFFFFF [Sociedade do WYD - Dois Castelos] Quest
+160 FFFFFF [Cubo da Maldade - Arcano] Quest
+180 FFFFFF [Zona Elemental da �gua - M�stico] Quest
+191 FFAAAA [Ressurrei��o do Cavaleiro Negro] Quest
+200 FFFFFF [Pesadelo - M�stico] Quest
+201 FFAAAA [Molar do G�rgula] Quest
+210 FFFFFF [Portal Infernal] Quest
+220 FFAAAA [Cavaleiro do Reino] Quest
+220 FFFFFF [Guilda Mezor ] Quest
+256 FFFFFF [Tempestade Inacab�vel] Quest
+266 FFAAAA [Hidra Imortal] Quest
+275 FFFFFF [Zona Elemental da �gua - Arcano] Quest
+280 FFFFFF [� procura da Vida Eterna] Quest
+280 FFFFFF [Um novo come�o] Quest
+295 FFFFFF [Pesadelo - Arcano] Quest
+321 FFAAAA [In�cio da Infelicidade] Quest
+351 FFFFFF [Contrato dos Esp�ritos] Quest
+351 FFFFFF [Primeiro: Esp�rito da �gua] Quest
+351 FFFFFF [Segundo: Esp�rito do Vento] Quest
+351 FFFFFF [Terceiro: Esp�rito do Fogo] Quest
+351 FFFFFF [Quarto: Esp�rito do Terra] Quest

@@ -1,0 +1,122 @@
+{
+    "server": {
+        "tmsrv": {
+            "host": "localhost",
+            "port": 8281,
+            "path": "./TMSrv",
+            "config": {
+                "maxPlayers": 1000,
+                "expRate": 1,
+                "dropRate": 1,
+                "goldRate": 1
+            }
+        },
+        "dbsrv": {
+            "host": "localhost",
+            "port": 8282,
+            "path": "./DBSrv",
+            "mysql": {
+                "host": "localhost",
+                "port": 3306,
+                "user": "wydbr2_user",
+                "password": "Miz@170395",
+                "database": "wydbr2"
+            }
+        }
+    },
+    "monitoring": {
+        "updateInterval": 1000,
+        "thresholds": {
+            "cpu": 80,
+            "memory": 85,
+            "disk": 90,
+            "network": 1000
+        },
+        "history": {
+            "keepDays": 30,
+            "sampleInterval": 60
+        }
+    },
+    "ai": {
+        "enabled": true,
+        "models": {
+            "language": "gpt-3.5-turbo",
+            "vision": "gpt-4-vision-preview"
+        },
+        "training": {
+            "autoTrain": true,
+            "interval": "1d",
+            "minSamples": 1000
+        }
+    },
+    "editors": {
+        "autosave": true,
+        "backupBeforeSave": true,
+        "maxUndoSteps": 100,
+        "paths": {
+            "items": "./data/ItemList.csv",
+            "mobs": "./data/Mob.csv",
+            "skills": "./data/SkillData.csv",
+            "maps": "./data/Maps",
+            "quests": "./data/Quests"
+        }
+    },
+    "ui": {
+        "theme": "dark",
+        "language": "pt_BR",
+        "fontSize": 12,
+        "showToolbar": true,
+        "showStatusBar": true,
+        "layout": {
+            "saveState": true,
+            "defaultDocks": {
+                "console": "bottom",
+                "monitor": "right",
+                "players": "left"
+            }
+        }
+    },
+    "security": {
+        "adminAccounts": [
+            {
+                "username": "admin",
+                "password": "admin123",
+                "level": 100
+            }
+        ],
+        "permissions": {
+            "itemEditor": ["admin"],
+            "mobEditor": ["admin"],
+            "mapEditor": ["admin"],
+            "serverControl": ["admin"],
+            "playerManagement": ["admin", "moderator"],
+            "economy": ["admin"],
+            "events": ["admin", "moderator"]
+        },
+        "logging": {
+            "enabled": true,
+            "level": "info",
+            "file": "./logs/wydstudio.log",
+            "maxSize": "10M",
+            "keepDays": 30
+        }
+    },
+    "backup": {
+        "enabled": true,
+        "interval": "1d",
+        "keepCount": 7,
+        "compress": true,
+        "path": "./backup",
+        "include": [
+            "./data",
+            "./config",
+            "./logs"
+        ]
+    },
+    "development": {
+        "debug": false,
+        "devTools": false,
+        "mockData": false,
+        "testMode": false
+    }
+} 

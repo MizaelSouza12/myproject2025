@@ -1,0 +1,7 @@
+{
+  "format": "unknown",
+  "file_size": 88,
+  "file_path": "/home/runner/workspace/WYD/v769ClientRelease/UI/CreCamAction.bin",
+  "file_name": "CreCamAction.bin",
+  "hex_sample": "00000000  03 00 00 00 00 00 00 00 00 00 00 00 00 80 ff 44  |...............D|\n00000010  00 00 00 40 00 80 ff 44 db 0f 49 3f 50 77 56 3d  |...@...D..I?PwV=|\n00000020  e8 03 00 00 00 00 00 00 00 60 01 45 00 00 00 40  |.........`.E...@|\n00000030  00 60 01 45 db 0f 49 3f 50 77 56 3d d0 07 00 00  |.`.E..I?PwV=....|\n00000040  00 00 00 00 00 80 01 45 00 00 b0 40 00 80 01 45  |.......E...@...E|\n00000050  db 0f 49 3f 00 00 00 00                          |..I?....|"
+}

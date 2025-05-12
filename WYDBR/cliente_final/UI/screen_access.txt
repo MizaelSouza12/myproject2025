@@ -1,0 +1,17 @@
+FFFFFF  
+FFFFFF Acesso à Tela Compartilhada
+FFFFAA
+FFFFAA Digitar Link
+AAFFAA Inserir link de acesso
+FFFFAA
+FFFFAA Digitar Senha
+AAFFAA Inserir senha de acesso
+FFFFAA
+FFFFAA Solicitar Acesso
+AAFFAA Pedir acesso a um jogador específico
+FFFFAA
+FFFFAA Acessos Recentes
+AAFFAA Lista de telas acessadas recentemente
+FFFFAA
+FFFFAA Desconectar
+AAFFAA Encerrar visualização atual

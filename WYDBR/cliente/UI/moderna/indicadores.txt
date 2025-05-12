@@ -1,0 +1,50 @@
+FFFFFF
+FFFFFF Indicadores de Desempenho
+FFFFAA
+FFFFAA Configurar exibição de métricas
+AAFFAA
+
+FFFFFF FPS
+FFFFAA
+FFFFAA Exibir contador de quadros
+AAFFAA [ATIVADO]
+AAFFAA
+
+FFFFFF Ping
+FFFFAA
+FFFFAA Exibir latência de rede
+AAFFAA [ATIVADO]
+AAFFAA
+
+FFFFFF Rede
+FFFFAA
+FFFFAA Exibir status de conexão
+AAFFAA [ATIVADO]
+AAFFAA
+
+FFFFFF Servidor
+FFFFAA
+FFFFAA Exibir latência do servidor
+AAFFAA [ATIVADO]
+AAFFAA
+
+FFFFFF Posição
+FFFFAA
+FFFFAA Selecionar posição na tela
+AAFFAA Superior Direito
+AAFFAA Superior Esquerdo
+AAFFAA Inferior Direito
+AAFFAA Inferior Esquerdo
+AAFFAA
+
+FFFFFF
+FFFFFF Salvar
+FFFFAA
+FFFFAA Aplicar configurações
+AAFFAA
+
+FFFFFF
+FFFFFF Cancelar
+FFFFAA
+FFFFAA Fechar sem salvar
+AAFFAA

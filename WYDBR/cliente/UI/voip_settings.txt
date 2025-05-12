@@ -1,0 +1,23 @@
+FFFFFF  
+FFFFFF Configurações de Chat de Voz
+FFFFAA
+FFFFAA Dispositivo de Entrada
+AAFFAA Escolher microfone
+FFFFAA
+FFFFAA Dispositivo de Saída
+AAFFAA Escolher alto-falantes/fones
+FFFFAA
+FFFFAA Volume de Entrada
+AAFFAA Ajustar sensibilidade do microfone
+FFFFAA
+FFFFAA Volume de Saída
+AAFFAA Ajustar volume das vozes
+FFFFAA
+FFFFAA Tecla para Falar (Push-to-Talk)
+AAFFAA Configurar tecla para ativar microfone
+FFFFAA
+FFFFAA Ativação por Voz
+AAFFAA Ligar/desligar ativação automática
+FFFFAA
+FFFFAA Qualidade de Áudio
+AAFFAA Balancear qualidade e performance

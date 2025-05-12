@@ -1,0 +1,51 @@
+FFFFFF
+FFFFFF Chat de Voz
+FFFFAA
+FFFFAA Comunicação com outros jogadores
+AAFFAA
+
+FFFFFF Participantes
+FFFFAA
+FFFFAA Nome         Lv   Status
+AAFFAA [Lista de participantes]
+AAFFAA
+AAFFAA
+AAFFAA
+AAFFAA
+AAFFAA
+AAFFAA
+
+FFFFFF Opções de Grupo
+FFFFAA
+FFFFAA Gerenciar grupo de voz
+AAFFAA Criar novo grupo
+AAFFAA Entrar em grupo existente
+AAFFAA Gerenciar senha
+AAFFAA
+
+FFFFFF Administração
+FFFFAA
+FFFFAA Opções de administrador
+AAFFAA Expulsar participante
+AAFFAA Banir participante
+AAFFAA Convidar jogador
+AAFFAA Transferir administração
+AAFFAA
+
+FFFFFF
+FFFFFF Jogadores Online
+FFFFAA
+FFFFAA Ver jogadores conectados
+AAFFAA
+
+FFFFFF
+FFFFFF Amigos
+FFFFAA
+FFFFAA Ver lista de amigos
+AAFFAA
+
+FFFFFF
+FFFFFF Fechar
+FFFFAA
+FFFFAA Fechar menu de Chat de Voz
+AAFFAA

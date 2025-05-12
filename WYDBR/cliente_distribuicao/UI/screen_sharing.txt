@@ -1,0 +1,20 @@
+FFFFFF  
+FFFFFF Compartilhamento de Tela
+FFFFAA
+FFFFAA Iniciar Compartilhamento (ALT+C)
+AAFFAA Inicia o compartilhamento com senha
+FFFFAA
+FFFFAA Gerar Link
+AAFFAA Cria um link para acesso à sua tela
+FFFFAA
+FFFFAA Configurações de Segurança
+AAFFAA Definir senha e permissões
+FFFFAA
+FFFFAA Permitir Movimentação
+AAFFAA Habilitar/desabilitar movimentação do personagem
+FFFFAA
+FFFFAA Lista de Acesso
+AAFFAA Gerenciar quem pode ver sua tela
+FFFFAA
+FFFFAA Encerrar Compartilhamento
+AAFFAA Finalizar sessão de compartilhamento

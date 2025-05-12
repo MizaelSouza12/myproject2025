@@ -1,0 +1,124 @@
+# Estrutura do arquivo MobList.bin
+
+Este arquivo contém as definições de monstros (mobs) no jogo WYDBR 2.0.
+
+## Formato do arquivo binário
+
+O arquivo MobList.bin é um arquivo binário com a seguinte estrutura:
+
+1. Cabeçalho (16 bytes):
+   - Assinatura (4 bytes): "MOBS"
+   - Versão (4 bytes): Número da versão atual (1)
+   - Contagem (4 bytes): Número total de monstros no arquivo
+   - Reservado (4 bytes): Para uso futuro
+
+2. Entradas de monstros:
+   Cada entrada tem tamanho fixo de 512 bytes com a seguinte estrutura:
+   
+   - ID (4 bytes): Identificador único do monstro
+   - Nome (64 bytes): Nome do monstro (terminado em null)
+   - Modelo (64 bytes): Caminho para o modelo 3D do monstro
+   - Descrição (128 bytes): Descrição do monstro (terminado em null)
+   - Nível (4 bytes): Nível do monstro
+   - HP (4 bytes): Pontos de vida
+   - MP (4 bytes): Pontos de mana
+   - Ataque (4 bytes): Poder de ataque base
+   - Defesa (4 bytes): Defesa base
+   - Agilidade (4 bytes): Agilidade/Velocidade
+   - Inteligência (4 bytes): Inteligência (afeta uso de habilidades)
+   - Elemento (4 bytes): Elemento do monstro (0:Neutro, 1:Fogo, 2:Água, etc.)
+   - Taxa de drop de itens (4 bytes): Probabilidade base de dropar itens
+   - Taxa de drop de ouro (4 bytes): Probabilidade de dropar ouro
+   - Experiência (4 bytes): Quantidade de experiência concedida ao matar
+   - Ouro mínimo (4 bytes): Quantidade mínima de ouro dropado
+   - Ouro máximo (4 bytes): Quantidade máxima de ouro dropado
+   - Alcance de visão (4 bytes): Distância em que detecta jogadores
+   - Alcance de ataque (4 bytes): Distância máxima de ataque
+   - Tipo de IA (4 bytes): Comportamento do monstro (0:Passivo, 1:Agressivo, etc.)
+   - Lista de drops (160 bytes): 20 slots de drops possíveis (ID do item + probabilidade)
+   - Lista de habilidades (32 bytes): 8 habilidades que o monstro pode usar
+   - Flags (4 bytes): Flags especiais (boss, não-agressivo, invocável, etc.)
+
+## Geração do arquivo binário
+
+Para gerar o arquivo MobList.bin a partir de dados em formato texto:
+
+1. Use a ferramenta de conversão fornecida no diretório tools/
+   ```
+   ./mob_converter MobList.txt MobList.bin
+   ```
+
+2. Ou crie seu próprio conversor usando o código exemplo abaixo:
+
+```cpp
+#include <fstream>
+#include <vector>
+#include <string>
+#include <cstring>
+
+struct MobHeader {
+    char signature[4];  // "MOBS"
+    uint32_t version;   // 1
+    uint32_t count;     // Número de monstros
+    uint32_t reserved;  // Reservado
+};
+
+struct MobEntry {
+    uint32_t id;
+    char name[64];
+    char model[64];
+    char description[128];
+    uint32_t level;
+    uint32_t hp;
+    uint32_t mp;
+    uint32_t attack;
+    uint32_t defense;
+    uint32_t agility;
+    uint32_t intelligence;
+    uint32_t element;
+    uint32_t dropRate;
+    uint32_t goldRate;
+    uint32_t experience;
+    uint32_t minGold;
+    uint32_t maxGold;
+    uint32_t sightRange;
+    uint32_t attackRange;
+    uint32_t aiType;
+    struct {
+        uint32_t itemId;
+        uint32_t probability;
+    } drops[20];
+    uint32_t skills[8];
+    uint32_t flags;
+};
+
+void generateMobList(const std::vector<MobEntry>& mobs, const std::string& outputFile) {
+    std::ofstream file(outputFile, std::ios::binary);
+    
+    MobHeader header;
+    std::memcpy(header.signature, "MOBS", 4);
+    header.version = 1;
+    header.count = mobs.size();
+    header.reserved = 0;
+    
+    file.write(reinterpret_cast<char*>(&header), sizeof(MobHeader));
+    
+    for (const auto& mob : mobs) {
+        file.write(reinterpret_cast<const char*>(&mob), sizeof(MobEntry));
+    }
+    
+    file.close();
+}
+```
+
+## Notas adicionais
+
+- Todos os valores numéricos são armazenados em little-endian
+- Strings são terminadas em null (0) e preenchidas com zeros se menores que o tamanho alocado
+- Os IDs de monstros começam em 1 e devem ser únicos
+- Algumas entradas especiais têm flags reservadas:
+  - ID 0: Reservado para sistema
+  - IDs 1-100: Monstros de tutorial
+  - IDs 10000+: Bosses especiais
+
+Para edição manual de monstros, recomenda-se usar o Editor de Monstros disponível nas ferramentas de desenvolvimento. 

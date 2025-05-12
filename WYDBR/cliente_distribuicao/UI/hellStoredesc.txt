@@ -1,0 +1,100 @@
+AAFFAA Essa � a loja do Port�o Infernal
+AAFFAA Vendemos armas, armaduras, acess�rios e 
+AAFFAA equipamentos variados.
+AAFFAA * Aten��o
+AAFFAA Na compra as op��es s�o atribu�das de  
+AAFFAA forma aleat�ria.
+AAFFAA Caso n�o possua espa�o no 
+AAFFAA seu inventario, n�o ser� poss�vel comprar.
+AAFFAA N�o h� limite na quantidade de compra.
+AAFFAA N�o cobramos custo de produ��o
+AAFFAA dos itens aqui vendidos.
+AAFFAA Podem vender de volta os itens.
+AAFFAA 
+AAFFAA 
+AAFFAA 
+FFFFFF
+FFFFFF
+FFFFFF
+FFFFFF
+FFFFFF
+AAFFAA [Arma]
+AAFFAA Estamos vendendo armas de 9-10 niveis.
+AAFFAA Ex. Nona Gram, D�cima Espada.
+AAFFAA Mas n�o � possivel escolher, pois 
+AAFFAA isso depende da sorte de cada um.
+AAFFAA N�o vendemos armas de Ancient (Anct). 
+AAFFAA Precisa de espa�o, 2 horizontal e 4
+AAFFAA vertical, no inventario pra comprar.
+AAFFAA 
+AAFFAA 
+AAFFAA 
+AAFFAA Pre�o � 9.000.000 GOLD
+AAFFAA 
+AAFFAA 
+AAFFAA
+FFFFFF
+FFFFFF
+FFFFFF
+FFFFFF
+FFFFFF
+AAFFAA [Defesa] 
+AAFFAA Estamos vendendo armas de 7-8 niveis.
+AAFFAA Ex. S�tima Armadura Dwarbon
+AAFFAA Mas n�o � possivel escolher, pois 
+AAFFAA isso depende da sorte de cada um.
+AAFFAA Precisa de espa�o, 2 horizontal 
+AAFFAA e 3 vertical, no inventario pra comprar.
+AAFFAA 
+AAFFAA 
+AAFFAA 
+AAFFAA 
+AAFFAA Pre�o � 6.000.000 GOLD
+AAFFAA 
+AAFFAA 
+AAFFAA
+FFFFFF
+FFFFFF
+FFFFFF
+FFFFFF
+FFFFFF
+AAFFAA [Acess�rios]
+AAFFAA Vedemos amuletos de 1 at� 3
+AAFFAA niveis.
+AAFFAA Ex. Amuleto Prateado e Dourado.
+AAFFAA Mas n�o � possivel escolher, pois
+AAFFAA isso depende da sorte de cada um. 
+AAFFAA 
+AAFFAA 
+AAFFAA Precisa de espa�o 1 horizontal
+AAFFAA e 1 vertical no inventario pra comprar.
+AAFFAA 
+AAFFAA Pre�o � 5.000.000 GOLD
+AAFFAA 
+AAFFAA 
+AAFFAA
+FFFFFF
+FFFFFF
+FFFFFF
+FFFFFF
+FFFFFF
+AAFFAA [Aleat�rio]
+AAFFAA Vende randomicamente armas,
+AAFFAA defesas, equipamentos e
+AAFFAA acess�rios em geral.
+AAFFAA Os atributos opcionais s�o
+AAFFAA dados de forma aleat�ria.
+AAFFAA Mas n�o � possivel escolher, pois
+AAFFAA isso depende da sorte de cada um.
+AAFFAA Precisa de espa�o, 2 horizontal 
+AAFFAA e 4 vertical, no inventario pra comprar.
+AAFFAA 
+AAFFAA Pre�o � 7.000.000 GOLD
+AAFFAA 
+AAFFAA 
+AAFFAA
+FFFFFF
+FFFFFF
+FFFFFF
+FFFFFF
+FFFFFF

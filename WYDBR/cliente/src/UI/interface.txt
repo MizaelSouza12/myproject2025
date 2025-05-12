@@ -1,0 +1,170 @@
+FFFFFF  
+FFFFFF Como manusear
+FFFFAA
+FFFFAA Usar Skill
+AAFFAA 
+AAFFAA 
+AAFFAA 
+FFFFFF  
+FFFFFF Auto Ataque
+FFFFAA
+FFFFAA Acionar Auto-ataque
+AAFFAA 
+AAFFAA 
+AAFFAA 
+AAFFAA 
+FFFFFF  
+FFFFFF Tecla de atalho
+FFFFAA
+FFFFAA F1 - F10 ou 1 a 10
+AAFFAA 
+FFFFAA
+FFFFAA Shift + 1 - 10 ou Shift + F1 - F10
+AAFFAA 
+FFFFAA
+FFFFAA -
+AAFFAA Controla a quant. de skill no auto ataque
+AAFFAA 
+FFFFAA
+FFFFAA Q
+AAFFAA Usa po��o de energia (vida)
+FFFFAA
+FFFFAA W
+AAFFAA Usa po��o de mana
+FFFFAA
+FFFFAA E
+AAFFAA 
+FFFFAA
+FFFFAA V
+AAFFAA 
+FFFFAA
+FFFFAA F11
+AAFFAA Usa pergaminho de volta
+FFFFAA
+FFFFAA Ctrl
+AAFFAA 
+FFFFAA
+FFFFAA Print Scrn SysRq
+AAFFAA Tira screenshot, � guardado na pasta do WYD.
+FFFFAA
+FFFFAA C
+AAFFAA Abrir a janela de personagem
+FFFFAA
+FFFFAA I
+AAFFAA Abrir invent�rio
+FFFFAA
+FFFFAA S
+AAFFAA Abrir janela de skill
+FFFFAA
+FFFFAA P ou D
+AAFFAA Abrir a janela de grupo
+FFFFAA
+FFFFAA M ou A
+AAFFAA Abrir minimapa
+FFFFAA
+FFFFAA R
+AAFFAA 
+FFFFAA
+FFFFAA ~
+AAFFAA 
+FFFFAA
+FFFFAA T
+AAFFAA 
+FFFFAA
+FFFFAA N
+AAFFAA Exibe nome dos personagens liga/desliga
+FFFFAA
+FFFFAA Tab
+AAFFAA Muda a visualiza��o
+FFFFAA
+FFFFAA Enter
+AAFFAA Usar chat
+FFFFAA
+FFFFAA +
+AAFFAA Controla o tamanho da janela de chat
+FFFFAA
+FFFFAA PageUp ou PageDown
+AAFFAA 
+FFFFAA
+FFFFAA Setas cima ou baixo
+AAFFAA 
+FFFFAA
+FFFFAA F
+AAFFAA 
+FFFFAA
+FFFFAA H
+AAFFAA Abrir janela de ajuda
+FFFFFF  
+
+
+FFFFFF  
+FFFFFF Menu de Sistema
+FFFFAA
+FFFFAA ALT+A
+AAFFAA Abrir Menu de Ajustes Avançados
+FFFFAA
+FFFFAA ALT+C
+AAFFAA Iniciar/Gerenciar Compartilhamento de Tela
+FFFFFF  
+FFFFFF Ajustes Avançados 
+FFFFAA 
+FFFFAA Configurar gráficos e controles
+AAFFAA Aperte ALT+A para abrir
+AAFFAA 
+AAFFAA 
+FFFFFF  
+FFFFFF Compartilhamento de Tela 
+FFFFAA 
+FFFFAA Gerenciar acesso remoto
+AAFFAA Aperte ALT+C para abrir
+AAFFAA 
+AAFFAA 
+FFFFFF  
+FFFFFF Acessar Tela 
+FFFFAA 
+FFFFAA Acessar tela de outro jogador
+AAFFAA Aperte ALT+R para abrir
+AAFFAA 
+AAFFAA 
+FFFFFF  
+FFFFFF Comunicação por Voz 
+FFFFAA 
+FFFFAA Configurar chat de voz (VOIP)
+AAFFAA Aperte ALT+V para ativar/desativar
+AAFFAA
+FFFFFF  
+FFFFFF Ajustes Avançados 
+FFFFAA 
+FFFFAA Configurar gráficos e controles
+AAFFAA Aperte ALT+A para abrir
+AAFFAA 
+AAFFAA 
+FFFFFF  
+FFFFFF Compartilhamento de Tela 
+FFFFAA 
+FFFFAA Gerenciar acesso remoto
+AAFFAA Aperte ALT+C para abrir
+AAFFAA 
+AAFFAA 
+FFFFFF  
+FFFFFF Acessar Tela 
+FFFFAA 
+FFFFAA Acessar tela de outro jogador
+AAFFAA Aperte ALT+R para abrir
+AAFFAA 
+AAFFAA 
+FFFFFF  
+FFFFFF Comunicação por Voz 
+FFFFAA 
+FFFFAA Configurar chat de voz (VOIP)
+AAFFAA Aperte ALT+V para ativar/desativar
+AAFFAA
+FFFFAA
+FFFFAA ALT+V
+AAFFAA Abrir Chat de Voz
+FFFFAA
+FFFFAA ALT+G
+AAFFAA Ver Indicadores de Performance
+FFFFAA
+FFFFAA ALT+R
+AAFFAA Abrir Menu de Teletransporte Rápido

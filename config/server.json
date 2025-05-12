@@ -1,0 +1,70 @@
+{
+    "logging":  {
+                    "max_files":  10,
+                    "level":  "INFO",
+                    "file":  "F:\\Users\\Mizael\\WYDBR2.0\\logs\\server.log",
+                    "max_size":  "100MB"
+                },
+    "game":  {
+                 "max_stats":  255,
+                 "max_level":  99,
+                 "gold_rate":  1,
+                 "drop_rate":  1,
+                 "exp_rate":  1
+             },
+    "server":  {
+                   "currency":  "BRL",
+                   "description":  "Servidor WYDBR2.0 - With Your Destiny Brazil",
+                   "version":  "2.0.0",
+                   "timezone":  "America/Sao_Paulo",
+                   "language":  "pt_BR",
+                   "name":  "WYDBR2.0",
+                   "discord":  "https://discord.gg/wydbr2",
+                   "website":  "https://www.wydbr2.com",
+                   "email":  "admin@wydbr2.com"
+               },
+    "limits":  {
+                   "quest":  50,
+                   "blocked":  50,
+                   "map":  100,
+                   "pet":  5,
+                   "achievement":  50,
+                   "mount":  5,
+                   "trade":  100,
+                   "mail_system":  50,
+                   "npc":  100,
+                   "friends":  50,
+                   "skill":  50,
+                   "log":  1000,
+                   "ticket":  100,
+                   "warehouse":  100,
+                   "monster":  100,
+                   "backup":  10,
+                   "party_members":  8,
+                   "item":  1000,
+                   "party":  100,
+                   "inventory":  50,
+                   "auction":  100,
+                   "guild_members":  50,
+                   "event":  10,
+                   "guild":  100
+               },
+    "network":  {
+                    "port":  8080,
+                    "max_connections_per_account":  1,
+                    "max_connections":  1000,
+                    "max_connections_per_character":  1,
+                    "max_connections_per_ip":  3
+                },
+    "retention":  {
+                      "backup_days":  30,
+                      "log_days":  7
+                  },
+    "database":  {
+                     "host":  "localhost",
+                     "user":  "wydbr2_user",
+                     "port":  3306,
+                     "name":  "wydbr2",
+                     "password":  "your_secure_password"
+                 }
+}

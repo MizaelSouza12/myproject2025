@@ -1,0 +1,142 @@
+# Estrutura do arquivo MapList.bin
+
+Este arquivo contém as definições de mapas do jogo WYDBR 2.0, incluindo informações sobre zonas, terrenos e propriedades.
+
+## Formato do arquivo binário
+
+O arquivo MapList.bin é um arquivo binário com a seguinte estrutura:
+
+1. Cabeçalho (16 bytes):
+   - Assinatura (4 bytes): "MAPS"
+   - Versão (4 bytes): Número da versão atual (1)
+   - Contagem (4 bytes): Número total de mapas no arquivo
+   - Reservado (4 bytes): Para uso futuro
+
+2. Entradas de mapas:
+   Cada entrada tem tamanho fixo de 1024 bytes com a seguinte estrutura:
+   
+   - ID (4 bytes): Identificador único do mapa (1-4000)
+   - Nome (64 bytes): Nome do mapa (terminado em null)
+   - Arquivo (64 bytes): Nome do arquivo de mapa (.tmf)
+   - Descrição (128 bytes): Descrição do mapa (terminado em null)
+   - MiniMapa (64 bytes): Caminho para o arquivo de minimapa
+   - Dimensão X (4 bytes): Largura do mapa em células
+   - Dimensão Y (4 bytes): Altura do mapa em células
+   - Tipo (4 bytes): Tipo de mapa (0:Field, 1:Dungeon, 2:Town, 3:Castle, etc.)
+   - Nível mínimo (4 bytes): Nível mínimo recomendado
+   - Nível máximo (4 bytes): Nível máximo recomendado
+   - Clima (4 bytes): Tipo de clima padrão (0:Normal, 1:Chuva, 2:Neve, etc.)
+   - Música (64 bytes): Arquivo de música de fundo
+   - Mapa de luz (4 bytes): Flag de ativação de mapa de luz
+   - Respawn X (4 bytes): Coordenada X do ponto de respawn padrão
+   - Respawn Y (4 bytes): Coordenada Y do ponto de respawn padrão
+   - PVP (4 bytes): Flags de PVP (0:Desabilitado, 1:Normal, 2:Free, 3:Arena)
+   - Mapa de retorno (4 bytes): ID do mapa para retorno com skill de teleporte
+   - Taxas do mapa (16 bytes): Modificadores específicos (exp, drop, gold, etc.)
+   - Lista de portais (256 bytes): Portais de conexão com outros mapas
+     - Estrutura de cada portal (32 bytes):
+       * ID (4 bytes): ID do portal
+       * Mapa destino (4 bytes): ID do mapa de destino
+       * X origem (4 bytes): Coordenada X no mapa atual
+       * Y origem (4 bytes): Coordenada Y no mapa atual
+       * X destino (4 bytes): Coordenada X no mapa destino
+       * Y destino (4 bytes): Coordenada Y no mapa destino
+       * Requerimento (4 bytes): Requisito para usar (0:Nenhum, 1:Item, 2:Quest, etc.)
+       * Valor req. (4 bytes): Valor do requisito (ID do item, quest, etc.)
+   - Lista de NPCs (128 bytes): Referências a NPCs presentes no mapa
+   - Lista de monstros (128 bytes): Referências a grupos de monstros
+   - Flags (4 bytes): Flags especiais (instância, safe zone, no recall, etc.)
+   - Dados reservados (64 bytes): Para expansões futuras
+
+## Geração do arquivo binário
+
+Para gerar o arquivo MapList.bin a partir de dados em formato texto:
+
+1. Use a ferramenta de conversão fornecida no diretório tools/
+   ```
+   ./map_converter MapList.txt MapList.bin
+   ```
+
+2. Ou crie seu próprio conversor usando o código exemplo abaixo:
+
+```cpp
+#include <fstream>
+#include <vector>
+#include <string>
+#include <cstring>
+
+struct MapHeader {
+    char signature[4];  // "MAPS"
+    uint32_t version;   // 1
+    uint32_t count;     // Número de mapas
+    uint32_t reserved;  // Reservado
+};
+
+struct Portal {
+    uint32_t id;
+    uint32_t destMap;
+    uint32_t srcX;
+    uint32_t srcY;
+    uint32_t destX;
+    uint32_t destY;
+    uint32_t requirement;
+    uint32_t reqValue;
+};
+
+struct MapEntry {
+    uint32_t id;
+    char name[64];
+    char filename[64];
+    char description[128];
+    char minimap[64];
+    uint32_t width;
+    uint32_t height;
+    uint32_t type;
+    uint32_t minLevel;
+    uint32_t maxLevel;
+    uint32_t weather;
+    char music[64];
+    uint32_t lightmap;
+    uint32_t respawnX;
+    uint32_t respawnY;
+    uint32_t pvpFlags;
+    uint32_t returnMap;
+    float rateModifiers[4];  // exp, drop, gold, special
+    Portal portals[8];
+    uint32_t npcList[32];
+    uint32_t mobGroups[32];
+    uint32_t flags;
+    char reserved[64];
+};
+
+void generateMapList(const std::vector<MapEntry>& maps, const std::string& outputFile) {
+    std::ofstream file(outputFile, std::ios::binary);
+    
+    MapHeader header;
+    std::memcpy(header.signature, "MAPS", 4);
+    header.version = 1;
+    header.count = maps.size();
+    header.reserved = 0;
+    
+    file.write(reinterpret_cast<char*>(&header), sizeof(MapHeader));
+    
+    for (const auto& map : maps) {
+        file.write(reinterpret_cast<const char*>(&map), sizeof(MapEntry));
+    }
+    
+    file.close();
+}
+```
+
+## Notas adicionais
+
+- Todos os valores numéricos são armazenados em little-endian
+- Strings são terminadas em null (0) e preenchidas com zeros
+- Os IDs de mapa devem ser únicos
+- Alguns IDs de mapa têm significados especiais:
+  - ID 0: Mapa inválido/nenhum
+  - ID 1: Mapa inicial de novos personagens
+  - IDs 1-10: Mapas de cidade inicial
+  - IDs 3000+: Mapas de instância / dungeons especiais
+
+Para edição manual de mapas, recomenda-se usar o Editor de Mapas disponível nas ferramentas de desenvolvimento. 

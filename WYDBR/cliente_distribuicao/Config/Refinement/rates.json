@@ -1,0 +1,69 @@
+{
+  "baseRates": {
+    "refineStoneCost": {
+      "+1": 1,
+      "+2": 1,
+      "+3": 2,
+      "+4": 4,
+      "+5": 8,
+      "+6": 15,
+      "+7": 25,
+      "+8": 40,
+      "+9": 80
+    },
+    "successRate": {
+      "+1": 100,
+      "+2": 90,
+      "+3": 85,
+      "+4": 80,
+      "+5": 70,
+      "+6": 60,
+      "+7": 35,
+      "+8": 20,
+      "+9": 10
+    },
+    "destructionRate": {
+      "+1": 0,
+      "+2": 0,
+      "+3": 0,
+      "+4": 0,
+      "+5": 10,
+      "+6": 20,
+      "+7": 30,
+      "+8": 35,
+      "+9": 40
+    }
+  },
+  "protectionItems": {
+    "armorProtection": {
+      "itemId": 4131,
+      "name": "Amuleto da Sorte",
+      "description": "Evita a destruição de armaduras durante refinamento",
+      "levels": [5, 6, 7, 8, 9],
+      "stackable": false
+    },
+    "weaponProtection": {
+      "itemId": 4132,
+      "name": "Gema da Eternidade",
+      "description": "Evita a destruição de armas durante refinamento",
+      "levels": [5, 6, 7, 8, 9],
+      "stackable": false
+    }
+  },
+  "luckBoosts": {
+    "luckScroll": {
+      "itemId": 4133,
+      "name": "Pergaminho da Sorte",
+      "description": "Aumenta em 10% a chance de sucesso",
+      "effect": 10,
+      "stackable": false
+    },
+    "masterEnchanter": {
+      "itemId": 4134,
+      "name": "Marca do Mestre Encantador",
+      "description": "Aumenta em 15% a chance de sucesso",
+      "effect": 15,
+      "stackable": false
+    }
+  }
+}

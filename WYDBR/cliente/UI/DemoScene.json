@@ -1,0 +1,7 @@
+{
+  "format": "unknown",
+  "file_size": 44,
+  "file_path": "/home/runner/workspace/WYD/v769ClientRelease/UI/DemoScene.bin",
+  "file_name": "DemoScene.bin",
+  "hex_sample": "00000000  01 00 00 00 39 01 00 00 00 00 00 00 fe ff ff ff  |....9...........|\n00000010  00 00 00 00 00 00 00 00 20 03 00 00 58 02 00 00  |........ ...X...|\n00000020  00 00 00 00 04 00 00 00 00 00 00 00              |............|"
+}

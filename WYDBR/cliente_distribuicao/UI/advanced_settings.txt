@@ -1,0 +1,23 @@
+FFFFFF  
+FFFFFF Menu de Ajustes Avançados
+FFFFAA
+FFFFAA Configurações Gráficas
+AAFFAA Ajustar qualidade dos gráficos e efeitos visuais
+FFFFAA
+FFFFAA Configurações de Áudio
+AAFFAA Ajustar volume e efeitos sonoros
+FFFFAA
+FFFFAA Vinculação de Teclas
+AAFFAA Personalizar teclas de atalho
+FFFFAA
+FFFFAA Opções de Interface
+AAFFAA Ajustar tamanho e posição de elementos da interface
+FFFFAA
+FFFFAA Chat e Comunicação
+AAFFAA Configurar opções de comunicação
+FFFFAA
+FFFFAA Desempenho
+AAFFAA Otimizar o jogo para seu computador
+FFFFAA
+FFFFAA Salvar e Aplicar
+AAFFAA Salvar todas as configurações

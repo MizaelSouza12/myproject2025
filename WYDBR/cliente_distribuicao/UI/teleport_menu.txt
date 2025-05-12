@@ -1,0 +1,23 @@
+FFFFFF  
+FFFFFF Teletransporte Rápido (ALT+R)
+FFFFAA
+FFFFAA Armia
+AAFFAA Teletransportar para a cidade de Armia
+FFFFAA
+FFFFAA Erion
+AAFFAA Teletransportar para a cidade de Erion
+FFFFAA
+FFFFAA Azran
+AAFFAA Teletransportar para a cidade de Azran
+FFFFAA
+FFFFAA Noatum
+AAFFAA Teletransportar para a cidade de Noatum
+FFFFAA
+FFFFAA Gelo
+AAFFAA Teletransportar para a cidade de Gelo
+FFFFAA
+FFFFAA Locais Salvos
+AAFFAA Teletransportar para locais personalizados
+FFFFAA
+FFFFAA Salvar Local Atual
+AAFFAA Adicionar local atual à lista de favoritos

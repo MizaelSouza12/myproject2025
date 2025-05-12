@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teste do Sistema VOIP - WYDBR</title>
+  <link rel="stylesheet" href="VoipSidebar.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #282c34;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    
+    .test-container {
+      max-width: 800px;
+      padding: 20px;
+      background-color: rgba(30, 35, 40, 0.7);
+      border-radius: 8px;
+      margin-right: 60px;
+    }
+    
+    h1 {
+      color: #4c84ff;
+      margin-top: 0;
+    }
+    
+    .test-section {
+      margin-bottom: 20px;
+      padding: 15px;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 5px;
+    }
+    
+    .test-section h2 {
+      margin-top: 0;
+      color: #F4F4F4;
+    }
+    
+    button {
+      background-color: #4c84ff;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+    
+    button:hover {
+      background-color: #3a6ac9;
+    }
+    
+    button.button-secondary {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    button.button-secondary:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+    
+    button.button-warning {
+      background-color: #e67e22;
+    }
+    
+    button.button-warning:hover {
+      background-color: #d35400;
+    }
+    
+    .room-list, .player-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    
+    .room-item, .player-item {
+      background-color: rgba(255, 255, 255, 0.08);
+      padding: 8px 15px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .room-item span, .player-item span {
+      margin-right: 10px;
+    }
+    
+    .status-indicator {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 5px;
+    }
+    
+    .status-online {
+      background-color: #4CAF50;
+    }
+    
+    .status-offline {
+      background-color: #9e9e9e;
+    }
+    
+    .log-section {
+      height: 200px;
+      overflow-y: auto;
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 10px;
+      font-family: monospace;
+      border-radius: 4px;
+    }
+    
+    .log-entry {
+      margin-bottom: 4px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 4px;
+    }
+    
+    .log-timestamp {
+      color: #9e9e9e;
+      margin-right: 8px;
+    }
+    
+    .player-controls {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+    
+    .position-control {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    
+    .position-control label {
+      width: 15px;
+    }
+    
+    .position-control input {
+      width: 100px;
+    }
+    
+    .permission-status {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 8px;
+      border-radius: 12px;
+      font-size: 12px;
+      margin-left: 10px;
+    }
+    
+    .permission-status.granted {
+      background-color: rgba(76, 175, 80, 0.2);
+      color: #81c784;
+    }
+    
+    .permission-status.denied {
+      background-color: rgba(244, 67, 54, 0.2);
+      color: #e57373;
+    }
+    
+    .permission-status.unknown {
+      background-color: rgba(255, 152, 0, 0.2);
+      color: #ffb74d;
+    }
+    
+    .permission-status .icon {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      margin-right: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="test-container">
+    <h1>Teste do Sistema VOIP - WYDBR</h1>
+    
+    <div class="test-section">
+      <h2>Controles do Jogador</h2>
+      <div class="player-controls">
+        <button id="init-voip">Inicializar VOIP</button>
+        <button id="toggle-mic">Ativar/Desativar Microfone</button>
+        <button id="toggle-audio">Ativar/Desativar Áudio</button>
+        <button id="check-permission" class="button-secondary">Verificar Permissão</button>
+        <button id="request-permission" class="button-warning">Solicitar Permissão</button>
+        <div id="permission-status" class="permission-status unknown">
+          <span class="icon">?</span>
+          <span class="text">Desconhecido</span>
+        </div>
+      </div>
+      
+      <div class="position-control">
+        <label for="pos-x">X:</label>
+        <input type="range" id="pos-x" min="0" max="100" value="50">
+        <span id="pos-x-value">50</span>
+        
+        <label for="pos-y">Y:</label>
+        <input type="range" id="pos-y" min="0" max="100" value="50">
+        <span id="pos-y-value">50</span>
+        
+        <label for="pos-z">Z:</label>
+        <input type="range" id="pos-z" min="0" max="100" value="50">
+        <span id="pos-z-value">50</span>
+        
+        <button id="update-position">Atualizar Posição</button>
+      </div>
+    </div>
+    
+    <div class="test-section">
+      <h2>Salas VOIP</h2>
+      <button id="create-room">Criar Nova Sala</button>
+      <button id="join-room">Entrar em Sala</button>
+      <button id="leave-room">Sair da Sala</button>
+      
+      <div class="room-list" id="room-list">
+        <div class="room-item">
+          <span>Sala Default</span>
+          <button>Entrar</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="test-section">
+      <h2>Jogadores Próximos</h2>
+      <div class="player-list" id="player-list">
+        <div class="player-item">
+          <span class="status-indicator status-online"></span>
+          <span>Jogador1</span>
+          <button>Chamar</button>
+        </div>
+        <div class="player-item">
+          <span class="status-indicator status-offline"></span>
+          <span>Jogador2</span>
+          <button>Chamar</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="test-section">
+      <h2>Log do Sistema</h2>
+      <div class="log-section" id="log-section">
+        <!-- Logs serão adicionados aqui -->
+      </div>
+    </div>
+  </div>
+  
+  <!-- Incluir o menu VOIP para teste -->
+  <div id="voip-container"></div>
+  
+  <!-- Incluir o diálogo de permissão para teste -->
+  <div id="permission-dialog-container"></div>
+  
+  <!-- Adicionar scripts -->
+  <script src="../../systems/voip/WindowsMicrophonePermissions.js"></script>
+  <script src="VoipPermissionDialog.js"></script>
+  <script>
+    // Código de simulação para teste
+    document.addEventListener('DOMContentLoaded', function() {
+      // Inicializar componentes
+      const voipMenu = new VoipMenu();
+      voipMenu.init();
+      
+      // Inicializar gerenciador de permissões
+      const micPermissions = new WindowsMicrophonePermissions();
+      
+      // Elemento de log
+      const logSection = document.getElementById('log-section');
+      
+      // Função para adicionar log
+      function addLog(message) {
+        const timestamp = new Date().toLocaleTimeString();
+        const logEntry = document.createElement('div');
+        logEntry.className = 'log-entry';
+        logEntry.innerHTML = `<span class="log-timestamp">${timestamp}</span> ${message}`;
+        logSection.appendChild(logEntry);
+        logSection.scrollTop = logSection.scrollHeight;
+      }
+      
+      // Inicialização
+      let voipInitialized = false;
+      let micActive = false;
+      let audioActive = true;
+      
+      // Status de permissão inicial
+      let permissionStatus = 'unknown';
+      
+      // Manipuladores de eventos
+      document.getElementById('init-voip').addEventListener('click', function() {
+        voipInitialized = true;
+        addLog('Sistema VOIP inicializado');
+        
+        // Atualizar interface VOIP
+        voipMenu.updateRooms([
+          { id: 'room1', name: 'Sala de Guild', members: 5 },
+          { id: 'room2', name: 'Grupo de Caça', members: 3 }
+        ]);
+        
+        voipMenu.updateFriends([
+          { id: 'player1', name: 'Jogador1', online: true, status: 'Hunting' },
+          { id: 'player2', name: 'Jogador2', online: false },
+          { id: 'player3', name: 'Jogador3', online: true, status: 'Trading' }
+        ]);
+      });
+      
+      document.getElementById('toggle-mic').addEventListener('click', function() {
+        micActive = !micActive;
+        addLog(`Microfone ${micActive ? 'ativado' : 'desativado'}`);
+      });
+      
+      document.getElementById('toggle-audio').addEventListener('click', function() {
+        audioActive = !audioActive;
+        addLog(`Áudio ${audioActive ? 'ativado' : 'desativado'}`);
+      });
+      
+      // Controles de posição
+      const posX = document.getElementById('pos-x');
+      const posY = document.getElementById('pos-y');
+      const posZ = document.getElementById('pos-z');
+      const posXValue = document.getElementById('pos-x-value');
+      const posYValue = document.getElementById('pos-y-value');
+      const posZValue = document.getElementById('pos-z-value');
+      
+      posX.addEventListener('input', () => posXValue.textContent = posX.value);
+      posY.addEventListener('input', () => posYValue.textContent = posY.value);
+      posZ.addEventListener('input', () => posZValue.textContent = posZ.value);
+      
+      document.getElementById('update-position').addEventListener('click', function() {
+        const x = parseInt(posX.value);
+        const y = parseInt(posY.value);
+        const z = parseInt(posZ.value);
+        
+        addLog(`Posição atualizada: X:${x}, Y:${y}, Z:${z}`);
+        
+        // Atualizar lista de jogadores próximos
+        document.getElementById('player-list').innerHTML = '';
+        
+        // Simular jogadores próximos com base na posição
+        const nearbyCount = Math.floor(Math.random() * 5);
+        for (let i = 0; i < nearbyCount; i++) {
+          const distance = Math.floor(Math.random() * 15);
+          const online = Math.random() > 0.3;
+          
+          const playerItem = document.createElement('div');
+          playerItem.className = 'player-item';
+          playerItem.innerHTML = `
+            <span class="status-indicator status-${online ? 'online' : 'offline'}"></span>
+            <span>Jogador${i+1} (Dist: ${distance}m)</span>
+            <button>Chamar</button>
+          `;
+          
+          document.getElementById('player-list').appendChild(playerItem);
+        }
+      });
+      
+      // Salas VOIP
+      document.getElementById('create-room').addEventListener('click', function() {
+        const roomName = prompt('Nome da nova sala:');
+        if (roomName) {
+          addLog(`Sala criada: ${roomName}`);
+          
+          // Atualizar interface
+          const roomList = document.getElementById('room-list');
+          const roomItem = document.createElement('div');
+          roomItem.className = 'room-item';
+          roomItem.innerHTML = `
+            <span>${roomName}</span>
+            <button>Entrar</button>
+          `;
+          
+          roomList.appendChild(roomItem);
+        }
+      });
+      
+      // Função para atualizar o status de permissão na UI
+      function updatePermissionStatus(status) {
+        const statusElement = document.getElementById('permission-status');
+        const textElement = statusElement.querySelector('.text');
+        const iconElement = statusElement.querySelector('.icon');
+        
+        // Remover classes anteriores
+        statusElement.classList.remove('unknown', 'granted', 'denied');
+        
+        switch (status) {
+          case 'granted':
+            statusElement.classList.add('granted');
+            textElement.textContent = 'Permitido';
+            iconElement.textContent = '✓';
+            permissionStatus = 'granted';
+            break;
+          case 'denied':
+            statusElement.classList.add('denied');
+            textElement.textContent = 'Negado';
+            iconElement.textContent = '✕';
+            permissionStatus = 'denied';
+            break;
+          default:
+            statusElement.classList.add('unknown');
+            textElement.textContent = 'Desconhecido';
+            iconElement.textContent = '?';
+            permissionStatus = 'unknown';
+        }
+      }
+      
+      // Manipuladores para verificar e solicitar permissão
+      document.getElementById('check-permission').addEventListener('click', async function() {
+        addLog('Verificando permissão de microfone...');
+        try {
+          const hasPermission = await micPermissions.checkPermission();
+          addLog(`Permissão de microfone: ${hasPermission ? 'Concedida' : 'Negada'}`);
+          updatePermissionStatus(hasPermission ? 'granted' : 'denied');
+        } catch (error) {
+          addLog(`Erro ao verificar permissão: ${error.message}`);
+          updatePermissionStatus('unknown');
+        }
+      });
+      
+      document.getElementById('request-permission').addEventListener('click', async function() {
+        addLog('Solicitando permissão de microfone...');
+        
+        // Criar diálogo de permissão
+        const permissionDialog = new VoipPermissionDialog({
+          containerId: 'permission-dialog-container',
+          autoShow: false,
+          onGrant: () => {
+            addLog('Permissão de microfone concedida com sucesso!');
+            updatePermissionStatus('granted');
+          },
+          onDeny: () => {
+            addLog('Permissão de microfone negada pelo usuário.');
+            updatePermissionStatus('denied');
+          }
+        });
+        
+        permissionDialog.initialize().show();
+        
+        try {
+          const result = await permissionDialog.requestPermission();
+          if (result) {
+            addLog('Permissão de microfone obtida com sucesso');
+            updatePermissionStatus('granted');
+          } else {
+            addLog('Não foi possível obter permissão de microfone');
+            updatePermissionStatus('denied');
+          }
+        } catch (error) {
+          addLog(`Erro ao solicitar permissão: ${error.message}`);
+          updatePermissionStatus('unknown');
+        }
+      });
+      
+      // Verificar permissão inicial
+      micPermissions.checkPermission().then(hasPermission => {
+        updatePermissionStatus(hasPermission ? 'granted' : 'denied');
+        addLog(`Status inicial de permissão de microfone: ${hasPermission ? 'Concedida' : 'Negada'}`);
+      });
+      
+      // Logs iniciais
+      addLog('Página de teste VOIP carregada');
+      addLog('Use os controles acima para testar o sistema VOIP');
+    });
+  </script>
+</body>
+</html>

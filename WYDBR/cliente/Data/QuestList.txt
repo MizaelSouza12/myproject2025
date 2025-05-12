@@ -1,0 +1,187 @@
+# Estrutura do arquivo QuestList.bin
+
+Este arquivo contém as definições de quests (missões) do jogo WYDBR 2.0, incluindo objetivos, recompensas e diálogos.
+
+## Formato do arquivo binário
+
+O arquivo QuestList.bin é um arquivo binário com a seguinte estrutura:
+
+1. Cabeçalho (16 bytes):
+   - Assinatura (4 bytes): "QSTS"
+   - Versão (4 bytes): Número da versão atual (1)
+   - Contagem (4 bytes): Número total de quests no arquivo
+   - Reservado (4 bytes): Para uso futuro
+
+2. Entradas de quests:
+   Cada entrada tem tamanho fixo de 2048 bytes com a seguinte estrutura:
+   
+   - ID (4 bytes): Identificador único da quest (1-10000)
+   - Título (64 bytes): Título da quest (terminado em null)
+   - Descrição (256 bytes): Descrição geral da quest (terminado em null)
+   - Categoria (4 bytes): Categoria da quest (0:Normal, 1:Principal, 2:Secundária, 3:Repetível, 4:Diária)
+   - Nível mínimo (4 bytes): Nível mínimo para aceitar a quest
+   - Nível máximo (4 bytes): Nível máximo para aceitar a quest (0 = sem máximo)
+   - Pré-requisitos (32 bytes): IDs de quests que devem estar completas
+   - NPC inicial (4 bytes): ID do NPC que oferece a quest
+   - NPC final (4 bytes): ID do NPC para completar a quest
+   - Mapa inicial (4 bytes): ID do mapa onde a quest inicia
+   - Tempo limite (4 bytes): Tempo limite em minutos (0 = sem limite)
+   - Reputação necessária (16 bytes): Requisitos de reputação com facções
+   - Classe permitida (4 bytes): Flags de classe que podem aceitar (0 = todas)
+   
+   - Objetivos (512 bytes): Até 10 objetivos com a seguinte estrutura (por objetivo):
+     * Tipo (4 bytes): Tipo do objetivo
+       - 0: Matar monstros
+       - 1: Coletar itens
+       - 2: Falar com NPC
+       - 3: Entregar item
+       - 4: Explorar área
+       - 5: Escoltar NPC
+       - 6: Usar habilidade
+       - 7: Atingir nível
+     * ID alvo (4 bytes): ID do alvo (monstro, item, NPC, etc.)
+     * Quantidade (4 bytes): Quantidade necessária
+     * Mapa (4 bytes): ID do mapa onde completar o objetivo (0 = qualquer)
+     * Texto (32 bytes): Descrição do objetivo
+   
+   - Recompensas (256 bytes): Recompensas ao completar a quest
+     * Experiência (4 bytes): Quantidade de experiência
+     * Ouro (4 bytes): Quantidade de ouro
+     * Reputação (64 bytes): Ganhos de reputação com facções
+     * Itens (160 bytes): Até 10 itens de recompensa (ID, quantidade, chance)
+     * Habilidade (4 bytes): ID da habilidade concedida (0 = nenhuma)
+     * Título (4 bytes): ID do título concedido (0 = nenhum)
+   
+   - Diálogos (640 bytes): Textos de diálogo da quest
+     * Texto de aceitação (128 bytes): Diálogo ao aceitar a quest
+     * Texto em progresso (128 bytes): Diálogo durante a quest
+     * Texto de conclusão (128 bytes): Diálogo ao completar a quest
+     * Texto de rejeição (128 bytes): Diálogo ao rejeitar a quest
+     * Texto de falha (128 bytes): Diálogo caso a quest falhe
+   
+   - Flags (4 bytes): Flags especiais
+     * Bit 0: Auto aceitar
+     * Bit 1: Não abandonável
+     * Bit 2: Repetível
+     * Bit 3: Oculta do log
+     * Bit 4: Compartilhável
+     * Bit 5: Rastreável
+     * Bit 6: Conta (não personagem)
+     * Bit 7: Exclusiva
+   
+   - Script (256 bytes): Nome do script associado à quest
+   - Dados reservados (32 bytes): Para expansões futuras
+
+## Geração do arquivo binário
+
+Para gerar o arquivo QuestList.bin a partir de dados em formato texto:
+
+1. Use a ferramenta de conversão fornecida no diretório tools/
+   ```
+   ./quest_converter QuestList.txt QuestList.bin
+   ```
+
+2. Ou crie seu próprio conversor usando o código exemplo abaixo:
+
+```cpp
+#include <fstream>
+#include <vector>
+#include <string>
+#include <cstring>
+
+struct QuestHeader {
+    char signature[4];  // "QSTS"
+    uint32_t version;   // 1
+    uint32_t count;     // Número de quests
+    uint32_t reserved;  // Reservado
+};
+
+struct QuestObjective {
+    uint32_t type;
+    uint32_t targetId;
+    uint32_t amount;
+    uint32_t mapId;
+    char text[32];
+};
+
+struct QuestReward {
+    uint32_t experience;
+    uint32_t gold;
+    struct {
+        uint32_t factionId;
+        int32_t amount;
+    } reputation[8];
+    struct {
+        uint32_t itemId;
+        uint32_t amount;
+        uint32_t chance;  // 0-10000, representa percentual * 100
+    } items[10];
+    uint32_t skillId;
+    uint32_t titleId;
+};
+
+struct QuestEntry {
+    uint32_t id;
+    char title[64];
+    char description[256];
+    uint32_t category;
+    uint32_t minLevel;
+    uint32_t maxLevel;
+    uint32_t prerequisites[8];
+    uint32_t startNpcId;
+    uint32_t endNpcId;
+    uint32_t startMapId;
+    uint32_t timeLimit;
+    struct {
+        uint32_t factionId;
+        uint32_t minValue;
+    } requiredReputation[4];
+    uint32_t allowedClasses;
+    QuestObjective objectives[10];
+    QuestReward rewards;
+    struct {
+        char acceptance[128];
+        char progress[128];
+        char completion[128];
+        char rejection[128];
+        char failure[128];
+    } dialogs;
+    uint32_t flags;
+    char script[256];
+    char reserved[32];
+};
+
+void generateQuestList(const std::vector<QuestEntry>& quests, const std::string& outputFile) {
+    std::ofstream file(outputFile, std::ios::binary);
+    
+    QuestHeader header;
+    std::memcpy(header.signature, "QSTS", 4);
+    header.version = 1;
+    header.count = quests.size();
+    header.reserved = 0;
+    
+    file.write(reinterpret_cast<char*>(&header), sizeof(QuestHeader));
+    
+    for (const auto& quest : quests) {
+        file.write(reinterpret_cast<const char*>(&quest), sizeof(QuestEntry));
+    }
+    
+    file.close();
+}
+```
+
+## Notas adicionais
+
+- Todos os valores numéricos são armazenados em little-endian
+- Strings são terminadas em null (0) e preenchidas com zeros
+- Os IDs de quest devem ser únicos
+- Algumas categorias de quests especiais:
+  - IDs 1-100: Quests de tutorial
+  - IDs 101-1000: Quests da história principal
+  - IDs 1001-5000: Quests secundárias
+  - IDs 5001-6000: Quests diárias
+  - IDs 6001-7000: Quests de evento
+  - IDs 7001-8000: Quests de profissão
+  - IDs 8001-10000: Quests de facção
+
+Para edição manual de quests, recomenda-se usar o Editor de Quests disponível nas ferramentas de desenvolvimento. 
